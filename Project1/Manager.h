@@ -25,7 +25,13 @@ public:
 	template<typename T>
 	void SetScene()
 	{
-	//	if ()
+		if (m_Fade.m_State != Fade::E_NONE)
+		{
+			return;
+		}
+		m_Fade.m_State = Fade::E_OUT;
+		T* scene = new T;
+		m_Fade.m_Next = scene;
 	}
 protected:
 	GameManager() : m_Manager(DirectX11::Manager::GetInstance()) {}

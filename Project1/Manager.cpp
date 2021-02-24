@@ -8,7 +8,7 @@
 
 --------------------------------------------------------------*/
 #include <time.h>
-#include "Scene.h"
+#include "GameScene.h"
 #include "Manager.h"
 
 void GameManager::Init()
@@ -16,18 +16,21 @@ void GameManager::Init()
 	srand((unsigned int)time(NULL));
 	m_Manager.Init();
 	m_Fade.Init();
+	SetScene<GameScene::Title>();
 	m_Fade.m_State = m_Fade.E_IN;
-	//SceneChange(m_Fade.m_Next);
+	SceneChange(m_Fade.m_Next);
 }
 
 void GameManager::Uninit()
 {
 	m_Fade.Uninit();
+	m_Scene->Uninit();
 	delete m_Scene;
 }
 
 void GameManager::Update()
 {
+	m_Scene->Update();
 	m_Fade.Update();
 }
 
@@ -43,7 +46,7 @@ void GameManager::Draw()
 	light.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
 	m_Manager.SetLight(light);
 
-	//m_Scene->Draw();
+	m_Scene->Draw();
 	m_Fade.Draw();
 
 	light.Enable = false;
