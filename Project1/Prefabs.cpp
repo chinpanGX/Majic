@@ -1,10 +1,9 @@
 /*-----------------------------------------------------------
 
-	[Prefabs.h]
+	[Prefabs.cpp]
 	Author : èoçá„ƒëæ
 
 ------------------------------------------------------------*/
-#include "GameObject.h"
 #include "Prefabs.h"
 
 #pragma region Prefabs_Texture_Func

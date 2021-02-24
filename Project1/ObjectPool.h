@@ -1,7 +1,11 @@
 /*-----------------------------------------------------------
 
-	[Engine.h]
+	[ObjectPool.h]
 	Author : 出合翔太
+
+	[説明]
+	アセットのロード、アンロード、管理を行う
+
 
 ------------------------------------------------------------*/
 #pragma once
@@ -20,6 +24,7 @@ public:
 	static void Uninit();
 	static void Update(DirectX11::Manager& dx, unsigned __int32 Id, const char* AnimationName1, const char* AnimationName2, float BlendRate, int Frame);
 	static void Draw(DirectX11::Manager& dx, unsigned __int32 Id);
+	
 	// テクスチャのGetter / Setter
 	static ID3D11ShaderResourceView* GetTexture(unsigned int Id);
 	static void SetTexture(DirectX11::Manager& dx, int slot, unsigned int Id); // slot = 設定するスロット、ID = 格納ID
