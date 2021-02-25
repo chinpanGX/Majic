@@ -9,6 +9,7 @@
 -----------------------------------------------*/
 #pragma once
 #include "GameObject.h"
+#include "StateMachine.h"
 
 class Pawn : public GameObject
 {
@@ -20,7 +21,8 @@ public:
 	virtual void Update() = 0;
 	virtual void Draw() = 0;
 protected:
-	__int32 m_AnimFrame; // アニメーション
-	float m_BlendRate;  // アニメーションブレンド
+	__int32 m_AnimFrame;	// アニメーション
+	float m_BlendRate;		// アニメーションブレンド
+	D3DXVECTOR3 m_Velocity; // 速度
 };
 
