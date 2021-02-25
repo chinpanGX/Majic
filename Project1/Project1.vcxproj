@@ -135,8 +135,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Apocalypsis.cpp" />
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="AstralFlare.cpp" />
     <ClCompile Include="Bg.cpp" />
+    <ClCompile Include="CrystallizeAura.cpp" />
     <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="DirectX11.cpp" />
     <ClCompile Include="ObjectPool.cpp" />
@@ -153,12 +156,17 @@
     <ClCompile Include="PlayerStateManager.cpp" />
     <ClCompile Include="Prefabs.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="SacredBlast.cpp" />
     <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
+    <ClInclude Include="Apocalypsis.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="AstralFlare.h" />
     <ClInclude Include="Bg.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="CrystallizeAura.h" />
     <ClInclude Include="PlayerController.h" />
     <ClInclude Include="DirectX11.h" />
     <ClInclude Include="ObjectPool.h" />
@@ -176,6 +184,7 @@
     <ClInclude Include="Prefabs.h" />
     <ClInclude Include="Pawn.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="SacredBlast.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="StateMachine.h" />

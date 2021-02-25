@@ -68,3 +68,15 @@ void PlayerWait::Update()
 void PlayerWait::ChangeEvent()
 {
 }
+
+NormalAttack::NormalAttack()
+{
+}
+
+NormalAttack::~NormalAttack()
+{
+}
+
+void NormalAttack::SetActive()
+{
+}

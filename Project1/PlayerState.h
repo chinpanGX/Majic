@@ -8,7 +8,15 @@
 
 -------------------------------------------------------------*/
 #pragma once
-#include "StateMachine.h"
+#include "Config.h"
+
+class NormalAttack : public IStateConfig
+{
+public:
+	NormalAttack();
+	~NormalAttack();
+	void SetActive()override;
+};
 
 class PlayerAttackA : public StateBase
 {

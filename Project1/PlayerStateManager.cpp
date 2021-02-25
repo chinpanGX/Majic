@@ -29,6 +29,7 @@ PlayerStateManager::PlayerStateManager() :
 void PlayerStateManager::Init(Player* player)
 {
 	using namespace std;
+	/*
 	//　セイクリッドブラスト
 	m_State[0] = make_shared<StateSwitch>(make_shared<SacredBlastA>(), m_SkillName[0][0]);
 	m_State[1] = make_shared<StateSwitch>(make_shared<SacredBlastB>(), m_SkillName[0][1]);
@@ -52,7 +53,7 @@ void PlayerStateManager::Init(Player* player)
 	// その他
 	m_State[15] = make_shared<StateSwitch>(make_shared<PlayerGuard>(), m_NormalName[0]);
 	m_State[16] = make_shared<StateSwitch>(make_shared<PlayerWait>(), m_NormalName[1]);
-
+	
 	// レジスタに格納
 	__int32 c = 0;
 	for (int i = 0; i < SkillTypeNum; i++)
@@ -71,7 +72,7 @@ void PlayerStateManager::Init(Player* player)
 	for (int i = 0; i < 2; i++)
 	{
 		player->GetStateMachine()->Register(m_NormalName[i], m_State[c++]);
-	}
+	}*/
 }
 
 void PlayerStateManager::Uninit(Player* player)
@@ -92,6 +93,7 @@ void PlayerStateManager::Update(Player* player)
 bool PlayerStateManager::ActiveAttack(__int32 check)
 {
 	//m_State[]
+	return false;
 }
 
 bool PlayerStateManager::ActiveGurad()
