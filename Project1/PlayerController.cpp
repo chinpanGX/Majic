@@ -11,7 +11,7 @@
 #include "Input.h"
 #include "Player.h"
 
-void PlayerController::Update(Player & player)
+void PlayerController::Update(Player * player)
 {
 }
 
@@ -26,7 +26,7 @@ bool PlayerController::IsSkillSelection()
 	return Is;
 }
 
-void PlayerController::Attack(Player & player)
+void PlayerController::Attack(Player * player)
 {
 	if (GamePad::IsTrigger(0, BTN_2))
 	{
@@ -34,7 +34,7 @@ void PlayerController::Attack(Player & player)
 	}
 }
 
-void PlayerController::Guard(Player & player)
+void PlayerController::Guard(Player * player)
 {
 	if (GamePad::IsTrigger(0, BTN_1))
 	{
@@ -42,7 +42,7 @@ void PlayerController::Guard(Player & player)
 	}
 }
 
-void PlayerController::Skill_1(Player & player)
+void PlayerController::Skill_1(Player * player)
 {
 	if (IsSkillSelection() == true && GamePad::IsTrigger(0, BTN_1))
 	{
@@ -50,7 +50,7 @@ void PlayerController::Skill_1(Player & player)
 	}
 }
 
-void PlayerController::Skill_2(Player & player)
+void PlayerController::Skill_2(Player * player)
 {
 	if (IsSkillSelection() == true && GamePad::IsTrigger(0, BTN_2))
 	{
@@ -58,7 +58,7 @@ void PlayerController::Skill_2(Player & player)
 	}
 }
 
-void PlayerController::Skill_3(Player & player)
+void PlayerController::Skill_3(Player * player)
 {
 	if (IsSkillSelection() == true && GamePad::IsTrigger(0, BTN_4))
 	{
@@ -66,7 +66,7 @@ void PlayerController::Skill_3(Player & player)
 	}
 }
 
-void PlayerController::Skill_4(Player & player)
+void PlayerController::Skill_4(Player * player)
 {
 	if (IsSkillSelection() == true && GamePad::IsTrigger(0, BTN_3))
 	{

@@ -18,9 +18,9 @@ void StateSwitch::Start()
 	m_State->Start();
 }
 
-void StateSwitch::Update()
+void StateSwitch::Update(Pawn* pawn)
 {
-	m_State->Update();
+	m_State->Update(pawn);
 }
 
 // 次のステートにいけるかチェック
@@ -38,9 +38,9 @@ bool StateSwitch::IsNextState()
 
 #pragma region StateMachine_Func
 // 更新
-void StateMachine::Update()
+void StateMachine::Update(Pawn* pawn)
 {
-	m_NowState->Update();
+	m_NowState->Update(pawn);
 	if (m_NowState->IsNextState())
 	{
 		auto it = m_StateMap.find(m_NowState->m_NextRegisterName);

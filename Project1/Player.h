@@ -20,6 +20,6 @@ public:
 	void Draw()override;
 private:
 	PlayerController m_Controller;
-	
+	unsigned __int32 m_ActionPoint; // Ap->ƒXƒLƒ‹‚ÅÁ”ï
 };
 
