@@ -14,14 +14,13 @@
 #include <string>
 #include <memory>
 #include <Windows.h>
-#include "Pawn.h"
 
 class StateBase
 {
 public:
 	StateBase() : m_IsNext(false) {}
 	virtual void Start() = 0;
-	virtual void Update(class Pawn* pawn) = 0;
+	virtual void Update() = 0;
 	virtual void ChangeEvent() = 0;	// ステートが変わるときの処理
 	// プロパティ
 	bool GetIsNext() const { return m_IsNext; } // Getter
@@ -40,7 +39,7 @@ public:
 	StateSwitch() = default;
 	StateSwitch(const std::shared_ptr<StateBase> state, const std::string nextRegisterName) : m_State(state), m_NextRegisterName(nextRegisterName) {}
 	void Start();
-	void Update(class Pawn* pawn);
+	void Update();
 	bool IsNextState();
 	std::shared_ptr<StateBase> GetState()const { return m_State; }
 
@@ -56,7 +55,7 @@ class StateMachine
 {
 public:
 	StateMachine() : m_NowState() {}
-	void Update(class Pawn * pawn);
+	void Update();
 	void SetStartState(const std::string& registerName);
 	void Register(const std::string& name, const std::shared_ptr<StateSwitch> state);
 	void Delete(const std::string& registerName);

@@ -9,7 +9,6 @@
 --------------------------------------------------------------*/
 #include "PlayerController.h"
 #include "Input.h"
-#include "Player.h"
 #include "PlayerStateManager.h"
 
 void PlayerController::Update(Player * player)
@@ -31,7 +30,7 @@ void PlayerController::Attack(Player * player)
 {
 	if (GamePad::IsTrigger(0, BTN_2))
 	{
-		//player->GetPlayerStateManager()->
+		
 	}
 }
 
@@ -47,7 +46,7 @@ void PlayerController::Skill_1(Player * player)
 {
 	if (IsSkillSelection() == true && GamePad::IsTrigger(0, BTN_1))
 	{
-		
+		player->GetPlayerStateManager()->ActiveSkill(PlayerStateManager::ESkill::E_Skill_1);
 	}
 }
 
@@ -55,7 +54,7 @@ void PlayerController::Skill_2(Player * player)
 {
 	if (IsSkillSelection() == true && GamePad::IsTrigger(0, BTN_2))
 	{
-
+		player->GetPlayerStateManager()->ActiveSkill(PlayerStateManager::ESkill::E_Skill_2);
 	}
 }
 
@@ -63,7 +62,7 @@ void PlayerController::Skill_3(Player * player)
 {
 	if (IsSkillSelection() == true && GamePad::IsTrigger(0, BTN_4))
 	{
-
+		player->GetPlayerStateManager()->ActiveSkill(PlayerStateManager::ESkill::E_Skill_3);
 	}
 }
 
@@ -71,6 +70,6 @@ void PlayerController::Skill_4(Player * player)
 {
 	if (IsSkillSelection() == true && GamePad::IsTrigger(0, BTN_3))
 	{
-
+		player->GetPlayerStateManager()->ActiveSkill(PlayerStateManager::ESkill::E_Skill_4);
 	}
 }

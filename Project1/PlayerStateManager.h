@@ -24,13 +24,6 @@ namespace
 class PlayerStateManager
 {
 public:
-	PlayerStateManager(class Player& player);
-	~PlayerStateManager(){}
-	void Init();
-	void Uninit();
-	void Update();
-
-private:
 	enum ESkill : int
 	{
 		E_Skill_1,
@@ -39,14 +32,23 @@ private:
 		E_Skill_4,
 		E_Skill_NONE,
 	};
-	enum Attack : int 
+	enum Attack : int
 	{
-		e_Attack_1,
-		E_Attack_2,
-		E_Attack_3,
-		E_Attack_NONE
+		e_Attack_1 = 11,
+		E_Attack_2 = 12,
+		E_Attack_3 = 13,
+		//E_Attack_NONE,
 	};
-	class StateMachine& m_StateMachine;
+	PlayerStateManager();
+	~PlayerStateManager(){}
+	void Init(class Player* player);
+	void Uninit(class Player* player);
+	void Update(class Player* player);
+	bool ActiveAttack(__int32 check);
+	bool ActiveGurad();
+	// スキルの有効にする
+	bool ActiveSkill(__int32 check);
+private:	
 	std::shared_ptr<class StateSwitch> m_State[SkillTypeNum * PatternNum + (NormalTypeNum + PatternNum -1)];	// 登録するステート名[17]
 	std::string m_SkillName[SkillTypeNum][PatternNum];						// 登録するスキル名[][]
 	std::string m_AttackName[PatternNum];		// 通常攻撃
@@ -55,8 +57,6 @@ private:
 	__int32 m_Type;		// 発動スキルのタイプ
 	__int32 m_Pattern;  // 発動スキルのパターン
 
-	// スキルの有効にする
-	bool ActiveSkill(__int32 check);
 	// スキルの種類とパターンのチェック
 	bool CheckTypeAndCount(__int32 check); 
 };

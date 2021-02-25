@@ -9,8 +9,6 @@
 --------------------------------------------------------------*/
 #pragma once
 #include "Pawn.h"
-#include "StateMachine.h"
-#include "PlayerStateManager.h"
 
 class Player : public Pawn
 {
@@ -19,18 +17,18 @@ public:
 	void Uninit()override;
 	void Update()override;
 	void Draw()override;
-	PlayerStateManager& GetPlayerStateManager()const
+	std::shared_ptr<class PlayerStateManager> GetPlayerStateManager()const
 	{
-		return *m_State;
+		return m_State;
 	}
-	StateMachine& GetStateMachine()const
+	std::shared_ptr<class StateMachine> GetStateMachine()const
 	{
-		return *m_StateMachine;
+		return m_StateMachine;
 	}
 private:
-	class StateMachine* m_StateMachine;
-	class PlayerController* m_Controller;
-	class PlayerStateManager* m_State;
+	std::shared_ptr<class StateMachine> m_StateMachine;
+	std::shared_ptr<class PlayerController> m_Controller;
+	std::shared_ptr<class PlayerStateManager> m_State;
 	unsigned __int32 m_ActionPoint; // Ap->ƒXƒLƒ‹‚ÅÁ”ï
 };
 

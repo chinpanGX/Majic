@@ -13,7 +13,7 @@
 #include "PlayerState.h"
 #include "Player.h"
 
-PlayerStateManager::PlayerStateManager(Player& player) : m_StateMachine(player.GetStateMachine()),
+PlayerStateManager::PlayerStateManager() : 
 	m_SkillName{ "セイクリッドブラスト", "セイクリッドブラスト+",  "セイクリッドブラスト++",
 				 "アストラルフレア",	 "アストラルフレア+",	   "アストラルフレア++",
 				 "アポカリプス",		 "アポカリプス+",		   "アポカリプス++",
@@ -26,7 +26,7 @@ PlayerStateManager::PlayerStateManager(Player& player) : m_StateMachine(player.G
 {
 }
 
-void PlayerStateManager::Init()
+void PlayerStateManager::Init(Player* player)
 {
 	using namespace std;
 	//　セイクリッドブラスト
@@ -59,30 +59,44 @@ void PlayerStateManager::Init()
 	{
 		for (int j = 0; j < PatternNum; j++)
 		{
-			m_StateMachine.Register(m_SkillName[i][j], m_State[c++]);
+			player->GetStateMachine()->Register(m_SkillName[i][j], m_State[c++]);
 		}
 	}
 
 	for (int i = 0; i < PatternNum; i++)
 	{
-		m_StateMachine.Register(m_AttackName[i], m_State[c++]);
+		player->GetStateMachine()->Register(m_AttackName[i], m_State[c++]);
 	}
 
 	for (int i = 0; i < 2; i++)
 	{
-		m_StateMachine.Register(m_NormalName[i], m_State[c++]);
+		player->GetStateMachine()->Register(m_NormalName[i], m_State[c++]);
 	}
 }
 
-void PlayerStateManager::Uninit()
+void PlayerStateManager::Uninit(Player* player)
 {
-	m_StateMachine.Delete();
+	player->GetStateMachine()->Delete();
 }
 
-void PlayerStateManager::Update()
+void PlayerStateManager::Update(Player* player)
 {
-	//m_StateMachine.SetStartState(m_SkillName[Type][Pattern]);
-	//m_StateMachine.Update();
+	if (m_Pattern > SkillCountUpperLimit)
+	{
+		m_Pattern = 0;
+	}
+	player->GetStateMachine()->SetStartState(m_SkillName[m_Type][m_Pattern]);
+	player->GetStateMachine()->Update();
+}
+
+bool PlayerStateManager::ActiveAttack(__int32 check)
+{
+	//m_State[]
+}
+
+bool PlayerStateManager::ActiveGurad()
+{
+	return false;
 }
 
 bool PlayerStateManager::ActiveSkill(__int32 check)
@@ -92,7 +106,10 @@ bool PlayerStateManager::ActiveSkill(__int32 check)
 		m_State[check * 3]->GetState()->SetIsNext(false);
 		return false;
 	}
-	return true;
+	else
+	{
+		return true;
+	}
 }
 
 bool PlayerStateManager::CheckTypeAndCount(__int32 check)
