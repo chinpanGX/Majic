@@ -9,7 +9,7 @@
 
 void Player::Init()
 {
-	//m_StateMachine = std::make_unique<StateMachine>();
+	m_StateMachine = new StateMachine;
 }
 
 void Player::Uninit()
@@ -18,7 +18,7 @@ void Player::Uninit()
 
 void Player::Update()
 {
-	m_Controller.Update(this);
+	//m_Controller.Update(this);
 }
 
 void Player::Draw()

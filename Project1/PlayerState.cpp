@@ -13,7 +13,7 @@ void PlayerAttackA::Start()
 {
 }
 
-void PlayerAttackA::Update()
+void PlayerAttackA::Update(Pawn * pawn)
 {
 }
 
@@ -25,7 +25,7 @@ void PlayerAttackB::Start()
 {
 }
 
-void PlayerAttackB::Update()
+void PlayerAttackB::Update(Pawn * pawn)
 {
 }
 
@@ -37,7 +37,7 @@ void PlayerAttackC::Start()
 {
 }
 
-void PlayerAttackC::Update()
+void PlayerAttackC::Update(Pawn * pawn)
 {
 }
 
@@ -49,7 +49,7 @@ void PlayerGuard::Start()
 {
 }
 
-void PlayerGuard::Update()
+void PlayerGuard::Update(Pawn * pawn)
 {
 }
 
@@ -61,7 +61,7 @@ void PlayerWait::Start()
 {
 }
 
-void PlayerWait::Update()
+void PlayerWait::Update(Pawn * pawn)
 {
 }
 
