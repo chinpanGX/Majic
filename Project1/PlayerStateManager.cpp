@@ -15,7 +15,8 @@ PlayerStateManager::PlayerStateManager() : m_StateMachine(std::make_unique<State
 				 "アストラルフレア",	 "アストラルフレア+",	   "アストラルフレア++",
 				 "アポカリプス",		 "アポカリプス+",		   "アポカリプス++",
 				 "クリスタライズオーラ", "クリスタライズオーラ+",  "クリスタライズオーラ++" },
-	m_Name{"攻撃","ガード"},
+	m_AttackName{"攻撃", "攻撃２", "攻撃３"},
+	m_NormalName{"ガード","待機"},
 	m_Count(0),
 	m_Type(0),
 	m_Pattern(0)

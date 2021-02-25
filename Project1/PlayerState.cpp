@@ -9,15 +9,39 @@
 -------------------------------------------------------------*/
 #include "PlayerState.h"
 
-void PlayerAttack::Start()
+void PlayerAttackA::Start()
 {
 }
 
-void PlayerAttack::Update()
+void PlayerAttackA::Update()
 {
 }
 
-void PlayerAttack::ChangeEvent()
+void PlayerAttackA::ChangeEvent()
+{
+}
+
+void PlayerAttackB::Start()
+{
+}
+
+void PlayerAttackB::Update()
+{
+}
+
+void PlayerAttackB::ChangeEvent()
+{
+}
+
+void PlayerAttackC::Start()
+{
+}
+
+void PlayerAttackC::Update()
+{
+}
+
+void PlayerAttackC::ChangeEvent()
 {
 }
 
@@ -30,5 +54,17 @@ void PlayerGuard::Update()
 }
 
 void PlayerGuard::ChangeEvent()
+{
+}
+
+void PlayerWait::Start()
+{
+}
+
+void PlayerWait::Update()
+{
+}
+
+void PlayerWait::ChangeEvent()
 {
 }
