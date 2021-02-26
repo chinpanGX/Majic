@@ -8,17 +8,22 @@
 
 ------------------------------------------------*/
 #pragma once
-#include "Config.h"
+#include "StateMachine.h"
 
-class SacredBlast : public IPlayerState
+class SacredBlast
 {
 public:
 	SacredBlast(StateMachine& s);
 	~SacredBlast();
-	void SetActive()override;
+	void SetActive();
+	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
 	StateMachine& m_StateMachine;
+	std::shared_ptr<StateSwitch> m_State[StateIndex]{};	// “o˜^‚·‚éƒXƒe[ƒg–¼[]
+	std::string m_Name[StateIndex]; // “o˜^–¼
+	unsigned __int32 m_Count;	// ”­“®‰ñ”
+	bool m_EnableThis;			// —LŒø‰»‚Ç‚¤‚©
 };
 
 class SacredBlastA : public StateBase

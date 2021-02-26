@@ -52,7 +52,6 @@ void NormalAttack::IsAttackCountLimit()
 	}
 }
 
-
 void PlayerAttackA::Start()
 {
 }
@@ -85,23 +84,40 @@ void PlayerAttackC::Update()
 {
 }
 
+
 void PlayerAttackC::ChangeEvent()
 {
 }
 
-void PlayerGuard::Start()
+void PlayerGuardPattern::Start()
 {
 }
 
-void PlayerGuard::Update()
+void PlayerGuardPattern::Update()
 {
 }
 
-void PlayerGuard::ChangeEvent()
+void PlayerGuardPattern::ChangeEvent()
 {
 }
 
-void PlayerWait::Start()
+void PlayerWaitPattern::Start()
+{
+}
+
+void PlayerWaitPattern::Update()
+{
+}
+
+void PlayerWaitPattern::ChangeEvent()
+{
+}
+
+PlayerWait::PlayerWait(StateMachine & s) : m_StateMachine(s)
+{
+}
+
+PlayerWait::~PlayerWait()
 {
 }
 
@@ -109,6 +125,14 @@ void PlayerWait::Update()
 {
 }
 
-void PlayerWait::ChangeEvent()
+PlayerGurad::PlayerGurad(StateMachine & s) : m_StateMachine(s)
+{
+}
+
+PlayerGurad::~PlayerGurad()
+{
+}
+
+void PlayerGurad::Update()
 {
 }

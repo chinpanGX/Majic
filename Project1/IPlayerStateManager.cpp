@@ -7,10 +7,30 @@
 	プレイヤーのステートの管理
 
 --------------------------------------------------------------*/
-#include "PlayerStateManager.h"
 #include "StateMachine.h"
-#include "PlayerState.h"
 #include "Player.h"
+#include "SacredBlast.h"
+#include "AstralFlare.h"
+#include "Apocalypsis.h"
+#include "CrystallizeAura.h"
+#include "PlayerState.h"
+#include "IPlayerStateManager.h"
+
+IPlayerStateManager::IPlayerStateManager(Player* p)
+{
+	m_SacedBlast = new SacredBlast(*p->GetStateMachine());
+	m_AstralFlare = new AstralFlare(*p->GetStateMachine());
+	m_Apocalypsis = new Apocalypsis(*p->GetStateMachine());
+	m_CrystallizeAura = new CrystallizeAura(*p->GetStateMachine());
+}
+
+IPlayerStateManager::~IPlayerStateManager()
+{
+}
+
+
+
+#if 0
 
 PlayerStateManager::PlayerStateManager() : 
 	m_SkillName{ "セイクリッドブラスト", "セイクリッドブラスト+",  "セイクリッドブラスト++",
@@ -135,3 +155,4 @@ bool PlayerStateManager::CheckTypeAndCount(__int32 check)
 	return IsUse;
 }
 
+#endif // 0

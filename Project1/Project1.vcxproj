@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -152,7 +152,7 @@
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerState.cpp" />
-    <ClCompile Include="PlayerStateManager.cpp" />
+    <ClCompile Include="IPlayerStateManager.cpp" />
     <ClCompile Include="Prefabs.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SacredBlast.cpp" />
@@ -164,7 +164,6 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="AstralFlare.h" />
     <ClInclude Include="Bg.h" />
-    <ClInclude Include="Config.h" />
     <ClInclude Include="CrystallizeAura.h" />
     <ClInclude Include="PlayerController.h" />
     <ClInclude Include="DirectX11.h" />
@@ -178,7 +177,7 @@
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerState.h" />
-    <ClInclude Include="PlayerStateManager.h" />
+    <ClInclude Include="IPlayerStateManager.h" />
     <ClInclude Include="Prefabs.h" />
     <ClInclude Include="Pawn.h" />
     <ClInclude Include="Renderer.h" />

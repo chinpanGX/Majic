@@ -8,29 +8,63 @@
 
 -------------------------------------------------------------*/
 #pragma once
-#include "Config.h"
+#include "StateMachine.h"
 
-class NormalAttack : public IPlayerState
+class NormalAttack
 {
 public:
 	NormalAttack(StateMachine& s);
 	~NormalAttack();
-	void SetActive()override;
+	void SetActive();
+	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
 	StateMachine& m_StateMachine;
+	std::shared_ptr<StateSwitch> m_State[StateIndex]{};	// “o˜^‚·‚éƒXƒe[ƒg–¼[]
+	std::string m_Name[StateIndex]; // “o˜^–¼
+	unsigned __int32 m_Count;	// ”­“®‰ñ”
+	bool m_EnableThis;			// —LŒø‰»‚Ç‚¤‚©
 };
 
-class PlayerAttackA : public IPlayerStatePattern
+class PlayerGurad
+{
+public:
+	PlayerGurad(StateMachine& s);
+	~PlayerGurad();
+	void Update();
+private:
+	StateMachine& m_StateMachine;
+};
+
+class PlayerWait
+{
+public:
+	PlayerWait(StateMachine& s);
+	~PlayerWait();
+	void Update();
+	unsigned __int32 GetWaitTime()
+	{
+		return m_Waittime;
+	}
+	void SetWaitTime(unsigned __int32 time)
+	{
+		m_Waittime = time;
+	}
+private:
+	StateMachine& m_StateMachine;
+	unsigned __int32 m_Waittime;
+};
+
+
+class PlayerAttackA : public StateBase
 {
 public:
 	void Start()override;
 	void Update()override;
-	void Update(class Player* pPlayer)override;
 	void ChangeEvent()override;
 };
 
-class PlayerAttackB : public IPlayerStatePattern
+class PlayerAttackB : public StateBase
 {
 public:
 	void Start()override;
@@ -38,7 +72,7 @@ public:
 	void ChangeEvent()override;
 };
 
-class PlayerAttackC : public IPlayerStatePattern
+class PlayerAttackC : public StateBase
 {
 public:
 	void Start()override;
@@ -46,7 +80,7 @@ public:
 	void ChangeEvent()override;
 };
 
-class PlayerGuard : public IPlayerStatePattern
+class PlayerGuardPattern : public StateBase
 {
 public:
 	void Start()override;
@@ -54,7 +88,7 @@ public:
 	void ChangeEvent()override;
 };
 
-class PlayerWait : public IPlayerStatePattern 
+class PlayerWaitPattern : public StateBase 
 {
 public:
 	void Start()override;

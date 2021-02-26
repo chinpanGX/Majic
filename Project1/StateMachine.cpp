@@ -23,11 +23,6 @@ void StateSwitch::Update()
 	m_State->Update();
 }
 
-void StateSwitch::Update(Player * p)
-{
-	m_PlayerState->Update(p);
-}
-
 // 次のステートにいけるかチェック
 bool StateSwitch::IsNextState()
 {

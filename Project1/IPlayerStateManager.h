@@ -11,6 +11,22 @@
 #include <memory>
 #include <string>
 
+class IPlayerStateManager
+{
+public:
+	IPlayerStateManager(Player* p);
+	~IPlayerStateManager();
+private:
+	class SacredBlast* m_SacedBlast;
+	class AstralFlare* m_AstralFlare;
+	class Apocalypsis* m_Apocalypsis;
+	class CrystallizeAura* m_CrystallizeAura;
+	class NormalAttack* m_NormalAttack;
+	class PlayerGurad* m_Gurad;
+	class PlayerWait* m_Wait;
+};
+
+#if 0
 namespace
 {
 	const __int32 SkillTypeNum = 4;			// スキルの種類
@@ -18,8 +34,6 @@ namespace
 	const __int32 SkillCountUpperLimit = 3; // スキル発動上限回数
 	const __int32 NormalTypeNum = 3;		// 通常行動の種類
 }
-
-
 
 class PlayerStateManager
 {
@@ -61,3 +75,4 @@ private:
 	bool CheckTypeAndCount(__int32 check); 
 };
 
+#endif

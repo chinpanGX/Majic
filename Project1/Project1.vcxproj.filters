@@ -24,9 +24,6 @@
     <ClCompile Include="PlayerController.cpp">
       <Filter>Player</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerStateManager.cpp">
-      <Filter>Player</Filter>
-    </ClCompile>
     <ClCompile Include="Application.cpp">
       <Filter>App</Filter>
     </ClCompile>
@@ -87,6 +84,9 @@
     <ClCompile Include="CrystallizeAura.cpp">
       <Filter>Player\State</Filter>
     </ClCompile>
+    <ClCompile Include="IPlayerStateManager.cpp">
+      <Filter>Player\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h">
@@ -99,9 +99,6 @@
       <Filter>Player</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Player</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerStateManager.h">
       <Filter>Player</Filter>
     </ClInclude>
     <ClInclude Include="Pawn.h">
@@ -158,9 +155,6 @@
     <ClInclude Include="PlayerState.h">
       <Filter>Player\State</Filter>
     </ClInclude>
-    <ClInclude Include="Config.h">
-      <Filter>Player\State</Filter>
-    </ClInclude>
     <ClInclude Include="SacredBlast.h">
       <Filter>Player\State</Filter>
     </ClInclude>
@@ -171,6 +165,9 @@
       <Filter>Player\State</Filter>
     </ClInclude>
     <ClInclude Include="CrystallizeAura.h">
+      <Filter>Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="IPlayerStateManager.h">
       <Filter>Player\State</Filter>
     </ClInclude>
   </ItemGroup>

@@ -14,7 +14,12 @@
 #include <string>
 #include <memory>
 #include <Windows.h>
-#include "Config.h"
+
+namespace
+{
+	const int StateIndex = 3; // ステートの配列の数
+	const unsigned __int32 g_CountUpperLimit = 2; // ステートのカウント上限
+}
 
 class StateBase
 {
@@ -39,7 +44,6 @@ class StateSwitch
 public:
 	StateSwitch() = default;
 	StateSwitch(const std::shared_ptr<StateBase> state, const std::string nextRegisterName) : m_State(state), m_NextRegisterName(nextRegisterName) {}
-	StateSwitch(const std::shared_ptr<IPlayerStatePattern> state, const std::string nextRegisterName) : m_PlayerState(state), m_NextRegisterName(nextRegisterName) {}
 	void Start();
 	void Update();
 	void Update(class Player* p);
@@ -50,7 +54,6 @@ public:
 
 private:
 	std::shared_ptr<StateBase> m_State;
-	std::shared_ptr <IPlayerStatePattern> m_PlayerState;
 };
 
 // ステート管理
