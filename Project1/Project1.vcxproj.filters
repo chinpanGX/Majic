@@ -69,9 +69,6 @@
     <ClCompile Include="Manager.cpp">
       <Filter>App</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerSkillState.cpp">
-      <Filter>Player</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerState.cpp">
       <Filter>Player\State</Filter>
     </ClCompile>
@@ -158,9 +155,6 @@
     <ClInclude Include="Manager.h">
       <Filter>App</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerSkillState.h">
-      <Filter>Player</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerState.h">
       <Filter>Player\State</Filter>
     </ClInclude>
@@ -176,6 +170,8 @@
     <ClInclude Include="Apocalypsis.h">
       <Filter>Player\State</Filter>
     </ClInclude>
-    <ClInclude Include="CrystallizeAura.h" />
+    <ClInclude Include="CrystallizeAura.h">
+      <Filter>Player\State</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

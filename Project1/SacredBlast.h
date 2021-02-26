@@ -10,12 +10,15 @@
 #pragma once
 #include "Config.h"
 
-class SacredBlast : public IStateConfig
+class SacredBlast : public IPlayerState
 {
 public:
-	SacredBlast();
+	SacredBlast(StateMachine& s);
 	~SacredBlast();
 	void SetActive()override;
+private:
+	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
+	StateMachine& m_StateMachine;
 };
 
 class SacredBlastA : public StateBase

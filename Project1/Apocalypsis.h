@@ -10,12 +10,15 @@
 #pragma once
 #include "Config.h"
 
-class Apocalypsis : public IStateConfig
+class Apocalypsis : public IPlayerState
 {
 public:
-	Apocalypsis();
+	Apocalypsis(StateMachine& s);
 	~Apocalypsis();
 	void SetActive()override;
+private:
+	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
+	StateMachine& m_StateMachine;
 };
 
 class ApocalypsisA : public StateBase

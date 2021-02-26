@@ -10,12 +10,15 @@
 #pragma once
 #include "Config.h"
 
-class CrystallizeAura : public IStateConfig
+class CrystallizeAura : public IPlayerState
 {
 public:
-	CrystallizeAura();
+	CrystallizeAura(StateMachine& s);
 	~CrystallizeAura();
 	void SetActive()override;
+private:
+	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
+	StateMachine& m_StateMachine;
 };
 
 class CrystallizeAuraA : public StateBase

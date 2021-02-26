@@ -12,15 +12,16 @@
 
 namespace
 {
-	const unsigned __int32 g_CountUpperLimit = 3; // ステートのカウント上限
+	const unsigned __int32 g_CountUpperLimit = 2; // ステートのカウント上限
 }
 
-class IStateConfig
+class IPlayerState
 {
 public:
-	IStateConfig(){}
-	virtual ~IStateConfig(){}
+	IPlayerState(){}
+	virtual ~IPlayerState(){}
 	virtual void SetActive() = 0;
+	bool GetEnable() { return m_EnableThis; }
 protected:
 	std::shared_ptr<StateSwitch> m_State[g_CountUpperLimit];	// 登録するステート名[]
 	std::string m_Name[g_CountUpperLimit]; // 登録名

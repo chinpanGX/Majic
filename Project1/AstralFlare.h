@@ -10,12 +10,15 @@
 #pragma once
 #include "Config.h"
 
-class AstralFlare : public IStateConfig
+class AstralFlare : public IPlayerState
 {
 public:
-	AstralFlare();
+	AstralFlare(StateMachine& s);
 	~AstralFlare();
 	void SetActive()override;
+private:
+	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
+	StateMachine& m_StateMachine;
 };
 
 class AstralFlareA : public StateBase

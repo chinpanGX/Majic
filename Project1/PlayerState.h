@@ -10,12 +10,15 @@
 #pragma once
 #include "Config.h"
 
-class NormalAttack : public IStateConfig
+class NormalAttack : public IPlayerState
 {
 public:
-	NormalAttack();
+	NormalAttack(StateMachine& s);
 	~NormalAttack();
 	void SetActive()override;
+private:
+	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
+	StateMachine& m_StateMachine;
 };
 
 class PlayerAttackA : public StateBase

@@ -151,7 +151,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="PlayerSkillState.cpp" />
     <ClCompile Include="PlayerState.cpp" />
     <ClCompile Include="PlayerStateManager.cpp" />
     <ClCompile Include="Prefabs.cpp" />
@@ -178,7 +177,6 @@
     <ClInclude Include="Loader.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="PlayerSkillState.h" />
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="PlayerStateManager.h" />
     <ClInclude Include="Prefabs.h" />
