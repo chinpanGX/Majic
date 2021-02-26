@@ -14,6 +14,7 @@
 #include <string>
 #include <memory>
 #include <Windows.h>
+#include "Config.h"
 
 class StateBase
 {
@@ -38,8 +39,10 @@ class StateSwitch
 public:
 	StateSwitch() = default;
 	StateSwitch(const std::shared_ptr<StateBase> state, const std::string nextRegisterName) : m_State(state), m_NextRegisterName(nextRegisterName) {}
+	StateSwitch(const std::shared_ptr<IPlayerStatePattern> state, const std::string nextRegisterName) : m_PlayerState(state), m_NextRegisterName(nextRegisterName) {}
 	void Start();
 	void Update();
+	void Update(class Player* p);
 	bool IsNextState();
 	std::shared_ptr<StateBase> GetState()const { return m_State; }
 
@@ -47,7 +50,7 @@ public:
 
 private:
 	std::shared_ptr<StateBase> m_State;
-
+	std::shared_ptr <IPlayerStatePattern> m_PlayerState;
 };
 
 // ステート管理

@@ -15,6 +15,14 @@ namespace
 	const unsigned __int32 g_CountUpperLimit = 2; // ステートのカウント上限
 }
 
+class IPlayerStatePattern : public StateBase
+{
+public:
+	IPlayerStatePattern() {}
+	virtual ~IPlayerStatePattern(){}
+	virtual void Update(class Player* pPlayer) = 0;
+};
+
 class IPlayerState
 {
 public:

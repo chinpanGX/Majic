@@ -21,7 +21,16 @@ private:
 	StateMachine& m_StateMachine;
 };
 
-class PlayerAttackA : public StateBase
+class PlayerAttackA : public IPlayerStatePattern
+{
+public:
+	void Start()override;
+	void Update()override;
+	void Update(class Player* pPlayer)override;
+	void ChangeEvent()override;
+};
+
+class PlayerAttackB : public IPlayerStatePattern
 {
 public:
 	void Start()override;
@@ -29,7 +38,7 @@ public:
 	void ChangeEvent()override;
 };
 
-class PlayerAttackB : public StateBase
+class PlayerAttackC : public IPlayerStatePattern
 {
 public:
 	void Start()override;
@@ -37,7 +46,7 @@ public:
 	void ChangeEvent()override;
 };
 
-class PlayerAttackC : public StateBase
+class PlayerGuard : public IPlayerStatePattern
 {
 public:
 	void Start()override;
@@ -45,15 +54,7 @@ public:
 	void ChangeEvent()override;
 };
 
-class PlayerGuard : public StateBase
-{
-public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
-};
-
-class PlayerWait : public StateBase 
+class PlayerWait : public IPlayerStatePattern 
 {
 public:
 	void Start()override;
