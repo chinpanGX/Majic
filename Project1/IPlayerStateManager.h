@@ -14,8 +14,13 @@
 class IPlayerStateManager
 {
 public:
-	IPlayerStateManager(Player* p);
-	~IPlayerStateManager();
+	IPlayerStateManager(class Player* p);
+	~IPlayerStateManager();	
+	template<typename T>
+	void SetState()
+	{
+		T* = new T;
+	}
 private:
 	class SacredBlast* m_SacedBlast;
 	class AstralFlare* m_AstralFlare;

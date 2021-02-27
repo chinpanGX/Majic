@@ -9,12 +9,14 @@
 -----------------------------------------------*/
 #pragma once
 #include "StateMachine.h"
+#include "PlayerPattern.h"
 
-class Apocalypsis
+class Apocalypsis : public PlayerPattern
 {
 public:
 	Apocalypsis(StateMachine& s);
 	~Apocalypsis();
+	void Update(Player* player)override;
 	void SetActive();
 	bool GetEnable() { return m_EnableThis; }
 private:

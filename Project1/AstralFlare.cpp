@@ -28,6 +28,10 @@ AstralFlare::~AstralFlare()
 	m_StateMachine.Delete();
 }
 
+void AstralFlare::Update(Player * player)
+{
+}
+
 void AstralFlare::SetActive()
 {
 	IsAttackCountLimit();

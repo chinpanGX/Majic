@@ -17,10 +17,10 @@ public:
 	void Uninit()override;
 	void Update()override;
 	void Draw()override;
-	std::shared_ptr<class IPlayerStateManager> GetPlayerStateManager()const
+	/*std::shared_ptr<class IPlayerStateManager> GetPlayerStateManager()const
 	{
 		return m_State;
-	}
+	}*/
 	std::shared_ptr<class StateMachine> GetStateMachine()const
 	{
 		return m_StateMachine;
@@ -28,7 +28,7 @@ public:
 private:
 	std::shared_ptr<class StateMachine> m_StateMachine;
 	std::shared_ptr<class PlayerController> m_Controller;
-	std::shared_ptr<class IPlayerStateManager> m_State;
+	//std::shared_ptr<class IPlayerStateManager> m_State;
 	unsigned __int32 m_ActionPoint; // Ap->ƒXƒLƒ‹‚ÅÁ”ï
 };
 

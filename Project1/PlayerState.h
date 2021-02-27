@@ -9,12 +9,16 @@
 -------------------------------------------------------------*/
 #pragma once
 #include "StateMachine.h"
+#include "PlayerPattern.h"
 
-class NormalAttack
+class Player;
+
+class NormalAttack : public PlayerPattern
 {
 public:
 	NormalAttack(StateMachine& s);
 	~NormalAttack();
+	void Update(Player* player)override;
 	void SetActive();
 	bool GetEnable() { return m_EnableThis; }
 private:
@@ -26,22 +30,22 @@ private:
 	bool m_EnableThis;			// —LŒø‰»‚Ç‚¤‚©
 };
 
-class PlayerGurad
+class PlayerGurad : public PlayerPattern
 {
 public:
 	PlayerGurad(StateMachine& s);
 	~PlayerGurad();
-	void Update();
+	void Update(Player* player);
 private:
 	StateMachine& m_StateMachine;
 };
 
-class PlayerWait
+class PlayerWait : public PlayerPattern
 {
 public:
 	PlayerWait(StateMachine& s);
 	~PlayerWait();
-	void Update();
+	void Update(Player* player)override;
 	unsigned __int32 GetWaitTime()
 	{
 		return m_Waittime;

@@ -28,6 +28,10 @@ CrystallizeAura::~CrystallizeAura()
 	m_StateMachine.Delete();
 }
 
+void CrystallizeAura::Update(Player * player)
+{
+}
+
 void CrystallizeAura::SetActive()
 {
 	IsAttackCountLimit();

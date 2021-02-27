@@ -12,8 +12,6 @@
 #include "Manager.h"
 #include "Player.h"
 
-Player* p = new Player;
-
 void GameManager::Init()
 {
 	srand((unsigned int)time(NULL));

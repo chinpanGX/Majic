@@ -8,20 +8,25 @@
 
 --------------------------------------------------------------*/
 #pragma once
-#include "Player.h"
 
 class PlayerController
 {
 public:
-	PlayerController() {}
-	void Update(Player* player);
+	PlayerController(class Player* player);
+	~PlayerController();
+	void Update(class Player* player);
 	bool IsSkillSelection(); // ƒXƒLƒ‹‚ğ‘I‘ğ’†‚©‚Ç‚¤‚©
 private:
-	void Attack(Player* player);	// UŒ‚		Z
-	void Guard(Player* player);		// ƒK[ƒh	¢
-	void Skill_1(Player* player);	// ƒXƒLƒ‹‚P R1{¢
-	void Skill_2(Player* player);	// ƒXƒLƒ‹‚Q R1{Z
-	void Skill_3(Player* player);	// ƒXƒLƒ‹‚R R1{ 
-	void Skill_4(Player* player);	// ƒXƒLƒ‹‚S R1{~
-};
+	void Attack(class Player* player);	// UŒ‚		Z
+	void Guard(class Player* player);		// ƒK[ƒh	¢
+	void Skill_1(class Player* player);	// ƒXƒLƒ‹‚P R1{¢
+	void Skill_2(class Player* player);	// ƒXƒLƒ‹‚Q R1{Z
+	void Skill_3(class Player* player);	// ƒXƒLƒ‹‚R R1{ 
+	void Skill_4(class Player* player);	// ƒXƒLƒ‹‚S R1{~
 
+	template<typename T>
+	void SetPattern(class Player* p);
+	void ChangePattern(class PlayerPattern* p);
+
+	class PlayerPattern* m_pPattern;
+};

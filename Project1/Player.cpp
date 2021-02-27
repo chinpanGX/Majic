@@ -12,8 +12,8 @@
 void Player::Init()
 {
 	m_StateMachine = std::make_unique<StateMachine>();
-	m_Controller = std::make_unique<PlayerController>();
-	m_State = std::make_shared<IPlayerStateManager>(this);
+	m_Controller = std::make_unique<PlayerController>(this);
+	//m_State = std::make_shared<IPlayerStateManager>(this);
 }
 
 void Player::Uninit()

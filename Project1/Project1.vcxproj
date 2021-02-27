@@ -176,6 +176,7 @@
     <ClInclude Include="Loader.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerPattern.h" />
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="IPlayerStateManager.h" />
     <ClInclude Include="Prefabs.h" />

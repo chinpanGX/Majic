@@ -28,6 +28,10 @@ Apocalypsis::~Apocalypsis()
 	m_StateMachine.Delete();
 }
 
+void Apocalypsis::Update(Player * player)
+{
+}
+
 void Apocalypsis::SetActive()
 {
 	IsAttackCountLimit();

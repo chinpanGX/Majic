@@ -21,9 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PlayerController.cpp">
-      <Filter>Player</Filter>
-    </ClCompile>
     <ClCompile Include="Application.cpp">
       <Filter>App</Filter>
     </ClCompile>
@@ -86,6 +83,9 @@
     </ClCompile>
     <ClCompile Include="IPlayerStateManager.cpp">
       <Filter>Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerController.cpp">
+      <Filter>Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +168,9 @@
       <Filter>Player\State</Filter>
     </ClInclude>
     <ClInclude Include="IPlayerStateManager.h">
+      <Filter>Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPattern.h">
       <Filter>Player\State</Filter>
     </ClInclude>
   </ItemGroup>

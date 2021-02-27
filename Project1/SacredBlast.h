@@ -9,12 +9,15 @@
 ------------------------------------------------*/
 #pragma once
 #include "StateMachine.h"
+#include "PlayerPattern.h"
 
-class SacredBlast
+class SacredBlast : public PlayerPattern
+
 {
 public:
 	SacredBlast(StateMachine& s);
 	~SacredBlast();
+	void Update(Player* player)override;
 	void SetActive();
 	bool GetEnable() { return m_EnableThis; }
 private:

@@ -28,6 +28,10 @@ NormalAttack::~NormalAttack()
 	m_StateMachine.Delete();
 }
 
+void NormalAttack::Update(Player * player)
+{
+}
+
 void NormalAttack::SetActive()
 {
 	IsAttackCountLimit();
@@ -50,6 +54,31 @@ void NormalAttack::IsAttackCountLimit()
 		m_EnableThis = true;
 		m_Count++;
 	}
+}
+
+
+PlayerWait::PlayerWait(StateMachine & s) : m_StateMachine(s)
+{
+}
+
+PlayerWait::~PlayerWait()
+{
+}
+
+void PlayerWait::Update(Player * p)
+{
+}
+
+PlayerGurad::PlayerGurad(StateMachine & s) : m_StateMachine(s)
+{
+}
+
+PlayerGurad::~PlayerGurad()
+{
+}
+
+void PlayerGurad::Update(Player * player)
+{
 }
 
 void PlayerAttackA::Start()
@@ -113,26 +142,3 @@ void PlayerWaitPattern::ChangeEvent()
 {
 }
 
-PlayerWait::PlayerWait(StateMachine & s) : m_StateMachine(s)
-{
-}
-
-PlayerWait::~PlayerWait()
-{
-}
-
-void PlayerWait::Update()
-{
-}
-
-PlayerGurad::PlayerGurad(StateMachine & s) : m_StateMachine(s)
-{
-}
-
-PlayerGurad::~PlayerGurad()
-{
-}
-
-void PlayerGurad::Update()
-{
-}

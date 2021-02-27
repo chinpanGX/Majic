@@ -11,12 +11,14 @@
 #include "GameScene.h"
 #include "Input.h"
 #include "Manager.h"
+#include "Player.h"
 
 // タイトルシーン
 #pragma region GameScene_Title_Func
 void GameScene::Title::Init()
 {
 	//AddGameObject<GameBg::Title>(L_2D_BG);
+	AddGameObject<Player>(L_3D);
 }
 
 void GameScene::Title::Uninit()

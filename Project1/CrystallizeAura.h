@@ -9,12 +9,14 @@
 -----------------------------------------------*/
 #pragma once
 #include "StateMachine.h"
+#include "PlayerPattern.h"
 
-class CrystallizeAura
+class CrystallizeAura : public PlayerPattern
 {
 public:
 	CrystallizeAura(StateMachine& s);
 	~CrystallizeAura();
+	void Update(Player* player)override;
 	void SetActive();
 	bool GetEnable() { return m_EnableThis; }
 private:

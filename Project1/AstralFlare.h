@@ -9,12 +9,14 @@
 ------------------------------------------------*/
 #pragma once
 #include "StateMachine.h"
+#include "PlayerPattern.h"
 
-class AstralFlare
+class AstralFlare : public PlayerPattern
 {
 public:
 	AstralFlare(StateMachine& s);
 	~AstralFlare();
+	void Update(Player* player)override;
 	void SetActive();
 	bool GetEnable() { return m_EnableThis; }
 private:

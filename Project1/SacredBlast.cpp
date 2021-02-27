@@ -25,6 +25,10 @@ SacredBlast::~SacredBlast()
 	m_StateMachine.Delete();
 }
 
+void SacredBlast::Update(Player * player)
+{
+}
+
 void SacredBlast::SetActive()
 {
 	IsAttackCountLimit();

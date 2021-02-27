@@ -18,14 +18,12 @@
 
 IPlayerStateManager::IPlayerStateManager(Player* p)
 {
-	m_SacedBlast = new SacredBlast(*p->GetStateMachine());
-	m_AstralFlare = new AstralFlare(*p->GetStateMachine());
-	m_Apocalypsis = new Apocalypsis(*p->GetStateMachine());
-	m_CrystallizeAura = new CrystallizeAura(*p->GetStateMachine());
+	
 }
 
 IPlayerStateManager::~IPlayerStateManager()
 {
+	
 }
 
 
