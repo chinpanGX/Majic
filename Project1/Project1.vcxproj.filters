@@ -36,9 +36,6 @@
     <ClCompile Include="Input.cpp">
       <Filter>App</Filter>
     </ClCompile>
-    <ClCompile Include="StateMachine.cpp">
-      <Filter>App</Filter>
-    </ClCompile>
     <ClCompile Include="Loader.cpp">
       <Filter>Loader</Filter>
     </ClCompile>
@@ -81,11 +78,14 @@
     <ClCompile Include="CrystallizeAura.cpp">
       <Filter>Player\State</Filter>
     </ClCompile>
-    <ClCompile Include="IPlayerStateManager.cpp">
-      <Filter>Player\State</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerController.cpp">
       <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerEditer.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerWait.cpp">
+      <Filter>Player\State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -120,9 +120,6 @@
       <Filter>App</Filter>
     </ClInclude>
     <ClInclude Include="Singleton.h">
-      <Filter>App</Filter>
-    </ClInclude>
-    <ClInclude Include="StateMachine.h">
       <Filter>App</Filter>
     </ClInclude>
     <ClInclude Include="Loader.h">
@@ -167,10 +164,13 @@
     <ClInclude Include="CrystallizeAura.h">
       <Filter>Player\State</Filter>
     </ClInclude>
-    <ClInclude Include="IPlayerStateManager.h">
+    <ClInclude Include="PlayerPattern.h">
       <Filter>Player\State</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerPattern.h">
+    <ClInclude Include="PlayerEditer.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerWait.h">
       <Filter>Player\State</Filter>
     </ClInclude>
   </ItemGroup>

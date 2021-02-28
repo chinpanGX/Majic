@@ -8,7 +8,6 @@
 
 -----------------------------------------------*/
 #pragma once
-#include "StateMachine.h"
 #include "PlayerPattern.h"
 
 class Apocalypsis : public PlayerPattern
@@ -17,7 +16,6 @@ public:
 	Apocalypsis(StateMachine& s);
 	~Apocalypsis();
 	void Update(Player* player)override;
-	void SetActive();
 	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
@@ -28,7 +26,7 @@ private:
 	bool m_EnableThis;			// —LŒø‰»‚Ç‚¤‚©
 };
 
-class ApocalypsisA : public StateBase
+class ApocalypsisA : public PlayerPattern
 {
 public:
 	void Start()override;
@@ -36,7 +34,7 @@ public:
 	void ChangeEvent()override;
 };
 
-class ApocalypsisB : public StateBase
+class ApocalypsisB : public PlayerPattern
 {
 public:
 	void Start()override;
@@ -44,7 +42,7 @@ public:
 	void ChangeEvent()override;
 };
 
-class ApocalypsisC : public StateBase
+class ApocalypsisC : public PlayerPattern
 {
 public:
 	void Start()override;

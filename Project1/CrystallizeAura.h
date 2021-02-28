@@ -8,7 +8,6 @@
 
 -----------------------------------------------*/
 #pragma once
-#include "StateMachine.h"
 #include "PlayerPattern.h"
 
 class CrystallizeAura : public PlayerPattern
@@ -17,7 +16,6 @@ public:
 	CrystallizeAura(StateMachine& s);
 	~CrystallizeAura();
 	void Update(Player* player)override;
-	void SetActive();
 	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
@@ -28,28 +26,25 @@ private:
 	bool m_EnableThis;			// —LŒø‰»‚Ç‚¤‚©
 };
 
-class CrystallizeAuraA : public StateBase
+class CrystallizeAuraA : public PlayerPattern
 {
 public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
+	virtual ~CrystallizeAuraA(){}
+	void Update(class Player* p)override;
 };
 
-class CrystallizeAuraB : public StateBase
+class CrystallizeAuraB : public PlayerPattern
 {
 public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
+	virtual ~CrystallizeAuraB() {}
+	void Update(class Player* p)override;
 };
 
-class CrystallizeAuraC : public StateBase
+class CrystallizeAuraC : public PlayerPattern
 {
 public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
+	virtual ~CrystallizeAuraC() {}
+	void Update(class Player* p)override;
 };
 
 

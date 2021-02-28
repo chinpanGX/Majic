@@ -17,8 +17,7 @@ class SacredBlast : public PlayerPattern
 public:
 	SacredBlast(StateMachine& s);
 	~SacredBlast();
-	void Update(Player* player)override;
-	void SetActive();
+	void Update(class Player* player)override;
 	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
@@ -29,7 +28,7 @@ private:
 	bool m_EnableThis;			// —LŒø‰»‚Ç‚¤‚©
 };
 
-class SacredBlastA : public StateBase
+class SacredBlastA : public PlayerPattern
 {
 public:
 	void Start()override;
@@ -37,7 +36,7 @@ public:
 	void ChangeEvent()override;
 };
 
-class SacredBlastB : public StateBase
+class SacredBlastB : public PlayerPattern
 {
 public:
 	void Start()override;
@@ -45,7 +44,7 @@ public:
 	void ChangeEvent()override;
 };
 
-class SacredBlastC : public StateBase
+class SacredBlastC : public PlayerPattern
 {
 public:
 	void Start()override;

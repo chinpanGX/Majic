@@ -151,12 +151,12 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerEditer.cpp" />
     <ClCompile Include="PlayerState.cpp" />
-    <ClCompile Include="IPlayerStateManager.cpp" />
+    <ClCompile Include="PlayerWait.cpp" />
     <ClCompile Include="Prefabs.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SacredBlast.cpp" />
-    <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
@@ -176,16 +176,16 @@
     <ClInclude Include="Loader.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerEditer.h" />
     <ClInclude Include="PlayerPattern.h" />
     <ClInclude Include="PlayerState.h" />
-    <ClInclude Include="IPlayerStateManager.h" />
+    <ClInclude Include="PlayerWait.h" />
     <ClInclude Include="Prefabs.h" />
     <ClInclude Include="Pawn.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="SacredBlast.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Singleton.h" />
-    <ClInclude Include="StateMachine.h" />
     <ClInclude Include="Transform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

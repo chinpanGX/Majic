@@ -25,14 +25,13 @@ CrystallizeAura::CrystallizeAura(StateMachine & s) : m_StateMachine(s)
 
 CrystallizeAura::~CrystallizeAura()
 {
-	m_StateMachine.Delete();
+	for (int i = 0; i < g_CountUpperLimit; i++)
+	{
+		m_StateMachine.Delete(m_Name[i]);
+	}
 }
 
 void CrystallizeAura::Update(Player * player)
-{
-}
-
-void CrystallizeAura::SetActive()
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)

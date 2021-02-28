@@ -5,6 +5,7 @@
 
 ------------------------------------------------*/
 #include "SacredBlast.h"
+#include "Player.h"
 
 SacredBlast::SacredBlast(StateMachine & s) : m_StateMachine(s)
 {
@@ -22,14 +23,13 @@ SacredBlast::SacredBlast(StateMachine & s) : m_StateMachine(s)
 
 SacredBlast::~SacredBlast()
 {
-	m_StateMachine.Delete();
+	for (int i = 0; i < g_CountUpperLimit; i++)
+	{
+		m_StateMachine.Delete(m_Name[i]);
+	}
 }
 
 void SacredBlast::Update(Player * player)
-{
-}
-
-void SacredBlast::SetActive()
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
@@ -56,14 +56,18 @@ void SacredBlast::IsAttackCountLimit()
 
 void SacredBlastA::Start()
 {
+	
 }
 
 void SacredBlastA::Update()
 {
+	m_IsNext = true;
+
 }
 
 void SacredBlastA::ChangeEvent()
 {
+	m_IsNext = false;
 }
 
 void SacredBlastB::Start()
@@ -72,10 +76,12 @@ void SacredBlastB::Start()
 
 void SacredBlastB::Update()
 {
+	m_IsNext = true;
 }
 
 void SacredBlastB::ChangeEvent()
 {
+	m_IsNext = false;
 }
 
 void SacredBlastC::Start()
@@ -84,8 +90,10 @@ void SacredBlastC::Start()
 
 void SacredBlastC::Update()
 {
+	m_IsNext = true;
 }
 
 void SacredBlastC::ChangeEvent()
 {
+	m_IsNext = false;
 }

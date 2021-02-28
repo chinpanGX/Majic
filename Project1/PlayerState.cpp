@@ -8,6 +8,7 @@
 
 -------------------------------------------------------------*/
 #include "PlayerState.h"
+#include "Player.h"
 
 NormalAttack::NormalAttack(StateMachine& s) : m_StateMachine(s)
 {
@@ -25,7 +26,10 @@ NormalAttack::NormalAttack(StateMachine& s) : m_StateMachine(s)
 
 NormalAttack::~NormalAttack()
 {
-	m_StateMachine.Delete();
+	for (int i = 0; i < g_CountUpperLimit; i++)
+	{
+		m_StateMachine.Delete(m_Name[i]);
+	}
 }
 
 void NormalAttack::Update(Player * player)
@@ -56,25 +60,15 @@ void NormalAttack::IsAttackCountLimit()
 	}
 }
 
-
-PlayerWait::PlayerWait(StateMachine & s) : m_StateMachine(s)
-{
-}
-
-PlayerWait::~PlayerWait()
-{
-}
-
-void PlayerWait::Update(Player * p)
-{
-}
-
 PlayerGurad::PlayerGurad(StateMachine & s) : m_StateMachine(s)
 {
+	m_State = std::make_shared<StateSwitch>(std::make_shared<PlayerGuardPattern>(), "ÉKÅ[Éh");
+	m_StateMachine.Register("ÉKÅ[Éh", m_State);
 }
 
 PlayerGurad::~PlayerGurad()
 {
+	m_StateMachine.Delete("ÉKÅ[Éh");
 }
 
 void PlayerGurad::Update(Player * player)
@@ -82,6 +76,10 @@ void PlayerGurad::Update(Player * player)
 }
 
 void PlayerAttackA::Start()
+{
+}
+
+void PlayerAttackA::Update(Pawn * p)
 {
 }
 
@@ -97,6 +95,10 @@ void PlayerAttackB::Start()
 {
 }
 
+void PlayerAttackB::Update(Pawn * p)
+{
+}
+
 void PlayerAttackB::Update()
 {
 }
@@ -106,6 +108,10 @@ void PlayerAttackB::ChangeEvent()
 }
 
 void PlayerAttackC::Start()
+{
+}
+
+void PlayerAttackC::Update(Pawn * p)
 {
 }
 
@@ -122,6 +128,10 @@ void PlayerGuardPattern::Start()
 {
 }
 
+void PlayerGuardPattern::Update(Pawn * p)
+{
+}
+
 void PlayerGuardPattern::Update()
 {
 }
@@ -130,15 +140,14 @@ void PlayerGuardPattern::ChangeEvent()
 {
 }
 
-void PlayerWaitPattern::Start()
+void PlayerAttackA::Update(Player * p)
 {
 }
 
-void PlayerWaitPattern::Update()
+void PlayerAttackB::Update(Player * p)
 {
 }
 
-void PlayerWaitPattern::ChangeEvent()
+void PlayerAttackC::Update(Player * p)
 {
 }
-

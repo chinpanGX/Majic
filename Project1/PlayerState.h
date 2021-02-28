@@ -8,7 +8,6 @@
 
 -------------------------------------------------------------*/
 #pragma once
-#include "StateMachine.h"
 #include "PlayerPattern.h"
 
 class Player;
@@ -23,8 +22,6 @@ public:
 	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
-	StateMachine& m_StateMachine;
-	std::shared_ptr<StateSwitch> m_State[StateIndex]{};	// “o˜^‚·‚éƒXƒe[ƒg–¼[]
 	std::string m_Name[StateIndex]; // “o˜^–¼
 	unsigned __int32 m_Count;	// ”­“®‰ñ”
 	bool m_EnableThis;			// —LŒø‰»‚Ç‚¤‚©
@@ -33,69 +30,32 @@ private:
 class PlayerGurad : public PlayerPattern
 {
 public:
-	PlayerGurad(StateMachine& s);
+	PlayerGurad();
 	~PlayerGurad();
 	void Update(Player* player);
 private:
-	StateMachine& m_StateMachine;
 };
 
-class PlayerWait : public PlayerPattern
+class PlayerAttackA : public PlayerPattern
 {
 public:
-	PlayerWait(StateMachine& s);
-	~PlayerWait();
-	void Update(Player* player)override;
-	unsigned __int32 GetWaitTime()
-	{
-		return m_Waittime;
-	}
-	void SetWaitTime(unsigned __int32 time)
-	{
-		m_Waittime = time;
-	}
-private:
-	StateMachine& m_StateMachine;
-	unsigned __int32 m_Waittime;
+	void Update(class Player* p)override;
 };
 
-
-class PlayerAttackA : public StateBase
+class PlayerAttackB : public PlayerPattern
 {
 public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
+	void Update(class Player* p)override;
 };
 
-class PlayerAttackB : public StateBase
+class PlayerAttackC : public PlayerPattern
 {
 public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
+	void Update(class Player* p)override;
 };
 
-class PlayerAttackC : public StateBase
+class PlayerGuardPattern : public PlayerPattern
 {
 public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
-};
-
-class PlayerGuardPattern : public StateBase
-{
-public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
-};
-
-class PlayerWaitPattern : public StateBase 
-{
-public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
+	void Update(class Player* p)override;
 };

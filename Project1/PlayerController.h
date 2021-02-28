@@ -18,7 +18,7 @@ public:
 	bool IsSkillSelection(); // ƒXƒLƒ‹‚ğ‘I‘ğ’†‚©‚Ç‚¤‚©
 private:
 	void Attack(class Player* player);	// UŒ‚		Z
-	void Guard(class Player* player);		// ƒK[ƒh	¢
+	void Guard(class Player* player);	// ƒK[ƒh	¢
 	void Skill_1(class Player* player);	// ƒXƒLƒ‹‚P R1{¢
 	void Skill_2(class Player* player);	// ƒXƒLƒ‹‚Q R1{Z
 	void Skill_3(class Player* player);	// ƒXƒLƒ‹‚R R1{ 

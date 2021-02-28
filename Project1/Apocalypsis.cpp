@@ -25,14 +25,13 @@ Apocalypsis::Apocalypsis(StateMachine & s) : m_StateMachine(s)
 
 Apocalypsis::~Apocalypsis()
 {
-	m_StateMachine.Delete();
+	for (int i = 0; i < g_CountUpperLimit; i++)
+	{
+		m_StateMachine.Delete(m_Name[i]);
+	}
 }
 
 void Apocalypsis::Update(Player * player)
-{
-}
-
-void Apocalypsis::SetActive()
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)

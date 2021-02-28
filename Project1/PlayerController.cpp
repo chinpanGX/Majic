@@ -15,10 +15,11 @@
 #include "SacredBlast.h"
 #include "Apocalypsis.h"
 #include "AstralFlare.h"
+#include "PlayerEditer.h"
 
 PlayerController::PlayerController(Player* player)
 {
-	m_pPattern = new PlayerWait(*player->GetStateMachine());
+	
 }
 
 PlayerController::~PlayerController()
@@ -28,13 +29,16 @@ PlayerController::~PlayerController()
 
 void PlayerController::Update(Player * player)
 {
-	Attack(player);
-	Guard(player);
-	Skill_1(player);
-	Skill_2(player);
-	Skill_3(player);
-	Skill_4(player);
-	m_pPattern->Update(player);
+	if (player->GetEditer()->GetIsAction() == true)
+	{
+		Attack(player);
+		Guard(player);
+		Skill_1(player);
+		Skill_2(player);
+		Skill_3(player);
+		Skill_4(player);
+		m_pPattern->Update(player);
+	}
 }
 
 bool PlayerController::IsSkillSelection()
@@ -111,5 +115,12 @@ void PlayerController::SetPattern(Player * p)
 
 void PlayerController::ChangePattern(PlayerPattern * p)
 {
-	delete p;
+	if (p == nullptr)
+	{
+		// nullptrÇÃèÍçáâΩÇ‡ÇµÇ»Ç¢
+	}
+	else
+	{
+		delete p;
+	}
 }

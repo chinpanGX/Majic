@@ -8,7 +8,6 @@
 
 ------------------------------------------------*/
 #pragma once
-#include "StateMachine.h"
 #include "PlayerPattern.h"
 
 class AstralFlare : public PlayerPattern
@@ -17,7 +16,6 @@ public:
 	AstralFlare(StateMachine& s);
 	~AstralFlare();
 	void Update(Player* player)override;
-	void SetActive();
 	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
@@ -28,26 +26,23 @@ private:
 	bool m_EnableThis;			// —LŒø‰»‚Ç‚¤‚©
 };
 
-class AstralFlareA : public StateBase
+class AstralFlareA : public PlayerPattern
 {
 public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
+	virtual ~AstralFlareA(){}
+	void Update(class Player* p)override;
 };
 
-class AstralFlareB : public StateBase
+class AstralFlareB : public PlayerPattern
 {
 public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
+	virtual ~AstralFlareB() {}
+	void Update(class Player* p)override;
 };
 
-class AstralFlareC : public StateBase
+class AstralFlareC : public PlayerPattern
 {
 public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
+	virtual ~AstralFlareC() {}
+	void Update(class Player* p)override;
 };

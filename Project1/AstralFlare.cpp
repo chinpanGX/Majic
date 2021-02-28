@@ -25,14 +25,13 @@ AstralFlare::AstralFlare(StateMachine & s) : m_StateMachine(s)
 
 AstralFlare::~AstralFlare()
 {
-	m_StateMachine.Delete();
+	for (int i = 0; i < g_CountUpperLimit; i++)
+	{
+		m_StateMachine.Delete(m_Name[i]);
+	}
 }
 
 void AstralFlare::Update(Player * player)
-{
-}
-
-void AstralFlare::SetActive()
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
@@ -65,30 +64,14 @@ void AstralFlareA::Update()
 {
 }
 
-void AstralFlareA::ChangeEvent()
+void AstralFlareA::Update(Player * p)
 {
 }
 
-void AstralFlareB::Start()
+void AstralFlareB::Update(Player * p)
 {
 }
 
-void AstralFlareB::Update()
-{
-}
-
-void AstralFlareB::ChangeEvent()
-{
-}
-
-void AstralFlareC::Start()
-{
-}
-
-void AstralFlareC::Update()
-{
-}
-
-void AstralFlareC::ChangeEvent()
+void AstralFlareC::Update(Player * p)
 {
 }
