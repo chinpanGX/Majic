@@ -10,6 +10,7 @@
 #pragma once
 #include <memory>
 #include "PlayerPattern.h"
+#include <vector>
 
 class CrystallizeAura : public PlayerPatternManager
 {
@@ -20,7 +21,7 @@ public:
 	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
-	std::unique_ptr<PlayerPattern> m_Pattern[g_StateIndex];
+	std::vector<std::unique_ptr<PlayerPattern>> m_Pattern;
 };
 
 class CrystallizeAuraA : public PlayerPattern

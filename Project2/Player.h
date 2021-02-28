@@ -9,6 +9,7 @@
 --------------------------------------------------------------*/
 #pragma once
 #include "Pawn.h"
+#include <memory>
 
 class Player : public Pawn
 {
@@ -20,11 +21,11 @@ public:
 	void Update()override;
 	void Draw()override;
 	
-	std::shared_ptr<class PlayerController> GetController()const
+	const std::shared_ptr<class PlayerController> GetController()const
 	{
 		return m_Controller;
 	}
-	std::shared_ptr<class PlayerEditor> GetEditer()const
+	const std::shared_ptr<class PlayerEditor> GetEditer()const
 	{
 		return m_Editor;
 	}

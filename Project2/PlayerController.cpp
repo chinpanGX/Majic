@@ -35,11 +35,11 @@ void PlayerController::Update(Player * player)
 	{
 		IsSkillSelection();
 		Attack(player);
-		Guard(player);
+		//Guard(player);
 		Skill_1(player);
-		Skill_2(player);
+		/*Skill_2(player);
 		Skill_3(player);
-		Skill_4(player);
+		Skill_4(player);*/
 	}
 	else
 	{

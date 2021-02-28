@@ -10,17 +10,18 @@
 #pragma once
 #include <memory>
 #include "PlayerPattern.h"
+#include <vector>
 
 class Apocalypsis : public PlayerPatternManager
 {
 public:
 	Apocalypsis();
 	~Apocalypsis();
-	void Update(Player* p)override;
+	void Update(class Player* p)override;
 	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
-	std::unique_ptr<PlayerPattern> m_Pattern[g_StateIndex];
+	std::vector<std::unique_ptr<PlayerPattern>> m_Pattern;
 };
 
 class ApocalypsisA : public PlayerPattern
