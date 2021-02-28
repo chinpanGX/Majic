@@ -9,7 +9,6 @@
 -----------------------------------------------*/
 #pragma once
 #include "GameObject.h"
-#include "StateMachine.h"
 
 class Pawn : public GameObject
 {

@@ -6,6 +6,7 @@
 ------------------------------------------------*/
 #include "SacredBlast.h"
 #include "Player.h"
+#include "PlayerEditer.h"
 
 SacredBlast::SacredBlast()
 {
@@ -46,12 +47,21 @@ void SacredBlast::IsAttackCountLimit()
 
 void SacredBlastA::Update(Player * p)
 {
+	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = m_tmpAp - m_CostAp;
+	p->GetEditer()->SetAp(m_tmpAp);
 }
 
 void SacredBlastB::Update(Player * p)
 {
+	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = m_tmpAp - m_CostAp;
+	p->GetEditer()->SetAp(m_tmpAp);
 }
 
 void SacredBlastC::Update(Player * p)
 {
+	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = m_tmpAp - m_CostAp;
+	p->GetEditer()->SetAp(m_tmpAp);
 }

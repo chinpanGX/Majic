@@ -60,9 +60,6 @@
     <ClCompile Include="Manager.cpp">
       <Filter>App</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerState.cpp">
-      <Filter>Player\State</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Player</Filter>
     </ClCompile>
@@ -87,7 +84,12 @@
     <ClCompile Include="PlayerWait.cpp">
       <Filter>Player\State</Filter>
     </ClCompile>
-    <ClCompile Include="StateMachine.cpp" />
+    <ClCompile Include="PlayerNormalAttack.cpp">
+      <Filter>Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerGurad.cpp">
+      <Filter>Player\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h">
@@ -150,9 +152,6 @@
     <ClInclude Include="Manager.h">
       <Filter>App</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerState.h">
-      <Filter>Player\State</Filter>
-    </ClInclude>
     <ClInclude Include="SacredBlast.h">
       <Filter>Player\State</Filter>
     </ClInclude>
@@ -174,6 +173,11 @@
     <ClInclude Include="PlayerWait.h">
       <Filter>Player\State</Filter>
     </ClInclude>
-    <ClInclude Include="StateMachine.h" />
+    <ClInclude Include="PlayerNormalAttack.h">
+      <Filter>Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerGurad.h">
+      <Filter>Player\State</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

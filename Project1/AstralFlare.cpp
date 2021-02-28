@@ -8,6 +8,8 @@
 
 ------------------------------------------------*/
 #include "AstralFlare.h"
+#include "Player.h"
+#include "PlayerEditer.h"
 
 AstralFlare::AstralFlare()
 {
@@ -28,7 +30,7 @@ void AstralFlare::Update(Player * p)
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
 	{
-		m_Pattern[m_Count]->Update(p)
+		m_Pattern[m_Count]->Update(p);
 	}
 }
 
@@ -48,12 +50,21 @@ void AstralFlare::IsAttackCountLimit()
 
 void AstralFlareA::Update(Player * p)
 {
+	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = m_tmpAp - m_CostAp;
+	p->GetEditer()->SetAp(m_tmpAp);
 }
 
 void AstralFlareB::Update(Player * p)
 {
+	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = m_tmpAp - m_CostAp;
+	p->GetEditer()->SetAp(m_tmpAp);
 }
 
 void AstralFlareC::Update(Player * p)
 {
+	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = m_tmpAp - m_CostAp;
+	p->GetEditer()->SetAp(m_tmpAp);
 }

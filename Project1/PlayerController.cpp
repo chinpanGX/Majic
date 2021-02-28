@@ -10,16 +10,18 @@
 #include "Input.h"
 #include "Player.h"
 #include "PlayerController.h"
-#include "PlayerState.h"
 #include "CrystallizeAura.h"
 #include "SacredBlast.h"
 #include "Apocalypsis.h"
 #include "AstralFlare.h"
 #include "PlayerEditer.h"
+#include "PlayerNormalAttack.h"
+#include "PlayerGurad.h"
+#include "PlayerWait.h"
 
 PlayerController::PlayerController(Player* player)
 {
-	
+	m_pPattern = new PlayerWait;
 }
 
 PlayerController::~PlayerController()
@@ -31,14 +33,20 @@ void PlayerController::Update(Player * player)
 {
 	if (player->GetEditer()->GetIsAction() == true)
 	{
+		IsSkillSelection();
 		Attack(player);
 		Guard(player);
 		Skill_1(player);
 		Skill_2(player);
 		Skill_3(player);
 		Skill_4(player);
-		m_pPattern->Update(player);
 	}
+	else
+	{
+		ChangePattern(m_pPattern);
+		SetPattern<PlayerWait>(player);
+	}
+	m_pPattern->Update(player);
 }
 
 bool PlayerController::IsSkillSelection()
@@ -109,7 +117,7 @@ void PlayerController::Skill_4(Player * player)
 template<typename T>
 void PlayerController::SetPattern(Player * p)
 {
-	m_pPattern = new T(*p->GetStateMachine());
+	m_pPattern = new T;
 }
 
 void PlayerController::ChangePattern(PlayerPatternManager * p)

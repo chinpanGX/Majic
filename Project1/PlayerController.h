@@ -4,7 +4,7 @@
 	Author : 出合翔太
 
 	[説明]
-	プレイヤーの入力処理
+	プレイヤーの
 
 --------------------------------------------------------------*/
 #pragma once
@@ -23,7 +23,7 @@ private:
 	void Skill_2(class Player* player);	// スキル２ R1＋〇
 	void Skill_3(class Player* player);	// スキル３ R1＋□
 	void Skill_4(class Player* player);	// スキル４ R1＋×
-
+	
 	template<typename T>
 	void SetPattern(class Player* p);
 	void ChangePattern(class PlayerPatternManager* p);

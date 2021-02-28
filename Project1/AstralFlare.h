@@ -28,6 +28,8 @@ class AstralFlareA : public PlayerPattern
 public:
 	virtual ~AstralFlareA(){}
 	void Update(class Player* p)override;
+private:
+	const unsigned __int32 m_CostAp = 5;
 };
 
 class AstralFlareB : public PlayerPattern
@@ -35,6 +37,8 @@ class AstralFlareB : public PlayerPattern
 public:
 	virtual ~AstralFlareB() {}
 	void Update(class Player* p)override;
+private:
+	const unsigned __int32 m_CostAp = 5;
 };
 
 class AstralFlareC : public PlayerPattern
@@ -42,4 +46,6 @@ class AstralFlareC : public PlayerPattern
 public:
 	virtual ~AstralFlareC() {}
 	void Update(class Player* p)override;
+private:
+	const unsigned __int32 m_CostAp = 5;
 };

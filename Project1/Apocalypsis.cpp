@@ -8,6 +8,8 @@
 
 -----------------------------------------------*/
 #include "Apocalypsis.h"
+#include "Player.h"
+#include "PlayerEditer.h"
 
 Apocalypsis::Apocalypsis()
 {
@@ -48,12 +50,21 @@ void Apocalypsis::IsAttackCountLimit()
 
 void ApocalypsisA::Update(Player * p)
 {
+	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = m_tmpAp - m_CostAp;
+	p->GetEditer()->SetAp(m_tmpAp);
 }
 
 void ApocalypsisB::Update(Player * p)
 {
+	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = m_tmpAp - m_CostAp;
+	p->GetEditer()->SetAp(m_tmpAp);
 }
 
 void ApocalypsisC::Update(Player * p)
 {
+	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = m_tmpAp - m_CostAp;
+	p->GetEditer()->SetAp(m_tmpAp);
 }
