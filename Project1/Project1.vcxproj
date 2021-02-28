@@ -157,6 +157,7 @@
     <ClCompile Include="Prefabs.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SacredBlast.cpp" />
+    <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
@@ -186,6 +187,7 @@
     <ClInclude Include="SacredBlast.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="StateMachine.h" />
     <ClInclude Include="Transform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

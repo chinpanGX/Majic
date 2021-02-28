@@ -8,22 +8,19 @@
 
 -----------------------------------------------*/
 #pragma once
+#include <memory>
 #include "PlayerPattern.h"
 
-class CrystallizeAura : public PlayerPattern
+class CrystallizeAura : public PlayerPatternManager
 {
 public:
-	CrystallizeAura(StateMachine& s);
+	CrystallizeAura();
 	~CrystallizeAura();
 	void Update(Player* player)override;
 	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
-	StateMachine& m_StateMachine;
-	std::shared_ptr<StateSwitch> m_State[StateIndex]{};	// “o˜^‚·‚éƒXƒe[ƒg–¼[]
-	std::string m_Name[StateIndex]; // “o˜^–¼
-	unsigned __int32 m_Count;	// ”­“®‰ñ”
-	bool m_EnableThis;			// —LŒø‰»‚Ç‚¤‚©
+	std::unique_ptr<PlayerPattern> m_Pattern[g_StateIndex];
 };
 
 class CrystallizeAuraA : public PlayerPattern

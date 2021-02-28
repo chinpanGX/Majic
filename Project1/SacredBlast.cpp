@@ -7,35 +7,26 @@
 #include "SacredBlast.h"
 #include "Player.h"
 
-SacredBlast::SacredBlast(StateMachine & s) : m_StateMachine(s)
+SacredBlast::SacredBlast()
 {
 	m_Count = 0;
 	m_EnableThis = true;
-	m_Name[g_CountUpperLimit] = "セイクリッドブラスト", "セイクリッドブラスト+", "セイクリッドブラスト++";
-	m_State[0] = std::make_shared<StateSwitch>(std::make_shared<SacredBlastA>(), m_Name[0]);
-	m_State[1] = std::make_shared<StateSwitch>(std::make_shared<SacredBlastB>(), m_Name[1]);
-	m_State[2] = std::make_shared<StateSwitch>(std::make_shared<SacredBlastC>(), m_Name[2]);
-	for (int i = 0; i < g_CountUpperLimit; i++)
-	{
-		m_StateMachine.Register(m_Name[i], m_State[i]);
-	}
+	m_Pattern[0] = std::make_unique<SacredBlastA>();
+	m_Pattern[1] = std::make_unique<SacredBlastB>();
+	m_Pattern[2] = std::make_unique<SacredBlastC>();
 }
 
 SacredBlast::~SacredBlast()
 {
-	for (int i = 0; i < g_CountUpperLimit; i++)
-	{
-		m_StateMachine.Delete(m_Name[i]);
-	}
+	
 }
 
-void SacredBlast::Update(Player * player)
+void SacredBlast::Update(Player * p)
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
 	{
-		m_StateMachine.SetStartState(m_Name[m_Count]);
-		m_StateMachine.Update();
+		m_Pattern[m_Count]->Update(p);
 	}
 }
 
@@ -53,47 +44,14 @@ void SacredBlast::IsAttackCountLimit()
 	}
 }
 
-
-void SacredBlastA::Start()
-{
-	
-}
-
-void SacredBlastA::Update()
-{
-	m_IsNext = true;
-
-}
-
-void SacredBlastA::ChangeEvent()
-{
-	m_IsNext = false;
-}
-
-void SacredBlastB::Start()
+void SacredBlastA::Update(Player * p)
 {
 }
 
-void SacredBlastB::Update()
-{
-	m_IsNext = true;
-}
-
-void SacredBlastB::ChangeEvent()
-{
-	m_IsNext = false;
-}
-
-void SacredBlastC::Start()
+void SacredBlastB::Update(Player * p)
 {
 }
 
-void SacredBlastC::Update()
+void SacredBlastC::Update(Player * p)
 {
-	m_IsNext = true;
-}
-
-void SacredBlastC::ChangeEvent()
-{
-	m_IsNext = false;
 }

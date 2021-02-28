@@ -9,26 +9,18 @@
 -----------------------------------------------*/
 #include "CrystallizeAura.h"
 
-CrystallizeAura::CrystallizeAura(StateMachine & s) : m_StateMachine(s)
+CrystallizeAura::CrystallizeAura()
 {
 	m_Count = 0;
 	m_EnableThis = true;
-	m_Name[g_CountUpperLimit] = "クリスタライズオーラ", "クリスタライズオーラ+", "クリスタライズオーラ++";
-	m_State[0] = std::make_shared<StateSwitch>(std::make_shared<CrystallizeAuraA>(), m_Name[0]);
-	m_State[1] = std::make_shared<StateSwitch>(std::make_shared<CrystallizeAuraB>(), m_Name[1]);
-	m_State[2] = std::make_shared<StateSwitch>(std::make_shared<CrystallizeAuraC>(), m_Name[2]);
-	for (int i = 0; i < g_CountUpperLimit; i++)
-	{
-		m_StateMachine.Register(m_Name[i], m_State[i]);
-	}
+	m_Pattern[0] = std::make_unique<CrystallizeAuraA>();
+	m_Pattern[1] = std::make_unique<CrystallizeAuraB>();
+	m_Pattern[2] = std::make_unique<CrystallizeAuraC>();
 }
 
 CrystallizeAura::~CrystallizeAura()
 {
-	for (int i = 0; i < g_CountUpperLimit; i++)
-	{
-		m_StateMachine.Delete(m_Name[i]);
-	}
+
 }
 
 void CrystallizeAura::Update(Player * player)
@@ -55,38 +47,14 @@ void CrystallizeAura::IsAttackCountLimit()
 	}
 }
 
-void CrystallizeAuraA::Start()
+void CrystallizeAuraA::Update(Player * p)
 {
 }
 
-void CrystallizeAuraA::Update()
+void CrystallizeAuraB::Update(Player * p)
 {
 }
 
-void CrystallizeAuraA::ChangeEvent()
-{
-}
-
-void CrystallizeAuraB::Start()
-{
-}
-
-void CrystallizeAuraB::Update()
-{
-}
-
-void CrystallizeAuraB::ChangeEvent()
-{
-}
-
-void CrystallizeAuraC::Start()
-{
-}
-
-void CrystallizeAuraC::Update()
-{
-}
-
-void CrystallizeAuraC::ChangeEvent()
+void CrystallizeAuraC::Update(Player * p)
 {
 }

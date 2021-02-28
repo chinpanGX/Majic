@@ -9,35 +9,26 @@
 -----------------------------------------------*/
 #include "Apocalypsis.h"
 
-Apocalypsis::Apocalypsis(StateMachine & s) : m_StateMachine(s)
+Apocalypsis::Apocalypsis()
 {
 	m_Count = 0;
 	m_EnableThis = true;
-	m_Name[g_CountUpperLimit] = "アポカリプス", "アポカリプス+", "アポカリプス++";
-	m_State[0] = std::make_shared<StateSwitch>(std::make_shared<ApocalypsisA>(), m_Name[0]);
-	m_State[1] = std::make_shared<StateSwitch>(std::make_shared<ApocalypsisB>(), m_Name[1]);
-	m_State[2] = std::make_shared<StateSwitch>(std::make_shared<ApocalypsisC>(), m_Name[2]);
-	for (int i = 0; i < g_CountUpperLimit; i++)
-	{
-		m_StateMachine.Register(m_Name[i], m_State[i]);
-	}
+	m_Pattern[0] = std::make_unique<ApocalypsisA>();
+	m_Pattern[1] = std::make_unique<ApocalypsisB>();
+	m_Pattern[2] = std::make_unique<ApocalypsisC>();
 }
 
 Apocalypsis::~Apocalypsis()
 {
-	for (int i = 0; i < g_CountUpperLimit; i++)
-	{
-		m_StateMachine.Delete(m_Name[i]);
-	}
+	
 }
 
-void Apocalypsis::Update(Player * player)
+void Apocalypsis::Update(Player * p)
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
 	{
-		m_StateMachine.SetStartState(m_Name[m_Count]);
-		m_StateMachine.Update();
+		m_Pattern[m_Count]->Update(p);
 	}
 }
 
@@ -55,38 +46,14 @@ void Apocalypsis::IsAttackCountLimit()
 	}
 }
 
-void ApocalypsisA::Start()
+void ApocalypsisA::Update(Player * p)
 {
 }
 
-void ApocalypsisA::Update()
+void ApocalypsisB::Update(Player * p)
 {
 }
 
-void ApocalypsisA::ChangeEvent()
-{
-}
-
-void ApocalypsisB::Start()
-{
-}
-
-void ApocalypsisB::Update()
-{
-}
-
-void ApocalypsisB::ChangeEvent()
-{
-}
-
-void ApocalypsisC::Start()
-{
-}
-
-void ApocalypsisC::Update()
-{
-}
-
-void ApocalypsisC::ChangeEvent()
+void ApocalypsisC::Update(Player * p)
 {
 }

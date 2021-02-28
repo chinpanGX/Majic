@@ -8,32 +8,22 @@
 
 -------------------------------------------------------------*/
 #pragma once
+#include <memory>
 #include "PlayerPattern.h"
+
 
 class Player;
 
-class NormalAttack : public PlayerPattern
+class NormalAttack : public PlayerPatternManager
 {
 public:
-	NormalAttack(StateMachine& s);
+	NormalAttack();
 	~NormalAttack();
-	void Update(Player* player)override;
-	void SetActive();
+	void Update(Player* p)override;
 	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
-	std::string m_Name[StateIndex]; // “o˜^–¼
-	unsigned __int32 m_Count;	// ”­“®‰ñ”
-	bool m_EnableThis;			// —LŒø‰»‚Ç‚¤‚©
-};
-
-class PlayerGurad : public PlayerPattern
-{
-public:
-	PlayerGurad();
-	~PlayerGurad();
-	void Update(Player* player);
-private:
+	std::unique_ptr<PlayerPattern> m_Pattern[g_StateIndex];
 };
 
 class PlayerAttackA : public PlayerPattern
@@ -52,6 +42,17 @@ class PlayerAttackC : public PlayerPattern
 {
 public:
 	void Update(class Player* p)override;
+};
+
+
+
+class PlayerGurad : public PlayerPatternManager
+{
+public:
+	PlayerGurad();
+	~PlayerGurad();
+	void Update(Player* p);
+private:
 };
 
 class PlayerGuardPattern : public PlayerPattern

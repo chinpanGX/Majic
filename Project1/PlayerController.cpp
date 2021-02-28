@@ -112,8 +112,7 @@ void PlayerController::SetPattern(Player * p)
 	m_pPattern = new T(*p->GetStateMachine());
 }
 
-
-void PlayerController::ChangePattern(PlayerPattern * p)
+void PlayerController::ChangePattern(PlayerPatternManager * p)
 {
 	if (p == nullptr)
 	{

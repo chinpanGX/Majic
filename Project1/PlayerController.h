@@ -26,7 +26,7 @@ private:
 
 	template<typename T>
 	void SetPattern(class Player* p);
-	void ChangePattern(class PlayerPattern* p);
+	void ChangePattern(class PlayerPatternManager* p);
 
-	class PlayerPattern* m_pPattern;
+	class PlayerPatternManager* m_pPattern;
 };

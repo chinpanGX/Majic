@@ -8,46 +8,39 @@
 
 ------------------------------------------------*/
 #pragma once
-#include "StateMachine.h"
+#include <memory>
 #include "PlayerPattern.h"
 
-class SacredBlast : public PlayerPattern
+class SacredBlast : public PlayerPatternManager
 
 {
 public:
-	SacredBlast(StateMachine& s);
+	SacredBlast();
 	~SacredBlast();
 	void Update(class Player* player)override;
 	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
-	StateMachine& m_StateMachine;
-	std::shared_ptr<StateSwitch> m_State[StateIndex]{};	// “o˜^‚·‚éƒXƒe[ƒg–¼[]
-	std::string m_Name[StateIndex]; // “o˜^–¼
-	unsigned __int32 m_Count;	// ”­“®‰ñ”
-	bool m_EnableThis;			// —LŒø‰»‚Ç‚¤‚©
+	std::unique_ptr<PlayerPattern> m_Pattern[g_StateIndex];
 };
 
 class SacredBlastA : public PlayerPattern
 {
 public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
+	virtual ~SacredBlastA(){}
+	void Update(class Player* p)override;
 };
 
 class SacredBlastB : public PlayerPattern
 {
 public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
+	virtual ~SacredBlastB() {}
+	void Update(class Player* p)override;
 };
 
 class SacredBlastC : public PlayerPattern
 {
 public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
+	virtual ~SacredBlastC() {}
+	void Update(class Player* p)override;
 };

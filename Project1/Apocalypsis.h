@@ -8,44 +8,38 @@
 
 -----------------------------------------------*/
 #pragma once
+#include <memory>
 #include "PlayerPattern.h"
 
-class Apocalypsis : public PlayerPattern
+class Apocalypsis : public PlayerPatternManager
 {
 public:
-	Apocalypsis(StateMachine& s);
+	Apocalypsis();
 	~Apocalypsis();
-	void Update(Player* player)override;
+	void Update(Player* p)override;
 	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
-	StateMachine& m_StateMachine;
-	std::shared_ptr<StateSwitch> m_State[StateIndex]{};	// “o˜^‚·‚éƒXƒe[ƒg–¼[]
-	std::string m_Name[StateIndex]; // “o˜^–¼
-	unsigned __int32 m_Count;	// ”­“®‰ñ”
-	bool m_EnableThis;			// —LŒø‰»‚Ç‚¤‚©
+	std::unique_ptr<PlayerPattern> m_Pattern[g_StateIndex];
 };
 
 class ApocalypsisA : public PlayerPattern
 {
 public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
+	virtual ~ApocalypsisA(){}
+	void Update(class Player* p)override;
 };
 
 class ApocalypsisB : public PlayerPattern
 {
 public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
+	virtual ~ApocalypsisB() {}
+	void Update(class Player* p)override;
 };
 
 class ApocalypsisC : public PlayerPattern
 {
 public:
-	void Start()override;
-	void Update()override;
-	void ChangeEvent()override;
+	virtual ~ApocalypsisC() {}
+	void Update(class Player* p)override;
 };

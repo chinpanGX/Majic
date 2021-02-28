@@ -87,6 +87,7 @@
     <ClCompile Include="PlayerWait.cpp">
       <Filter>Player\State</Filter>
     </ClCompile>
+    <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h">
@@ -173,5 +174,6 @@
     <ClInclude Include="PlayerWait.h">
       <Filter>Player\State</Filter>
     </ClInclude>
+    <ClInclude Include="StateMachine.h" />
   </ItemGroup>
 </Project>
