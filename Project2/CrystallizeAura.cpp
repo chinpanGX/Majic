@@ -1,28 +1,31 @@
 /*-----------------------------------------------
 
-	[SacredBlast.cpp]
+	[CrystallizeAura.cpp]
 	Author : 出合翔太
 
-------------------------------------------------*/
-#include "SacredBlast.h"
-#include "Player.h"
-#include "PlayerEditer.h"
+	[説明]
+	クリスタライズオーラ
 
-SacredBlast::SacredBlast()
+-----------------------------------------------*/
+#include "CrystallizeAura.h"
+#include "PlayerEditor.h"
+#include "Player.h"
+
+CrystallizeAura::CrystallizeAura()
 {
 	m_Count = 0;
 	m_EnableThis = true;
-	m_Pattern[0] = std::make_unique<SacredBlastA>();
-	m_Pattern[1] = std::make_unique<SacredBlastB>();
-	m_Pattern[2] = std::make_unique<SacredBlastC>();
+	m_Pattern[0] = std::make_unique<CrystallizeAuraA>();
+	m_Pattern[1] = std::make_unique<CrystallizeAuraB>();
+	m_Pattern[2] = std::make_unique<CrystallizeAuraC>();
 }
 
-SacredBlast::~SacredBlast()
+CrystallizeAura::~CrystallizeAura()
 {
-	
+
 }
 
-void SacredBlast::Update(Player * p)
+void CrystallizeAura::Update(Player * p)
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
@@ -31,7 +34,7 @@ void SacredBlast::Update(Player * p)
 	}
 }
 
-void SacredBlast::IsAttackCountLimit()
+void CrystallizeAura::IsAttackCountLimit()
 {
 	if (m_Count > g_CountUpperLimit) // カウントが上限を超えたとき
 	{
@@ -45,21 +48,21 @@ void SacredBlast::IsAttackCountLimit()
 	}
 }
 
-void SacredBlastA::Update(Player * p)
+void CrystallizeAuraA::Update(Player * p)
 {
 	m_tmpAp = p->GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
 	p->GetEditer()->SetAp(m_tmpAp);
 }
 
-void SacredBlastB::Update(Player * p)
+void CrystallizeAuraB::Update(Player * p)
 {
 	m_tmpAp = p->GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
 	p->GetEditer()->SetAp(m_tmpAp);
 }
 
-void SacredBlastC::Update(Player * p)
+void CrystallizeAuraC::Update(Player * p)
 {
 	m_tmpAp = p->GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;

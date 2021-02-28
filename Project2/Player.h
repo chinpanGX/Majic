@@ -24,13 +24,13 @@ public:
 	{
 		return m_Controller;
 	}
-	std::shared_ptr<class PlayerEditer> GetEditer()const
+	std::shared_ptr<class PlayerEditor> GetEditer()const
 	{
-		return m_Editer;
+		return m_Editor;
 	}
 	
 private:
 	std::shared_ptr<class PlayerController> m_Controller; // “ü—Íˆ—‚ğŠÇ—
-	std::shared_ptr<class PlayerEditer> m_Editer; //
+	std::shared_ptr<class PlayerEditor> m_Editor; //
 };
 

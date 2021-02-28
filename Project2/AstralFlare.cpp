@@ -1,31 +1,31 @@
 /*-----------------------------------------------
 
-	[CrystallizeAura.cpp]
+	[AstralFlare.cpp]
 	Author : 出合翔太
 
 	[説明]
-	クリスタライズオーラ
+	アストラルフレアの処理
 
------------------------------------------------*/
-#include "CrystallizeAura.h"
-#include "PlayerEditer.h"
+------------------------------------------------*/
+#include "AstralFlare.h"
 #include "Player.h"
+#include "PlayerEditor.h"
 
-CrystallizeAura::CrystallizeAura()
+AstralFlare::AstralFlare()
 {
 	m_Count = 0;
 	m_EnableThis = true;
-	m_Pattern[0] = std::make_unique<CrystallizeAuraA>();
-	m_Pattern[1] = std::make_unique<CrystallizeAuraB>();
-	m_Pattern[2] = std::make_unique<CrystallizeAuraC>();
+	m_Pattern[0] = std::make_unique<AstralFlareA>();
+	m_Pattern[1] = std::make_unique<AstralFlareB>();
+	m_Pattern[2] = std::make_unique<AstralFlareC>();
 }
 
-CrystallizeAura::~CrystallizeAura()
+AstralFlare::~AstralFlare()
 {
 
 }
 
-void CrystallizeAura::Update(Player * p)
+void AstralFlare::Update(Player * p)
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
@@ -34,7 +34,7 @@ void CrystallizeAura::Update(Player * p)
 	}
 }
 
-void CrystallizeAura::IsAttackCountLimit()
+void AstralFlare::IsAttackCountLimit()
 {
 	if (m_Count > g_CountUpperLimit) // カウントが上限を超えたとき
 	{
@@ -48,21 +48,21 @@ void CrystallizeAura::IsAttackCountLimit()
 	}
 }
 
-void CrystallizeAuraA::Update(Player * p)
+void AstralFlareA::Update(Player * p)
 {
 	m_tmpAp = p->GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
 	p->GetEditer()->SetAp(m_tmpAp);
 }
 
-void CrystallizeAuraB::Update(Player * p)
+void AstralFlareB::Update(Player * p)
 {
 	m_tmpAp = p->GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
 	p->GetEditer()->SetAp(m_tmpAp);
 }
 
-void CrystallizeAuraC::Update(Player * p)
+void AstralFlareC::Update(Player * p)
 {
 	m_tmpAp = p->GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;

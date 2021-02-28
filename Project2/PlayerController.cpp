@@ -14,7 +14,7 @@
 #include "SacredBlast.h"
 #include "Apocalypsis.h"
 #include "AstralFlare.h"
-#include "PlayerEditer.h"
+#include "PlayerEditor.h"
 #include "PlayerNormalAttack.h"
 #include "PlayerGurad.h"
 #include "PlayerWait.h"

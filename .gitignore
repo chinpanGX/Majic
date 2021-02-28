@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 Project1/Book1.xlsx
+Project2/Asset/

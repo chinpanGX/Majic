@@ -1,31 +1,31 @@
-/*-----------------------------------------------
+/*----------------------------------------------
 
-	[AstralFlare.cpp]
+	[Apocalypsis.cpp]
 	Author : 出合翔太
 
 	[説明]
-	アストラルフレアの処理
+	アポカリプスの処理
 
-------------------------------------------------*/
-#include "AstralFlare.h"
+-----------------------------------------------*/
+#include "Apocalypsis.h"
 #include "Player.h"
-#include "PlayerEditer.h"
+#include "PlayerEditor.h"
 
-AstralFlare::AstralFlare()
+Apocalypsis::Apocalypsis()
 {
 	m_Count = 0;
 	m_EnableThis = true;
-	m_Pattern[0] = std::make_unique<AstralFlareA>();
-	m_Pattern[1] = std::make_unique<AstralFlareB>();
-	m_Pattern[2] = std::make_unique<AstralFlareC>();
+	m_Pattern[0] = std::make_unique<ApocalypsisA>();
+	m_Pattern[1] = std::make_unique<ApocalypsisB>();
+	m_Pattern[2] = std::make_unique<ApocalypsisC>();
 }
 
-AstralFlare::~AstralFlare()
+Apocalypsis::~Apocalypsis()
 {
-
+	
 }
 
-void AstralFlare::Update(Player * p)
+void Apocalypsis::Update(Player * p)
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
@@ -34,7 +34,7 @@ void AstralFlare::Update(Player * p)
 	}
 }
 
-void AstralFlare::IsAttackCountLimit()
+void Apocalypsis::IsAttackCountLimit()
 {
 	if (m_Count > g_CountUpperLimit) // カウントが上限を超えたとき
 	{
@@ -48,21 +48,21 @@ void AstralFlare::IsAttackCountLimit()
 	}
 }
 
-void AstralFlareA::Update(Player * p)
+void ApocalypsisA::Update(Player * p)
 {
 	m_tmpAp = p->GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
 	p->GetEditer()->SetAp(m_tmpAp);
 }
 
-void AstralFlareB::Update(Player * p)
+void ApocalypsisB::Update(Player * p)
 {
 	m_tmpAp = p->GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
 	p->GetEditer()->SetAp(m_tmpAp);
 }
 
-void AstralFlareC::Update(Player * p)
+void ApocalypsisC::Update(Player * p)
 {
 	m_tmpAp = p->GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
