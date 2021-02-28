@@ -8,6 +8,7 @@
 
 --------------------------------------------------------------*/
 #pragma once
+#include <memory>
 
 class PlayerController
 {
@@ -28,5 +29,5 @@ private:
 	void SetPattern(const class Player& p);
 	void ChangePattern(class PlayerPatternManager* p);
 
-	class PlayerPatternManager* m_pPattern;
+	std::unique_ptr<PlayerPatternManager> m_pPattern;
 };

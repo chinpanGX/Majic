@@ -1,7 +1,7 @@
 #include "PlayerEditor.h"
 
 
-PlayerEditor::PlayerEditor() : m_MaxWaitTime(60), m_MaxAp(30), m_Waittime(10), m_ActionPoint(30), m_IsAction(false)
+PlayerEditor::PlayerEditor() : m_MaxWaitTime(60), m_MaxAp(100), m_Waittime(10), m_ActionPoint(100), m_IsAction(false)
 {
 	
 }
