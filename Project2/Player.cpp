@@ -10,7 +10,7 @@
 
 void Player::Init()
 {
-	m_Controller = std::make_shared<PlayerController>(this);
+	m_Controller = std::make_shared<PlayerController>();
 	m_Editor = std::make_shared<PlayerEditor>();
 }
 
@@ -20,7 +20,7 @@ void Player::Uninit()
 
 void Player::Update()
 {
-	m_Controller->Update(this);
+	m_Controller->Update(*this);
 	//m_Editor->Update();
 }
 

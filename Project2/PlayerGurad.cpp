@@ -11,12 +11,12 @@ PlayerGurad::~PlayerGurad()
 {
 }
 
-void PlayerGurad::Update(Player* p)
+void PlayerGurad::Update(const Player& p)
 {
 	m_Guard->Update(p);
 }
 
-void PlayerGuardPattern::Update(Player* p)
+void PlayerGuardPattern::Update(const Player& p)
 {
 }
 

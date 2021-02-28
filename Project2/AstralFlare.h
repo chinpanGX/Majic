@@ -17,7 +17,7 @@ class AstralFlare : public PlayerPatternManager
 public:
 	AstralFlare();
 	~AstralFlare();
-	void Update(class Player* p)override;
+	void Update(const class Player& p)override;
 	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
@@ -28,7 +28,7 @@ class AstralFlareA : public PlayerPattern
 {
 public:
 	virtual ~AstralFlareA(){}
-	void Update(class Player* p)override;
+	void Update(const class Player& p)override;
 private:
 	const unsigned __int32 m_CostAp = 5;
 };
@@ -37,7 +37,7 @@ class AstralFlareB : public PlayerPattern
 {
 public:
 	virtual ~AstralFlareB() {}
-	void Update(class Player* p)override;
+	void Update(const class Player& p)override;
 private:
 	const unsigned __int32 m_CostAp = 5;
 };
@@ -46,7 +46,7 @@ class AstralFlareC : public PlayerPattern
 {
 public:
 	virtual ~AstralFlareC() {}
-	void Update(class Player* p)override;
+	void Update(const class Player& p)override;
 private:
 	const unsigned __int32 m_CostAp = 5;
 };

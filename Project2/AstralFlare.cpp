@@ -25,7 +25,7 @@ AstralFlare::~AstralFlare()
 
 }
 
-void AstralFlare::Update(Player * p)
+void AstralFlare::Update(const Player& p)
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
@@ -48,23 +48,23 @@ void AstralFlare::IsAttackCountLimit()
 	}
 }
 
-void AstralFlareA::Update(Player * p)
+void AstralFlareA::Update(const Player& p)
 {
-	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = p.GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
-	p->GetEditer()->SetAp(m_tmpAp);
+	p.GetEditer()->SetAp(m_tmpAp);
 }
 
-void AstralFlareB::Update(Player * p)
+void AstralFlareB::Update(const Player& p)
 {
-	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = p.GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
-	p->GetEditer()->SetAp(m_tmpAp);
+	p.GetEditer()->SetAp(m_tmpAp);
 }
 
-void AstralFlareC::Update(Player * p)
+void AstralFlareC::Update(const Player& p)
 {
-	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = p.GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
-	p->GetEditer()->SetAp(m_tmpAp);
+	p.GetEditer()->SetAp(m_tmpAp);
 }

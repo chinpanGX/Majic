@@ -13,12 +13,12 @@ PlayerWait::~PlayerWait()
 	
 }
 
-void PlayerWait::Update(Player* p)
+void PlayerWait::Update(const Player& p)
 {
 	m_Wait->Update(p);
 }
 
-void PlayerWaitPattern::Update(Player* p)
+void PlayerWaitPattern::Update(const Player& p)
 {
-	p->Update();
+	
 }

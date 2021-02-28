@@ -25,7 +25,7 @@ Apocalypsis::~Apocalypsis()
 	
 }
 
-void Apocalypsis::Update(Player * p)
+void Apocalypsis::Update(const Player& p)
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
@@ -48,23 +48,23 @@ void Apocalypsis::IsAttackCountLimit()
 	}
 }
 
-void ApocalypsisA::Update(Player * p)
+void ApocalypsisA::Update(const Player& p)
 {
-	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = p.GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
-	p->GetEditer()->SetAp(m_tmpAp);
+	p.GetEditer()->SetAp(m_tmpAp);
 }
 
-void ApocalypsisB::Update(Player * p)
+void ApocalypsisB::Update(const Player& p)
 {
-	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = p.GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
-	p->GetEditer()->SetAp(m_tmpAp);
+	p.GetEditer()->SetAp(m_tmpAp);
 }
 
-void ApocalypsisC::Update(Player * p)
+void ApocalypsisC::Update(const Player& p)
 {
-	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = p.GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
-	p->GetEditer()->SetAp(m_tmpAp);
+	p.GetEditer()->SetAp(m_tmpAp);
 }

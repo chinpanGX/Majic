@@ -18,7 +18,7 @@ NormalAttack::~NormalAttack()
 
 }
 
-void NormalAttack::Update(Player* p)
+void NormalAttack::Update(const Player& p)
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
@@ -41,14 +41,14 @@ void NormalAttack::IsAttackCountLimit()
 	}
 }
 
-void PlayerAttackA::Update(Player* p)
+void PlayerAttackA::Update(const Player& p)
 {
 }
 
-void PlayerAttackB::Update(Player* p)
+void PlayerAttackB::Update(const Player& p)
 {
 }
 
-void PlayerAttackC::Update(Player* p)
+void PlayerAttackC::Update(const Player& p)
 {
 }

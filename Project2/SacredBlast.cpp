@@ -22,7 +22,7 @@ SacredBlast::~SacredBlast()
 	
 }
 
-void SacredBlast::Update(Player * p)
+void SacredBlast::Update(const Player& p)
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
@@ -45,23 +45,23 @@ void SacredBlast::IsAttackCountLimit()
 	}
 }
 
-void SacredBlastA::Update(Player * p)
+void SacredBlastA::Update(const Player& p)
 {
-	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = p.GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
-	p->GetEditer()->SetAp(m_tmpAp);
+	p.GetEditer()->SetAp(m_tmpAp);
 }
 
-void SacredBlastB::Update(Player * p)
+void SacredBlastB::Update(const Player& p)
 {
-	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = p.GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
-	p->GetEditer()->SetAp(m_tmpAp);
+	p.GetEditer()->SetAp(m_tmpAp);
 }
 
-void SacredBlastC::Update(Player * p)
+void SacredBlastC::Update(const Player& p)
 {
-	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = p.GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
-	p->GetEditer()->SetAp(m_tmpAp);
+	p.GetEditer()->SetAp(m_tmpAp);
 }

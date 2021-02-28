@@ -25,7 +25,7 @@ CrystallizeAura::~CrystallizeAura()
 
 }
 
-void CrystallizeAura::Update(Player * p)
+void CrystallizeAura::Update(const Player& p)
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
@@ -48,23 +48,23 @@ void CrystallizeAura::IsAttackCountLimit()
 	}
 }
 
-void CrystallizeAuraA::Update(Player * p)
+void CrystallizeAuraA::Update(const Player& p)
 {
-	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = p.GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
-	p->GetEditer()->SetAp(m_tmpAp);
+	p.GetEditer()->SetAp(m_tmpAp);
 }
 
-void CrystallizeAuraB::Update(Player * p)
+void CrystallizeAuraB::Update(const Player& p)
 {
-	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = p.GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
-	p->GetEditer()->SetAp(m_tmpAp);
+	p.GetEditer()->SetAp(m_tmpAp);
 }
 
-void CrystallizeAuraC::Update(Player * p)
+void CrystallizeAuraC::Update(const Player& p)
 {
-	m_tmpAp = p->GetEditer()->GetAp();
+	m_tmpAp = p.GetEditer()->GetAp();
 	m_tmpAp = m_tmpAp - m_CostAp;
-	p->GetEditer()->SetAp(m_tmpAp);
+	p.GetEditer()->SetAp(m_tmpAp);
 }

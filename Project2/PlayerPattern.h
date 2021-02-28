@@ -16,7 +16,7 @@ class PlayerPatternManager
 {
 public:
 	virtual ~PlayerPatternManager(){}
-	virtual void Update(class Player* p) = 0;
+	virtual void Update(const class Player& p) = 0;
 	bool GetEnable() { return m_EnableThis; }
 protected:
 	unsigned __int32 m_Count;	// ”­“®‰ñ”
@@ -27,7 +27,7 @@ class PlayerPattern
 {
 public:
 	virtual ~PlayerPattern() {}
-	virtual void Update(class Player* p) = 0;
+	virtual void Update(const class Player& p) = 0;
 protected:
 	unsigned __int32 m_tmpAp; // AP‚ğˆê•Û‘¶
 };
@@ -36,5 +36,5 @@ class PlayerPatternNone : public PlayerPattern
 {
 public:
 	virtual ~PlayerPatternNone(){}
-	virtual void Update(class Player* p)override{}
+	virtual void Update(const class Player& p)override{}
 };

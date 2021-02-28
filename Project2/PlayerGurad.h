@@ -7,7 +7,7 @@ class PlayerGurad : public PlayerPatternManager
 public:
 	PlayerGurad();
 	~PlayerGurad();
-	void Update(class Player* p);
+	void Update(const class Player& p);
 private:
 	std::unique_ptr<class PlayerGuardPattern> m_Guard;
 };
@@ -15,5 +15,5 @@ private:
 class PlayerGuardPattern : public PlayerPattern
 {
 public:
-	void Update(class Player* p)override;
+	void Update(const class Player& p)override;
 };
