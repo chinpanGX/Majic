@@ -11,11 +11,13 @@
 #include "GameScene.h"
 #include "Manager.h"
 #include "Player.h"
+#include "ObjectPool.h"
 
 void GameManager::Init()
 {
 	srand((unsigned int)time(NULL));
 	m_Manager.Init();
+	ObjectPool::Init();
 	m_Fade.Init();
 	SetScene<GameScene::Title>();
 	m_Fade.m_State = m_Fade.E_IN;
@@ -25,6 +27,7 @@ void GameManager::Init()
 void GameManager::Uninit()
 {
 	m_Fade.Uninit();
+	ObjectPool::Uninit();
 	m_Scene->Uninit();
 	delete m_Scene;
 }

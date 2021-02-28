@@ -43,8 +43,8 @@ void PlayerController::Update(Player * player)
 	}
 	else
 	{
-		ChangePattern(m_pPattern);
-		SetPattern<PlayerWait>(player);
+		//ChangePattern(m_pPattern);
+		//SetPattern<PlayerWait>(player);
 	}
 	m_pPattern->Update(player);
 }

@@ -1,4 +1,5 @@
 #include "Renderer.h"
+#include "ObjectPool.h"
 
 void Renderer::Init()
 {
@@ -47,7 +48,7 @@ void Renderer::Draw(ID3D11ShaderResourceView * texture, D3DXVECTOR2 drawPosition
 	m_Dx.SetLight(light);
 
 	D3D11_MAPPED_SUBRESOURCE msr;
-	m_Dx.GetDeviceContext()->Map(m_VertexBuffer.Get(), 0, D3D11_MAP_WRITE_DISCARD, 0, &msr);
+	m_Dx.GetDeviceContext()->Map(m_VertexBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &msr);
 
 	DirectX11::Vertex* vertex = (DirectX11::Vertex*)msr.pData;
 
@@ -71,14 +72,13 @@ void Renderer::Draw(ID3D11ShaderResourceView * texture, D3DXVECTOR2 drawPosition
 	vertex[3].Diffuse = D3DXVECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
 	vertex[3].TexCoord = texDownRight;
 
-	m_Dx.GetDeviceContext()->Unmap(m_VertexBuffer.Get(), 0);
+	m_Dx.GetDeviceContext()->Unmap(m_VertexBuffer, 0);
 
-	/*
+	
 	// シェーダーの設定
-	Engine::ObjectPool::SetInputLayout(m_Dx, Prefabs::VertexShader::DEFAULT);
-	Engine::ObjectPool::SetVertexShader(m_Dx, Prefabs::VertexShader::DEFAULT);
-	Engine::ObjectPool::SetPixelShader(m_Dx, Prefabs::PixelShader::DEFAULT);
-	*/
+	ObjectPool::SetInputLayout(m_Dx, Prefabs::VertexShader::DEFAULT);
+	ObjectPool::SetVertexShader(m_Dx, Prefabs::VertexShader::DEFAULT);
+	ObjectPool::SetPixelShader(m_Dx, Prefabs::PixelShader::DEFAULT);
 
 	//マトリクス設定
 	m_Dx.SetWorldViewProjection2D();

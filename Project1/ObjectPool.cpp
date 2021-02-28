@@ -41,18 +41,18 @@ void ObjectPool::Draw(DirectX11::Manager & dx, unsigned __int32 Id)
 	//m_Model ->GetModel(Id)->Draw(dx);
 }
 
-ID3D11ShaderResourceView * ObjectPool::GetTexture(unsigned int Id)
+ID3D11ShaderResourceView * ObjectPool::GetTexture(unsigned __int32 Id)
 {
 	return m_Texture->GetTexture(Id);
 }
 
-void ObjectPool::SetTexture(DirectX11::Manager & dx, int slot, unsigned int Id)
+void ObjectPool::SetTexture(DirectX11::Manager & dx, int slot, unsigned __int32 Id)
 {
 	ID3D11ShaderResourceView* t = m_Texture->GetTexture(Id);
 	dx.GetDeviceContext()->PSSetShaderResources(slot, 1, &t);
 }
 
-void ObjectPool::SetVertexShader(DirectX11::Manager & dx, unsigned int Id)
+void ObjectPool::SetVertexShader(DirectX11::Manager & dx, unsigned __int32 Id)
 {
 	dx.GetDeviceContext()->VSSetShader(m_VertexShader->GetVertexShader(Id), NULL, 0);
 }

@@ -21,6 +21,7 @@ void Player::Uninit()
 void Player::Update()
 {
 	m_Controller->Update(this);
+	m_Editer->Update();
 }
 
 void Player::Draw()
