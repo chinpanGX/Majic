@@ -21,7 +21,7 @@
 
 PlayerController::PlayerController()
 {
-	m_pPattern = std::make_unique<PlayerWait>();
+	m_pPattern =  new PlayerWait;
 }
 
 PlayerController::~PlayerController()
@@ -64,8 +64,8 @@ void PlayerController::Attack(const Player&  p)
 {
 	if (GamePad::IsTrigger(0, BTN_2))
 	{
-		ChangePattern(m_pPattern.release());
-		SetPattern<NormalAttack>(p);
+		ChangePattern(m_pPattern);
+		SetPattern<NormalAttack>();
 	}
 }
 
@@ -73,8 +73,8 @@ void PlayerController::Guard(const Player&  p)
 {
 	if (GamePad::IsTrigger(0, BTN_1))
 	{
-		ChangePattern(m_pPattern.release());
-		SetPattern<PlayerGurad>(p);
+		ChangePattern(m_pPattern);
+		SetPattern<PlayerGurad>();
 	}
 }
 
@@ -82,8 +82,8 @@ void PlayerController::Skill_1(const Player&  p)
 {
 	if (IsSkillSelection() == true && GamePad::IsTrigger(0, BTN_1))
 	{
-		ChangePattern(m_pPattern.release());
-		SetPattern<SacredBlast>(p);
+		ChangePattern(m_pPattern);
+		SetPattern<SacredBlast>();
 	}
 }
 
@@ -91,8 +91,8 @@ void PlayerController::Skill_2(const Player&  p)
 {
 	if (IsSkillSelection() == true && GamePad::IsTrigger(0, BTN_2))
 	{
-		ChangePattern(m_pPattern.release());
-		SetPattern<AstralFlare>(p);
+		ChangePattern(m_pPattern);
+		SetPattern<AstralFlare>();
 	}
 }
 
@@ -100,8 +100,8 @@ void PlayerController::Skill_3(const Player&  p)
 {
 	if (IsSkillSelection() == true && GamePad::IsTrigger(0, BTN_4))
 	{
-		ChangePattern(m_pPattern.release());
-		SetPattern<Apocalypsis>(p);
+		ChangePattern(m_pPattern);
+		SetPattern<Apocalypsis>();
 	}
 }
 
@@ -109,15 +109,15 @@ void PlayerController::Skill_4(const Player&  p)
 {
 	if (IsSkillSelection() == true && GamePad::IsTrigger(0, BTN_3))
 	{
-		ChangePattern(m_pPattern.release());
-		SetPattern<CrystallizeAura>(p);
+		ChangePattern(m_pPattern);
+		SetPattern<CrystallizeAura>();
 	}
 }
 
 template<typename T>
-void PlayerController::SetPattern(const Player& p)
+void PlayerController::SetPattern()
 {
-	m_pPattern = std::make_unique<T>(p);
+	m_pPattern = new T;
 }
 
 void PlayerController::ChangePattern(PlayerPatternManager* p)

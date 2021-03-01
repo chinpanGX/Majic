@@ -5,12 +5,12 @@
 
 PlayerWait::PlayerWait()
 {
-	m_Wait = std::make_unique<PlayerWaitPattern>();
+	m_Wait = new PlayerWaitPattern;
 }
 
 PlayerWait::~PlayerWait()
 {
-	
+	delete m_Wait;
 }
 
 void PlayerWait::Update(const Player& p)

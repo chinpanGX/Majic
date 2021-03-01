@@ -26,8 +26,8 @@ private:
 	void Skill_4(const class Player& player);	// ƒXƒLƒ‹‚S R1{~
 	
 	template<typename T>
-	void SetPattern(const class Player& p);
+	void SetPattern();
 	void ChangePattern(class PlayerPatternManager* p);
 
-	std::unique_ptr<PlayerPatternManager> m_pPattern;
+	class PlayerPatternManager* m_pPattern;
 };

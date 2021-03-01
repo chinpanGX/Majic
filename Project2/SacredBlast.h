@@ -22,7 +22,7 @@ public:
 	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
-	std::vector<std::unique_ptr<PlayerPattern>> m_Pattern;
+	std::vector<PlayerPattern*> m_Pattern;
 };
 
 class SacredBlastA : public PlayerPattern

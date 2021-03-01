@@ -15,14 +15,16 @@ AstralFlare::AstralFlare()
 {
 	m_Count = 0;
 	m_EnableThis = true;
-	m_Pattern[0] = std::make_unique<AstralFlareA>();
-	m_Pattern[1] = std::make_unique<AstralFlareB>();
-	m_Pattern[2] = std::make_unique<AstralFlareC>();
+	m_Pattern[0] = new AstralFlareA;
+	m_Pattern[1] = new AstralFlareB;
+	m_Pattern[2] = new AstralFlareC;
 }
 
 AstralFlare::~AstralFlare()
 {
-
+	delete m_Pattern[2];
+	delete m_Pattern[1];
+	delete m_Pattern[0];
 }
 
 void AstralFlare::Update(const Player& p)

@@ -12,14 +12,16 @@ SacredBlast::SacredBlast()
 {
 	m_Count = 0;
 	m_EnableThis = true;
-	m_Pattern[0] = std::make_unique<SacredBlastA>();
-	m_Pattern[1] = std::make_unique<SacredBlastB>();
-	m_Pattern[2] = std::make_unique<SacredBlastC>();
+	m_Pattern[0] = new SacredBlastA;
+	m_Pattern[1] = new SacredBlastB;
+	m_Pattern[2] = new SacredBlastC;
 }
 
 SacredBlast::~SacredBlast()
 {
-	
+	delete m_Pattern[2];
+	delete m_Pattern[1];
+	delete m_Pattern[0];
 }
 
 void SacredBlast::Update(const Player& p)

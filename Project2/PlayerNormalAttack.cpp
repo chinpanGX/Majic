@@ -8,14 +8,16 @@ NormalAttack::NormalAttack()
 {
 	m_Count = 0;
 	m_EnableThis = true;
-	m_Pattern[0] = std::make_unique<PlayerAttackA>();
-	m_Pattern[1] = std::make_unique<PlayerAttackB>();
-	m_Pattern[2] = std::make_unique<PlayerAttackC>();
+	m_Pattern[0] = new PlayerAttackA;
+	m_Pattern[1] = new PlayerAttackB;
+	m_Pattern[2] = new PlayerAttackC;
 }
 
 NormalAttack::~NormalAttack()
 {
-
+	delete m_Pattern[2];
+	delete m_Pattern[1];
+	delete m_Pattern[0];
 }
 
 void NormalAttack::Update(const Player& p)

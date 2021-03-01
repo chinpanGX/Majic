@@ -15,14 +15,16 @@ CrystallizeAura::CrystallizeAura()
 {
 	m_Count = 0;
 	m_EnableThis = true;
-	m_Pattern[0] = std::make_unique<CrystallizeAuraA>();
-	m_Pattern[1] = std::make_unique<CrystallizeAuraB>();
-	m_Pattern[2] = std::make_unique<CrystallizeAuraC>();
+	m_Pattern[0] = new CrystallizeAuraA;
+	m_Pattern[1] = new CrystallizeAuraB;
+	m_Pattern[2] = new CrystallizeAuraC;
 }
 
 CrystallizeAura::~CrystallizeAura()
 {
-
+	delete m_Pattern[2];
+	delete m_Pattern[1];
+	delete m_Pattern[0];
 }
 
 void CrystallizeAura::Update(const Player& p)

@@ -10,7 +10,7 @@ public:
 	~PlayerWait();
 	void Update(const class Player& p)override;
 private:
-	std::unique_ptr<class PlayerWaitPattern> m_Wait;
+	class PlayerWaitPattern* m_Wait;
 };
 
 class PlayerWaitPattern : public PlayerPattern

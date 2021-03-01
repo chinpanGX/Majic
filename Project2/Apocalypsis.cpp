@@ -15,14 +15,16 @@ Apocalypsis::Apocalypsis()
 {
 	m_Count = 0;
 	m_EnableThis = true;
-	m_Pattern[0] = std::make_unique<ApocalypsisA>();
-	m_Pattern[1] = std::make_unique<ApocalypsisB>();
-	m_Pattern[2] = std::make_unique<ApocalypsisC>();
+	m_Pattern[0] = new ApocalypsisA;
+	m_Pattern[1] = new ApocalypsisB;
+	m_Pattern[2] = new ApocalypsisC;
 }
 
 Apocalypsis::~Apocalypsis()
 {
-	
+	delete m_Pattern[2];
+	delete m_Pattern[1];
+	delete m_Pattern[0];
 }
 
 void Apocalypsis::Update(const Player& p)
