@@ -21,10 +21,12 @@ public:
 	void Update()override;
 	void Draw()override;
 	// APを増加
-	void Ap_Increase(__int32 ap) { m_ActionPoint += ap; }
+	void Ap_Add(__int32 ap) { m_ActionPoint += ap; }
 	// APを消費
 	void AP_Comsume(__int32 ap) { m_ActionPoint -= ap; }
 	
+	//　待ち時間の追加
+	void WaitTime_Add(__int32 wait) { m_WaitTime += wait; }
 	
 	const std::shared_ptr<class PlayerController> GetController()const { return m_Controller; }
 	
@@ -47,7 +49,6 @@ private:
 	__int32 m_ActionPoint; // Ap
 	__int32 m_MaxAp;		// APの最大値
 
-	__int32 m_Waittime;		// 行動できない時間
 	__int32 m_MaxWaitTime;	// 待ち時間の最大値
 };
 

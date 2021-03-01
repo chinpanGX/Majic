@@ -47,9 +47,9 @@ void AstralFlare::Update(Player* p)
 				break;
 			}
 			break;
-		case 3:
+		/*case 3:
 			SetPattern<AstralFlareC>(5);
-			break;
+			break;*/
 		}
 	}
 }

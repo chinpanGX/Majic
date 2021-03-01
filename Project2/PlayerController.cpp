@@ -33,7 +33,7 @@ void PlayerController::Update(Player* p)
 	if (p->GetIsAction() == true)
 	{
 		IsSkillSelection();
-		//Attack(p);
+		Attack(p);
 		Guard(p);
 		Skill_1(p);
 		Skill_2(p);

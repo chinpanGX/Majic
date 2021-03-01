@@ -7,8 +7,9 @@
 #include "Player.h"
 #include "PlayerController.h"
 
-Player::Player() : m_MaxWaitTime(60), m_MaxAp(30), m_Waittime(10), m_ActionPoint(5), m_IsAction(false)
+Player::Player() : m_MaxWaitTime(60), m_MaxAp(30), m_ActionPoint(5), m_IsAction(false)
 {
+	m_WaitTime = 10;
 }
 
 void Player::Init()
@@ -23,7 +24,7 @@ void Player::Uninit()
 void Player::Update()
 {
 	m_Controller->Update(this);
-	m_Waittime--;
+	m_WaitTime--;
 	// APが最大値を超えないように最大値で固定
 	if (m_ActionPoint > m_MaxAp)
 	{
@@ -31,16 +32,16 @@ void Player::Update()
 	}
 
 	// 待ち時間が最大値を超えないように最大値で固定
-	if (m_Waittime > m_MaxWaitTime)
+	if (m_WaitTime > m_MaxWaitTime)
 	{
-		m_Waittime = m_MaxWaitTime;
+		m_WaitTime = m_MaxWaitTime;
 	}
 
 	// 待ち時間が0になったら行動できる
-	if (m_Waittime <= 0)
+	if (m_WaitTime <= 0)
 	{
 		m_IsAction = true;
-		m_Waittime = 0;
+		m_WaitTime = 0;
 	}
 	else
 	{
