@@ -17,7 +17,7 @@ class Apocalypsis : public PlayerPatternManager
 public:
 	Apocalypsis();
 	~Apocalypsis();
-	void Update(const class Player& p)override;
+	void Update(class Player* p)override;
 	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // çUåÇâÒêîÇ≈óLå¯Ç©Ç«Ç§Ç©í≤Ç◊ÇÈ
@@ -28,7 +28,7 @@ class ApocalypsisA : public PlayerPattern
 {
 public:
 	virtual ~ApocalypsisA(){}
-	void Update(const class Player& p)override;
+	void Update(class Player* p)override;
 private:
 	const unsigned __int32 m_CostAp = 5;
 };
@@ -37,7 +37,7 @@ class ApocalypsisB : public PlayerPattern
 {
 public:
 	virtual ~ApocalypsisB() {}
-	void Update(const class Player& p)override;
+	void Update(class Player* p)override;
 private:
 	const unsigned __int32 m_CostAp = 5;
 };
@@ -46,7 +46,7 @@ class ApocalypsisC : public PlayerPattern
 {
 public:
 	virtual ~ApocalypsisC() {}
-	void Update(const class Player& p)override;
+	void Update(class Player* p)override;
 private:
 	const unsigned __int32 m_CostAp = 5;
 };

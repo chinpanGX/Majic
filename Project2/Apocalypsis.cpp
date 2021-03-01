@@ -9,7 +9,6 @@
 -----------------------------------------------*/
 #include "Apocalypsis.h"
 #include "Player.h"
-#include "PlayerEditor.h"
 
 Apocalypsis::Apocalypsis()
 {
@@ -27,7 +26,7 @@ Apocalypsis::~Apocalypsis()
 	delete m_Pattern[0];
 }
 
-void Apocalypsis::Update(const Player& p)
+void Apocalypsis::Update(Player* p)
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
@@ -50,23 +49,17 @@ void Apocalypsis::IsAttackCountLimit()
 	}
 }
 
-void ApocalypsisA::Update(const Player& p)
+void ApocalypsisA::Update(Player* p)
 {
-	m_tmpAp = p.GetEditer()->GetAp();
-	m_tmpAp = m_tmpAp - m_CostAp;
-	p.GetEditer()->SetAp(m_tmpAp);
+	p->AP_Comsume(m_CostAp);
 }
 
-void ApocalypsisB::Update(const Player& p)
+void ApocalypsisB::Update(Player* p)
 {
-	m_tmpAp = p.GetEditer()->GetAp();
-	m_tmpAp = m_tmpAp - m_CostAp;
-	p.GetEditer()->SetAp(m_tmpAp);
+	p->AP_Comsume(m_CostAp);
 }
 
-void ApocalypsisC::Update(const Player& p)
+void ApocalypsisC::Update(Player* p)
 {
-	m_tmpAp = p.GetEditer()->GetAp();
-	m_tmpAp = m_tmpAp - m_CostAp;
-	p.GetEditer()->SetAp(m_tmpAp);
+	p->AP_Comsume(m_CostAp);
 }

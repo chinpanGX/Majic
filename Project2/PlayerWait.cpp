@@ -1,7 +1,7 @@
 
 #include "PlayerWait.h"
 #include "Player.h"
-#include "PlayerEditor.h"
+
 
 PlayerWait::PlayerWait()
 {
@@ -13,12 +13,12 @@ PlayerWait::~PlayerWait()
 	delete m_Wait;
 }
 
-void PlayerWait::Update(const Player& p)
+void PlayerWait::Update(Player* p)
 {
 	m_Wait->Update(p);
 }
 
-void PlayerWaitPattern::Update(const Player& p)
+void PlayerWaitPattern::Update(Player* p)
 {
 	
 }

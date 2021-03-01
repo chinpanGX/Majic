@@ -6,7 +6,6 @@
 ------------------------------------------------*/
 #include "SacredBlast.h"
 #include "Player.h"
-#include "PlayerEditor.h"
 
 SacredBlast::SacredBlast()
 {
@@ -24,7 +23,7 @@ SacredBlast::~SacredBlast()
 	delete m_Pattern[0];
 }
 
-void SacredBlast::Update(const Player& p)
+void SacredBlast::Update(Player* p)
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
@@ -47,23 +46,18 @@ void SacredBlast::IsAttackCountLimit()
 	}
 }
 
-void SacredBlastA::Update(const Player& p)
+void SacredBlastA::Update(Player* p)
 {
-	m_tmpAp = p.GetEditer()->GetAp();
-	m_tmpAp = m_tmpAp - m_CostAp;
-	p.GetEditer()->SetAp(m_tmpAp);
+	p->AP_Comsume(m_CostAp);
 }
 
-void SacredBlastB::Update(const Player& p)
+void SacredBlastB::Update(Player* p)
 {
-	m_tmpAp = p.GetEditer()->GetAp();
-	m_tmpAp = m_tmpAp - m_CostAp;
-	p.GetEditer()->SetAp(m_tmpAp);
+	p->AP_Comsume(m_CostAp);
 }
 
-void SacredBlastC::Update(const Player& p)
+void SacredBlastC::Update(Player* p)
 {
-	m_tmpAp = p.GetEditer()->GetAp();
-	m_tmpAp = m_tmpAp - m_CostAp;
-	p.GetEditer()->SetAp(m_tmpAp);
+	p->AP_Comsume(m_CostAp);
+
 }

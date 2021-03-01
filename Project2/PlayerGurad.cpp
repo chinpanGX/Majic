@@ -1,6 +1,5 @@
 #include "PlayerGurad.h"
 #include "Player.h"
-#include "PlayerEditor.h"
 
 PlayerGurad::PlayerGurad()
 {
@@ -11,12 +10,12 @@ PlayerGurad::~PlayerGurad()
 {
 }
 
-void PlayerGurad::Update(const Player& p)
+void PlayerGurad::Update(Player* p)
 {
 	m_Guard->Update(p);
 }
 
-void PlayerGuardPattern::Update(const Player& p)
+void PlayerGuardPattern::Update(Player* p)
 {
 }
 

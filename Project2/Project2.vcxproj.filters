@@ -42,9 +42,6 @@
     <ClInclude Include="PlayerController.h">
       <Filter>Player</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerEditor.h">
-      <Filter>Player</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerPattern.h">
       <Filter>Player</Filter>
     </ClInclude>
@@ -126,9 +123,6 @@
       <Filter>Player</Filter>
     </ClCompile>
     <ClCompile Include="PlayerController.cpp">
-      <Filter>Player</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerEditor.cpp">
       <Filter>Player</Filter>
     </ClCompile>
     <ClCompile Include="Apocalypsis.cpp">

@@ -10,43 +10,53 @@
 #pragma once
 #include <memory>
 #include "PlayerPattern.h"
-#include <vector>
 
 class AstralFlare : public PlayerPatternManager
 {
 public:
 	AstralFlare();
 	~AstralFlare();
-	void Update(const class Player& p)override;
+	void Update(class Player* p)override;
 	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
-	std::vector<PlayerPattern*> m_Pattern;
+	template<typename T>
+	void SetPattern(__int32 ap);
+
+	__int32 m_tmpApCost; // Á”ï‚·‚éAP‚ğˆê•Û‘¶
+	std::unique_ptr<PlayerPattern> m_Pattern;
 };
 
 class AstralFlareA : public PlayerPattern
 {
 public:
+	AstralFlareA() : m_CostAp(0){}
+	AstralFlareA(__int32 ap) : m_CostAp(ap) {}
 	virtual ~AstralFlareA(){}
-	void Update(const class Player& p)override;
+	void Update(class Player* p)override;
 private:
-	const unsigned __int32 m_CostAp = 5;
+	const __int32 m_CostAp;
 };
 
 class AstralFlareB : public PlayerPattern
 {
 public:
+	AstralFlareB() : m_CostAp(0) {}
+	AstralFlareB(__int32 ap) : m_CostAp(ap) {}
 	virtual ~AstralFlareB() {}
-	void Update(const class Player& p)override;
+	void Update(class Player* p)override;
 private:
-	const unsigned __int32 m_CostAp = 5;
+	const __int32 m_CostAp;
 };
 
 class AstralFlareC : public PlayerPattern
 {
 public:
+	AstralFlareC() : m_CostAp(0) {}
+	AstralFlareC(__int32 ap) : m_CostAp(ap) {}
 	virtual ~AstralFlareC() {}
-	void Update(const class Player& p)override;
+	void Update(class Player* p)override;
 private:
-	const unsigned __int32 m_CostAp = 5;
+	const __int32 m_CostAp;
 };
+

@@ -8,7 +8,6 @@
 
 -----------------------------------------------*/
 #include "CrystallizeAura.h"
-#include "PlayerEditor.h"
 #include "Player.h"
 
 CrystallizeAura::CrystallizeAura()
@@ -27,7 +26,7 @@ CrystallizeAura::~CrystallizeAura()
 	delete m_Pattern[0];
 }
 
-void CrystallizeAura::Update(const Player& p)
+void CrystallizeAura::Update(Player* p)
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
@@ -50,23 +49,17 @@ void CrystallizeAura::IsAttackCountLimit()
 	}
 }
 
-void CrystallizeAuraA::Update(const Player& p)
+void CrystallizeAuraA::Update(Player* p)
 {
-	m_tmpAp = p.GetEditer()->GetAp();
-	m_tmpAp = m_tmpAp - m_CostAp;
-	p.GetEditer()->SetAp(m_tmpAp);
+	p->AP_Comsume(m_CostAp);
 }
 
-void CrystallizeAuraB::Update(const Player& p)
+void CrystallizeAuraB::Update(Player* p)
 {
-	m_tmpAp = p.GetEditer()->GetAp();
-	m_tmpAp = m_tmpAp - m_CostAp;
-	p.GetEditer()->SetAp(m_tmpAp);
+	p->AP_Comsume(m_CostAp);
 }
 
-void CrystallizeAuraC::Update(const Player& p)
+void CrystallizeAuraC::Update(Player* p)
 {
-	m_tmpAp = p.GetEditer()->GetAp();
-	m_tmpAp = m_tmpAp - m_CostAp;
-	p.GetEditer()->SetAp(m_tmpAp);
+	p->AP_Comsume(m_CostAp);
 }

@@ -9,30 +9,48 @@
 ------------------------------------------------*/
 #include "AstralFlare.h"
 #include "Player.h"
-#include "PlayerEditor.h"
+
+int g_CallCount = 100;
 
 AstralFlare::AstralFlare()
 {
 	m_Count = 0;
 	m_EnableThis = true;
-	m_Pattern[0] = new AstralFlareA;
-	m_Pattern[1] = new AstralFlareB;
-	m_Pattern[2] = new AstralFlareC;
+	m_Pattern = std::make_unique<AstralFlareA>(5);
 }
 
 AstralFlare::~AstralFlare()
 {
-	delete m_Pattern[2];
-	delete m_Pattern[1];
-	delete m_Pattern[0];
+	
 }
 
-void AstralFlare::Update(const Player& p)
+void AstralFlare::Update(Player* p)
 {
 	IsAttackCountLimit();
 	if (m_EnableThis == true)
 	{
-		m_Pattern[m_Count]->Update(p);
+		switch (m_Count)
+		{
+		case 2:
+			auto tmp = m_Pattern.release();
+			delete tmp;
+			// APが消費するAPよりも少ないとき、スキルは使用できない
+			if (m_tmpApCost >= p->GetAp())
+			{
+				m_EnableThis = false;
+				break;
+			}
+			else
+			{
+				SetPattern<AstralFlareB>(5);
+				m_Pattern->Update(p);
+				break;
+			}
+			break;
+		case 3:
+			SetPattern<AstralFlareC>(5);
+			break;
+		}
 	}
 }
 
@@ -45,28 +63,29 @@ void AstralFlare::IsAttackCountLimit()
 	}
 	else
 	{
-		m_EnableThis = true;
 		m_Count++;
 	}
 }
 
-void AstralFlareA::Update(const Player& p)
+template<typename T>
+void AstralFlare::SetPattern(__int32 ap)
 {
-	m_tmpAp = p.GetEditer()->GetAp();
-	m_tmpAp = m_tmpAp - m_CostAp;
-	p.GetEditer()->SetAp(m_tmpAp);
+	m_Pattern = std::make_unique<T>();
+	m_EnableThis = true;
 }
 
-void AstralFlareB::Update(const Player& p)
+
+void AstralFlareA::Update(Player* p)
 {
-	m_tmpAp = p.GetEditer()->GetAp();
-	m_tmpAp = m_tmpAp - m_CostAp;
-	p.GetEditer()->SetAp(m_tmpAp);
+	p->AP_Comsume(m_CostAp);
 }
 
-void AstralFlareC::Update(const Player& p)
+void AstralFlareB::Update(Player* p)
 {
-	m_tmpAp = p.GetEditer()->GetAp();
-	m_tmpAp = m_tmpAp - m_CostAp;
-	p.GetEditer()->SetAp(m_tmpAp);
+	p->AP_Comsume(m_CostAp);
+}
+
+void AstralFlareC::Update(Player* p)
+{
+	p->AP_Comsume(m_CostAp);
 }

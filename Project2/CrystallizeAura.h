@@ -17,7 +17,7 @@ class CrystallizeAura : public PlayerPatternManager
 public:
 	CrystallizeAura();
 	~CrystallizeAura();
-	void Update(const class Player& p)override;
+	void Update(class Player* p)override;
 	bool GetEnable() { return m_EnableThis; }
 private:
 	void IsAttackCountLimit(); // UŒ‚‰ñ”‚Å—LŒø‚©‚Ç‚¤‚©’²‚×‚é
@@ -28,7 +28,7 @@ class CrystallizeAuraA : public PlayerPattern
 {
 public:
 	virtual ~CrystallizeAuraA(){}
-	void Update(const class Player& p)override;
+	void Update(class Player* p)override;
 private:
 	const unsigned __int32 m_CostAp = 5;
 };
@@ -37,7 +37,7 @@ class CrystallizeAuraB : public PlayerPattern
 {
 public:
 	virtual ~CrystallizeAuraB() {}
-	void Update(const class Player& p)override;
+	void Update(class Player* p)override;
 private:
 	const unsigned __int32 m_CostAp = 5;
 };
@@ -46,7 +46,7 @@ class CrystallizeAuraC : public PlayerPattern
 {
 public:
 	virtual ~CrystallizeAuraC() {}
-	void Update(const class Player& p)override;
+	void Update(class Player* p)override;
 private:
 	const unsigned __int32 m_CostAp = 5;
 };

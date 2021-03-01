@@ -14,24 +14,40 @@
 class Player : public Pawn
 {
 public:
-	Player(){}
+	Player();
 	~Player(){}
 	void Init()override;
 	void Uninit()override;
 	void Update()override;
 	void Draw()override;
+	// APを増加
+	void Ap_Increase(__int32 ap) { m_ActionPoint += ap; }
+	// APを消費
+	void AP_Comsume(__int32 ap) { m_ActionPoint -= ap; }
 	
-	const std::shared_ptr<class PlayerController> GetController()const
-	{
-		return m_Controller;
-	}
-	const std::shared_ptr<class PlayerEditor> GetEditer()const
-	{
-		return m_Editor;
-	}
 	
+	const std::shared_ptr<class PlayerController> GetController()const { return m_Controller; }
+	
+	// 行動の可否
+	bool GetIsAction() { return IsAction(); }
+	void SetIsAction(bool b) { m_IsAction = b; }
+	
+	// AP
+	const __int32 GetAp() const { return AP(); }
+	const void SetAp(__int32 ap) { m_ActionPoint -= ap; }
+
+	// プロパティ
+	const unsigned __int32& AP()const { return m_ActionPoint; }
+	const bool& IsAction()const { return m_IsAction; }
 private:
 	std::shared_ptr<class PlayerController> m_Controller; // 入力処理を管理
-	std::shared_ptr<class PlayerEditor> m_Editor; //
+
+	bool m_IsAction;				// 行動できるかどうか
+
+	__int32 m_ActionPoint; // Ap
+	__int32 m_MaxAp;		// APの最大値
+
+	__int32 m_Waittime;		// 行動できない時間
+	__int32 m_MaxWaitTime;	// 待ち時間の最大値
 };
 

@@ -14,14 +14,13 @@
 #include "SacredBlast.h"
 #include "Apocalypsis.h"
 #include "AstralFlare.h"
-#include "PlayerEditor.h"
 #include "PlayerNormalAttack.h"
 #include "PlayerGurad.h"
 #include "PlayerWait.h"
 
 PlayerController::PlayerController()
 {
-	m_pPattern =  new PlayerWait;
+	m_pPattern = std::make_unique<PlayerWait>();
 }
 
 PlayerController::~PlayerController()
@@ -29,12 +28,12 @@ PlayerController::~PlayerController()
 	
 }
 
-void PlayerController::Update(const Player& p)
+void PlayerController::Update(Player* p)
 {
-	//if (p.GetEditer()->GetIsAction() == true)
+	if (p->GetIsAction() == true)
 	{
 		IsSkillSelection();
-		Attack(p);
+		//Attack(p);
 		Guard(p);
 		Skill_1(p);
 		Skill_2(p);
@@ -60,56 +59,56 @@ bool PlayerController::IsSkillSelection()
 	return Is;
 }
 
-void PlayerController::Attack(const Player&  p)
+void PlayerController::Attack(Player*  p)
 {
 	if (GamePad::IsTrigger(0, BTN_2))
 	{
-		ChangePattern(m_pPattern);
+		ChangePattern(m_pPattern.release());
 		SetPattern<NormalAttack>();
 	}
 }
 
-void PlayerController::Guard(const Player&  p)
+void PlayerController::Guard(Player*  p)
 {
 	if (GamePad::IsTrigger(0, BTN_1))
 	{
-		ChangePattern(m_pPattern);
+		ChangePattern(m_pPattern.release());
 		SetPattern<PlayerGurad>();
 	}
 }
 
-void PlayerController::Skill_1(const Player&  p)
+void PlayerController::Skill_1(Player*  p)
 {
 	if (IsSkillSelection() == true && GamePad::IsTrigger(0, BTN_1))
 	{
-		ChangePattern(m_pPattern);
+		ChangePattern(m_pPattern.release());
 		SetPattern<SacredBlast>();
 	}
 }
 
-void PlayerController::Skill_2(const Player&  p)
+void PlayerController::Skill_2(Player*  p)
 {
 	if (IsSkillSelection() == true && GamePad::IsTrigger(0, BTN_2))
 	{
-		ChangePattern(m_pPattern);
+		ChangePattern(m_pPattern.release());
 		SetPattern<AstralFlare>();
 	}
 }
 
-void PlayerController::Skill_3(const Player&  p)
+void PlayerController::Skill_3(Player*  p)
 {
 	if (IsSkillSelection() == true && GamePad::IsTrigger(0, BTN_4))
 	{
-		ChangePattern(m_pPattern);
+		ChangePattern(m_pPattern.release());
 		SetPattern<Apocalypsis>();
 	}
 }
 
-void PlayerController::Skill_4(const Player&  p)
+void PlayerController::Skill_4(Player*  p)
 {
 	if (IsSkillSelection() == true && GamePad::IsTrigger(0, BTN_3))
 	{
-		ChangePattern(m_pPattern);
+		ChangePattern(m_pPattern.release());
 		SetPattern<CrystallizeAura>();
 	}
 }
@@ -117,17 +116,10 @@ void PlayerController::Skill_4(const Player&  p)
 template<typename T>
 void PlayerController::SetPattern()
 {
-	m_pPattern = new T;
+	m_pPattern = std::make_unique<T>();
 }
 
 void PlayerController::ChangePattern(PlayerPatternManager* p)
 {
-	if (p == nullptr)
-	{
-		// nullptrÇÃèÍçáâΩÇ‡ÇµÇ»Ç¢
-	}
-	else
-	{
-		delete p;
-	}
+	delete p;
 }
