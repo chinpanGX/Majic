@@ -1,0 +1,2 @@
+# Majic
+masterのバックアップ
