@@ -30,7 +30,7 @@ public:
 	virtual ~CrystallizeAuraA(){}
 	void Update(class Player* p)override;
 private:
-	const unsigned __int32 m_CostAp = 5;
+	const int32_t m_CostAp = 5;
 };
 
 class CrystallizeAuraB : public PlayerPattern
@@ -39,7 +39,7 @@ public:
 	virtual ~CrystallizeAuraB() {}
 	void Update(class Player* p)override;
 private:
-	const unsigned __int32 m_CostAp = 5;
+	const int32_t m_CostAp = 5;
 };
 
 class CrystallizeAuraC : public PlayerPattern
@@ -48,7 +48,7 @@ public:
 	virtual ~CrystallizeAuraC() {}
 	void Update(class Player* p)override;
 private:
-	const unsigned __int32 m_CostAp = 5;
+	const int32_t m_CostAp = 5;
 };
 
 

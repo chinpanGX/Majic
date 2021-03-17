@@ -8,6 +8,7 @@
 #include "Fps.h"
 #include "Scene.h"
 #include "Manager.h"
+
 Scene* Fade::m_Next = nullptr;
 
 Fade::Fade() : m_State(E_NONE), m_Alpha(1.0f), m_Time(0.0f), m_Fps(Fps::GetInstance())

@@ -31,7 +31,7 @@ public:
 	virtual ~SacredBlastA(){}
 	void Update(class Player* p)override;
 private:
-	const unsigned __int32 m_CostAp = 5;
+	const int32_t m_CostAp = 5;
 };
 
 class SacredBlastB : public PlayerPattern
@@ -40,7 +40,7 @@ public:
 	virtual ~SacredBlastB() {}
 	void Update(class Player* p)override;
 private:
-	const unsigned __int32 m_CostAp = 5;
+	const int32_t m_CostAp = 5;
 };
 
 class SacredBlastC : public PlayerPattern
@@ -49,5 +49,5 @@ public:
 	virtual ~SacredBlastC() {}
 	void Update(class Player* p)override;
 private:
-	const unsigned __int32 m_CostAp = 5;
+	const int32_t m_CostAp = 5;
 };

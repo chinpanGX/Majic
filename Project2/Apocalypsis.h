@@ -30,7 +30,7 @@ public:
 	virtual ~ApocalypsisA(){}
 	void Update(class Player* p)override;
 private:
-	const unsigned __int32 m_CostAp = 5;
+	const int32_t m_CostAp = 5;
 };
 
 class ApocalypsisB : public PlayerPattern
@@ -39,7 +39,7 @@ public:
 	virtual ~ApocalypsisB() {}
 	void Update(class Player* p)override;
 private:
-	const unsigned __int32 m_CostAp = 5;
+	const int32_t m_CostAp = 5;
 };
 
 class ApocalypsisC : public PlayerPattern
@@ -48,5 +48,5 @@ public:
 	virtual ~ApocalypsisC() {}
 	void Update(class Player* p)override;
 private:
-	const unsigned __int32 m_CostAp = 5;
+	const int32_t m_CostAp = 5;
 };

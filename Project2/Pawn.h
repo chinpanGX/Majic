@@ -28,14 +28,14 @@ public:
 	{
 		m_Velocity = v;
 	}
-	unsigned __int32 GetHp() { return m_Hp; }
-	void SetHp(unsigned __int32 hp) { m_Hp = hp; }
+	int32_t GetHp() { return m_Hp; }
+	void SetHp(int32_t hp) { m_Hp = hp; }
 
 protected:
 	__int32 m_AnimFrame;	// アニメーション
 	float m_BlendRate;		// アニメーションブレンド
 	D3DXVECTOR3 m_Velocity; // 速度
-	unsigned __int32 m_Hp;  // Hp
+	int32_t m_Hp;  // Hp
 	bool m_Enable;			// 生存しているかどうか
 	float m_WaitTime;		// 行動できない時間
 };

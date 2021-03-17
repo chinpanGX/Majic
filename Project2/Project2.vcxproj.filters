@@ -102,9 +102,6 @@
     <ClInclude Include="Pawn.h">
       <Filter>Base</Filter>
     </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>Base</Filter>
-    </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>Base</Filter>
     </ClInclude>
@@ -167,14 +164,14 @@
     <ClCompile Include="Prefabs.cpp">
       <Filter>ObjectPool</Filter>
     </ClCompile>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Manager.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="GameScene.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Base</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

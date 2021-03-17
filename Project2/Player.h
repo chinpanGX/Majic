@@ -39,7 +39,7 @@ public:
 	const void SetAp(__int32 ap) { m_ActionPoint -= ap; }
 
 	// プロパティ
-	const unsigned __int32& AP()const { return m_ActionPoint; }
+	const int32_t& AP()const { return m_ActionPoint; }
 	const bool& IsAction()const { return m_IsAction; }
 private:
 	std::shared_ptr<class PlayerController> m_Controller; // 入力処理を管理

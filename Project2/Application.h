@@ -29,7 +29,7 @@ public:
 		return m_hwnd;
 	}
 protected:
-	Application() : m_Width(1920), m_Height(1080), m_Mode(false) {}
+	Application() : m_Width(1920.0f), m_Height(1080.0f), m_Mode(false) {}
 	virtual ~Application() {}
 private:
 	WNDCLASSEX m_WindowClass;

@@ -78,8 +78,8 @@ namespace DirectX11
 	struct SubSet
 	{
 		ModelMaterial	Material;
-		unsigned __int32	StartIndex;
-		unsigned __int32	IndexNum;
+		int32_t	StartIndex;
+		int32_t	IndexNum;
 	};
 
 	// ƒ‰ƒCƒg\‘¢‘Ì
