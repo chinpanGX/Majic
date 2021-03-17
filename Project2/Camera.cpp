@@ -6,9 +6,9 @@
 --------------------------------------------------------------*/
 #include "Camera.h"
 #include "Application.h"
-#include "DirectX11.h"
+#include "Resource.h"
 
-Camera::Camera() : m_App(Application::GetInstance()), m_Mgr(DirectX11::Manager::GetInstance())
+Camera::Camera() : m_App(Application::GetInstance()), m_Mgr(Resource::GetInstance())
 {
 
 }

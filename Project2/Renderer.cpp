@@ -3,7 +3,7 @@
 
 void Renderer::Init()
 {
-	DirectX11::Vertex vertex[4];
+	Resource::Vertex vertex[4];
 	vertex[0].Position = D3DXVECTOR3(-1.0f, 1.0f, 0.0f);
 	vertex[0].Normal = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
 	vertex[0].Diffuse = D3DXVECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
@@ -29,7 +29,7 @@ void Renderer::Init()
 	D3D11_BUFFER_DESC bd;
 	ZeroMemory(&bd, sizeof(bd));
 	bd.Usage = D3D11_USAGE_DYNAMIC;
-	bd.ByteWidth = sizeof(DirectX11::Vertex) * 4;
+	bd.ByteWidth = sizeof(Resource::Vertex) * 4;
 	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	bd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 
@@ -43,14 +43,14 @@ void Renderer::Init()
 void Renderer::Draw(ID3D11ShaderResourceView * texture, D3DXVECTOR2 drawPosition, D3DXVECTOR2 drawSize, D3DXVECTOR2 texUpLeft, D3DXVECTOR2 texDownRight, D3DXCOLOR color)
 {
 	//ライト無効
-	DirectX11::Light light;
+	Resource::Light light;
 	light.Enable = false;
 	m_Dx.SetLight(light);
 
 	D3D11_MAPPED_SUBRESOURCE msr;
 	m_Dx.GetDeviceContext()->Map(m_VertexBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &msr);
 
-	DirectX11::Vertex* vertex = (DirectX11::Vertex*)msr.pData;
+	Resource::Vertex* vertex = (Resource::Vertex*)msr.pData;
 
 	vertex[0].Position = D3DXVECTOR3(drawPosition.x - drawSize.x * 0.5f, drawPosition.y - drawSize.y * 0.5f, 0.0f);
 	vertex[0].Normal = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
@@ -84,12 +84,12 @@ void Renderer::Draw(ID3D11ShaderResourceView * texture, D3DXVECTOR2 drawPosition
 	m_Dx.SetWorldViewProjection2D();
 
 	//頂点バッファ設定
-	UINT stride = sizeof(DirectX11::Vertex);
+	UINT stride = sizeof(Resource::Vertex);
 	UINT offset = 0;
 	m_Dx.GetDeviceContext()->IASetVertexBuffers(0, 1, &m_VertexBuffer, &stride, &offset);
 
 	//マテリアル設定
-	DirectX11::Material material;
+	Resource::Material material;
 	ZeroMemory(&material, sizeof(material));
 	material.Diffuse = color;
 	m_Dx.SetMaterial(material);

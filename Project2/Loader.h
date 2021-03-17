@@ -6,7 +6,7 @@
 
 ------------------------------------------------------------*/
 #pragma once
-#include "DirectX11.h"
+#include "Resource.h"
 
 namespace Loader
 {
@@ -16,7 +16,7 @@ namespace Loader
 	private:
 		ID3D11ShaderResourceView* m_Texture = NULL;
 	public:
-		void Load(DirectX11::Manager& dx, std::string FileName); // ロード
+		void Load(Resource& dx, std::string FileName); // ロード
 		void Unload();
 		ID3D11ShaderResourceView* GetTexture()const; // セット
 	};
@@ -28,9 +28,9 @@ namespace Loader
 		ID3D11VertexShader* m_VertexShader = nullptr;
 		ID3D11InputLayout*	m_InputLayout = nullptr;
 		// 生成
-		void CreateVertexShader(DirectX11::Manager & dx, ID3D11VertexShader ** VertexShader, ID3D11InputLayout ** InputLayout, std::string FileName);
+		void CreateVertexShader(Resource & dx, ID3D11VertexShader ** VertexShader, ID3D11InputLayout ** InputLayout, std::string FileName);
 	public:
-		void Load(DirectX11::Manager & dx, std::string VertexShader_FileName);
+		void Load(Resource & dx, std::string VertexShader_FileName);
 		void Unload();
 		ID3D11VertexShader* GetVertexShader()const;
 		ID3D11InputLayout* GetInputLayout()const;
@@ -42,9 +42,9 @@ namespace Loader
 	private:
 		ID3D11PixelShader*	m_PixelShader = NULL;
 		// 生成
-		void CreatePixelShader(DirectX11::Manager& dx, ID3D11PixelShader** PixelShader, std::string FileName);
+		void CreatePixelShader(Resource& dx, ID3D11PixelShader** PixelShader, std::string FileName);
 	public:
-		void Load(DirectX11::Manager & dx, std::string PixelShader_FileName);
+		void Load(Resource & dx, std::string PixelShader_FileName);
 		void Unload();
 		ID3D11PixelShader* GetPixelShader()const;
 	};

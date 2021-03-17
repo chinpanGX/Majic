@@ -17,17 +17,17 @@ class ObjectPool
 public:
 	static void Init();
 	static void Uninit();
-	static void Update(DirectX11::Manager& dx, int32_t Id, const char* AnimationName1, const char* AnimationName2, float BlendRate, int Frame);
-	static void Draw(DirectX11::Manager& dx, int32_t Id);
+	static void Update(Resource& dx, int32_t Id, const char* AnimationName1, const char* AnimationName2, float BlendRate, int Frame);
+	static void Draw(Resource& dx, int32_t Id);
 	
 	// テクスチャのGetter / Setter
 	static ID3D11ShaderResourceView* GetTexture(int32_t Id);
-	static void SetTexture(DirectX11::Manager& dx, int slot, int32_t Id); // slot = 設定するスロット、ID = 格納ID
+	static void SetTexture(Resource& dx, int slot, int32_t Id); // slot = 設定するスロット、ID = 格納ID
 
 	// シェーダーの設定
-	static void SetVertexShader(DirectX11::Manager& dx, int32_t Id);
-	static void SetInputLayout(DirectX11::Manager& dx, int32_t Id);
-	static void SetPixelShader(DirectX11::Manager& dx, int32_t Id);
+	static void SetVertexShader(Resource& dx, int32_t Id);
+	static void SetInputLayout(Resource& dx, int32_t Id);
+	static void SetPixelShader(Resource& dx, int32_t Id);
 private:
 	static std::unique_ptr<Prefabs::Texture> m_Texture;
 	static std::unique_ptr<Prefabs::VertexShader> m_VertexShader;

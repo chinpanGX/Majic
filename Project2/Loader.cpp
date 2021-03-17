@@ -12,7 +12,7 @@
 
 #pragma region Loader_Texture_Func
 // ロード
-void Loader::Texture::Load(DirectX11::Manager& dx, std::string FileName)
+void Loader::Texture::Load(Resource& dx, std::string FileName)
 {
 	D3DX11CreateShaderResourceViewFromFile(dx.GetDevice(), FileName.c_str(), NULL, NULL, &m_Texture, NULL);
 }
@@ -31,7 +31,7 @@ ID3D11ShaderResourceView* Loader::Texture::GetTexture() const
 #pragma endregion Textureクラスの関数定義
 
 #pragma region Loader_VertexShader_Func
-void Loader::VertexShader::CreateVertexShader(DirectX11::Manager & dx, ID3D11VertexShader ** VertexShader, ID3D11InputLayout ** InputLayout, std::string FileName)
+void Loader::VertexShader::CreateVertexShader(Resource & dx, ID3D11VertexShader ** VertexShader, ID3D11InputLayout ** InputLayout, std::string FileName)
 {
 	FILE* file;
 	long int fsize;
@@ -55,7 +55,7 @@ void Loader::VertexShader::CreateVertexShader(DirectX11::Manager & dx, ID3D11Ver
 	delete[] buffer;
 }
 
-void Loader::VertexShader::Load(DirectX11::Manager & dx, std::string VertexShader_FileName)
+void Loader::VertexShader::Load(Resource & dx, std::string VertexShader_FileName)
 {
 	CreateVertexShader(dx, &m_VertexShader, &m_InputLayout, VertexShader_FileName);
 }
@@ -79,7 +79,7 @@ ID3D11InputLayout * Loader::VertexShader::GetInputLayout() const
 #pragma endregion Loader_VertexShaderクラスの関数定義
 
 #pragma region Loader_PixelShader_Func
-void Loader::PixelShader::CreatePixelShader(DirectX11::Manager & dx, ID3D11PixelShader ** PixelShader, std::string FileName)
+void Loader::PixelShader::CreatePixelShader(Resource & dx, ID3D11PixelShader ** PixelShader, std::string FileName)
 {
 	FILE* file;
 	long int fsize;
@@ -92,7 +92,7 @@ void Loader::PixelShader::CreatePixelShader(DirectX11::Manager & dx, ID3D11Pixel
 	delete[] buffer;
 }
 
-void Loader::PixelShader::Load(DirectX11::Manager & dx, std::string PixelShader_FileName)
+void Loader::PixelShader::Load(Resource & dx, std::string PixelShader_FileName)
 {
 	CreatePixelShader(dx, &m_PixelShader, PixelShader_FileName);
 }

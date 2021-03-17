@@ -1,11 +1,10 @@
 /*---------------------------------------------------------
 
-	[DirectX11.h]
+	[Resource.h]
 	Author : 出合翔太
 
 	[説明]
-	namespace->DirectX11
-	Manager::DirectX11に必要なものを管理するクラス
+	Resourceに必要なものを管理するクラス
 
 ----------------------------------------------------------*/
 #pragma once
@@ -45,9 +44,12 @@
 #define FILE_PREFIX __FILE__ "(" TO_STRING(__LINE__) "): " 
 #define ThrowIfFailed(hr, msg) Utility::CheckResultCode( hr, FILE_PREFIX msg)
 
-// DirectX11
-namespace DirectX11
+
+// 管理くラス
+class Resource : public Singleton<Resource>
 {
+	friend Singleton<Resource>;
+public:
 	struct Vertex
 	{
 		D3DXVECTOR3 Position;
@@ -92,51 +94,45 @@ namespace DirectX11
 		D3DXCOLOR	Ambient;
 	};
 
-	// 管理くラス
-	class Manager : public Singleton<Manager>
-	{
-		friend Singleton<Manager>;
-	public:
-		void Init();
-		void Uninit();
-		void Begin();
-		void End();
-		void SetDepthEnable(bool Enable);
-		void SetWorldViewProjection2D();
-		void SetWorldMatrix(D3DXMATRIX * WorldMatrix);
-		void SetViewMatrix(D3DXMATRIX * ViewMatrix);
-		void SetProjectionMatrix(D3DXMATRIX * ProjectionMatrix);
-		void SetMaterial(Material Material);
-		void SetLight(Light Light);
-		void SetCameraPosition(D3DXVECTOR3 CameraPosition);
-		void SetParameter(D3DXVECTOR4 Parameter);
+	void Init();
+	void Uninit();
+	void Begin();
+	void End();
+	void SetDepthEnable(bool Enable);
+	void SetWorldViewProjection2D();
+	void SetWorldMatrix(D3DXMATRIX * WorldMatrix);
+	void SetViewMatrix(D3DXMATRIX * ViewMatrix);
+	void SetProjectionMatrix(D3DXMATRIX * ProjectionMatrix);
+	void SetMaterial(Material Material);
+	void SetLight(Light Light);
+	void SetCameraPosition(D3DXVECTOR3 CameraPosition);
+	void SetParameter(D3DXVECTOR4 Parameter);
 
-		// シェーダー生成
-		void CreateVertexShader(ID3D11VertexShader** VertexShader, ID3D11InputLayout** InputLayout, const char* FileName);
-		void CreatePixelShader(ID3D11PixelShader** PixelShader, const char* FileName);
+	// シェーダー生成
+	void CreateVertexShader(ID3D11VertexShader** VertexShader, ID3D11InputLayout** InputLayout, const char* FileName);
+	void CreatePixelShader(ID3D11PixelShader** PixelShader, const char* FileName);
 
-		ID3D11Device* GetDevice() { return m_Device; }
-		ID3D11DeviceContext* GetDeviceContext() { return m_ImmediateContext; }
-	protected:
-		Manager() {}
-		virtual ~Manager(){}
-	private:
-		ID3D11Device*			m_Device = nullptr;
-		ID3D11DeviceContext*		m_ImmediateContext = nullptr;
-		IDXGISwapChain*			m_SwapChain = nullptr;
-		ID3D11RenderTargetView*	m_RenderTargetView = nullptr;
-		ID3D11DepthStencilView*	m_DepthStencilView = nullptr;
-		ID3D11Buffer*			m_WorldBuffer = nullptr;
-		ID3D11Buffer*			m_ViewBuffer = nullptr;
-		ID3D11Buffer*			m_ProjectionBuffer = nullptr;
-		ID3D11Buffer*			m_MaterialBuffer = nullptr;
-		ID3D11Buffer*			m_LightBuffer = nullptr;
-		ID3D11Buffer*			m_CameraBuffer = nullptr;
-		ID3D11Buffer*			m_ParameterBuffer = nullptr;
-		ID3D11DepthStencilState*	m_DepthStateEnable = nullptr;
-		ID3D11DepthStencilState*	m_DepthStateDisable = nullptr;
-	};
-}
+	ID3D11Device* GetDevice() { return m_Device; }
+	ID3D11DeviceContext* GetDeviceContext() { return m_ImmediateContext; }
+protected:
+	Resource() {}
+	virtual ~Resource(){}
+private:
+	ID3D11Device*			m_Device = nullptr;
+	ID3D11DeviceContext*		m_ImmediateContext = nullptr;
+	IDXGISwapChain*			m_SwapChain = nullptr;
+	ID3D11RenderTargetView*	m_RenderTargetView = nullptr;
+	ID3D11DepthStencilView*	m_DepthStencilView = nullptr;
+	ID3D11Buffer*			m_WorldBuffer = nullptr;
+	ID3D11Buffer*			m_ViewBuffer = nullptr;
+	ID3D11Buffer*			m_ProjectionBuffer = nullptr;
+	ID3D11Buffer*			m_MaterialBuffer = nullptr;
+	ID3D11Buffer*			m_LightBuffer = nullptr;
+	ID3D11Buffer*			m_CameraBuffer = nullptr;
+	ID3D11Buffer*			m_ParameterBuffer = nullptr;
+	ID3D11DepthStencilState*	m_DepthStateEnable = nullptr;
+	ID3D11DepthStencilState*	m_DepthStateDisable = nullptr;
+};
 
 namespace Utility
 {
