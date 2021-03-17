@@ -59,7 +59,7 @@ void Application::Run()
 	Fps& fps = Fps::GetInstance();
 	fps.Init();
 	//Manager::Init();
-	GameManager& mgr = GameManager::GetInstance();
+	Manager& mgr = Manager::GetInstance();
 	mgr.Init();
 	// メッセージループ
 	MSG msg;

@@ -12,9 +12,9 @@
 #include "DirectX11.h"
 #include "Fade.h"
 
-class GameManager : public Singleton<GameManager>
+class Manager : public Singleton<Manager>
 {
-	friend Singleton<GameManager>;
+	friend Singleton<Manager>;
 public:
 	void Init();
 	void Uninit();
@@ -34,8 +34,8 @@ public:
 		m_Fade.m_Next = scene;
 	}
 protected:
-	GameManager() : m_Manager(DirectX11::Manager::GetInstance()) {}
-	~GameManager(){}
+	Manager() : m_Manager(DirectX11::Manager::GetInstance()) {}
+	~Manager(){}
 private:
 	class Scene* m_Scene = nullptr;
 	class Fade m_Fade;

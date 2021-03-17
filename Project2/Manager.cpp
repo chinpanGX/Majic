@@ -13,7 +13,7 @@
 #include "Player.h"
 #include "ObjectPool.h"
 
-void GameManager::Init()
+void Manager::Init()
 {
 	srand((unsigned int)time(NULL));
 	m_Manager.Init();
@@ -24,7 +24,7 @@ void GameManager::Init()
 	SceneChange(m_Fade.m_Next);
 }
 
-void GameManager::Uninit()
+void Manager::Uninit()
 {
 	m_Fade.Uninit();
 	ObjectPool::Uninit();
@@ -32,13 +32,13 @@ void GameManager::Uninit()
 	delete m_Scene;
 }
 
-void GameManager::Update()
+void Manager::Update()
 {
 	m_Scene->Update();
 	m_Fade.Update();
 }
 
-void GameManager::Draw()
+void Manager::Draw()
 {
 	m_Manager.Begin();
 	//3D—pƒ‰ƒCƒgİ’è
@@ -59,7 +59,7 @@ void GameManager::Draw()
 	m_Manager.End();
 }
 
-void GameManager::SceneChange(Scene * s)
+void Manager::SceneChange(Scene * s)
 {
 	if (m_Scene)
 	{

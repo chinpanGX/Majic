@@ -34,7 +34,7 @@ void Fade::Update()
 		m_Alpha += m_Fps.m_deltaTime / m_Time;
 		if (m_Alpha > 1.0f)
 		{
-			GameManager::GetInstance().SceneChange(m_Next);
+			Manager::GetInstance().SceneChange(m_Next);
 			m_State = E_IN;
 			m_Alpha = 1.0f;
 		}

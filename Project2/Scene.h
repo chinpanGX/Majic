@@ -19,7 +19,7 @@
 class Scene
 {
 public:
-	enum Layer : int // 更新、描画の順番
+	enum ELayer : int // 更新、描画の順番
 	{
 		L_CAMERA,
 		L_3D,
@@ -33,7 +33,7 @@ public:
 	virtual void Init() = 0;
 	virtual void Uninit()
 	{
-		for (int i = 0; i < Layer::MAX; i++)
+		for (int i = 0; i < ELayer::MAX; i++)
 		{
 			for (auto object : m_GameObject[i])
 			{
@@ -45,21 +45,21 @@ public:
 	}
 	virtual void Update()
 	{
-		for (int i = 0; i < Layer::MAX; i++)
+		for (int i = 0; i < ELayer::MAX; i++)
 		{
 			for (auto object : m_GameObject[i])
 			{
 				object->Update();
 			}
 		}
-		for (int i = 0; i < Layer::MAX; i++)
+		for (int i = 0; i < ELayer::MAX; i++)
 		{
 			m_GameObject[i].remove_if([](auto object) { return object->Destroy(); }); // ラムダ式
 		}
 	}
 	virtual void Draw()
 	{
-		for (int i = 0; i < Layer::MAX; i++)
+		for (int i = 0; i < ELayer::MAX; i++)
 		{
 			for (auto object : m_GameObject[i])
 			{
@@ -87,7 +87,8 @@ public:
 			if (typeid(*object) == typeid(T))
 				return (T*)object;
 		}
-		return NULL;
+		return nullptr
+;
 	}
 	template<typename T>
 	std::vector<T*>GetGameObjects(int layer)

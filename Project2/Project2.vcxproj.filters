@@ -25,6 +25,9 @@
     <Filter Include="3D">
       <UniqueIdentifier>{6cd7201f-48fc-4bed-a2f9-87abbcbfa8ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Particle">
+      <UniqueIdentifier>{edec3eda-169c-4de2-b53f-a891505cdde6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -111,6 +114,15 @@
     <ClInclude Include="Camera.h">
       <Filter>3D</Filter>
     </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="Emitter.h">
+      <Filter>Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="EmitterManager.h">
+      <Filter>Particle</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -181,6 +193,12 @@
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Emitter.cpp">
+      <Filter>Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="EmitterManager.cpp">
+      <Filter>Particle</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -32,7 +32,7 @@ void GameScene::Title::Update()
 	Scene::Update();
 	if (KeyBoard::IsTrigger(DIK_T) || GamePad::IsTrigger(0, BTN_L2))
 	{
-		GameManager::GetInstance().SetScene<Game>();
+		Manager::GetInstance().SetScene<Game>();
 	}
 }
 
@@ -62,7 +62,7 @@ void GameScene::Game::Update()
 	Scene::Update();
 	if (KeyBoard::IsTrigger(DIK_T) || GamePad::IsTrigger(0, BTN_L2))
 	{
-		GameManager::GetInstance().SetScene<Result>();
+		Manager::GetInstance().SetScene<Result>();
 	}
 }
 
@@ -91,7 +91,7 @@ void GameScene::Result::Update()
 	Scene::Update();
 	if (KeyBoard::IsTrigger(DIK_T) || GamePad::IsTrigger(0, BTN_L2))
 	{
-		GameManager::GetInstance().SetScene<Title>();
+		Manager::GetInstance().SetScene<Title>();
 	}
 }
 
