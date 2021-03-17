@@ -10,8 +10,7 @@
 
 -----------------------------------------------*/
 #pragma once
-#include <list>
-#include "Transform.h"
+#include "DirectX11.h"
 
 class GameObject
 {

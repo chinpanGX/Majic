@@ -22,6 +22,9 @@
     <Filter Include="Base">
       <UniqueIdentifier>{4dc5be56-acc7-4625-ae01-2de6e49782fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="3D">
+      <UniqueIdentifier>{6cd7201f-48fc-4bed-a2f9-87abbcbfa8ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -105,6 +108,9 @@
     <ClInclude Include="Renderer.h">
       <Filter>Base</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>3D</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -172,6 +178,9 @@
     </ClCompile>
     <ClCompile Include="Renderer.cpp">
       <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>3D</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

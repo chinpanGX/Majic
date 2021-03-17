@@ -9,7 +9,7 @@
 namespace
 {
 	const __int32 g_StateIndex = 3; // ステートの配列の数ウント上限
-	const int32_t g_CountUpperLimit = 3; // ステートのカ
+	const __int32 g_CountUpperLimit = 3; // ステートのカ
 }
 
 class PlayerPatternManager
@@ -19,7 +19,7 @@ public:
 	virtual void Update(class Player* p) = 0;
 	bool GetEnable() { return m_EnableThis; }
 protected:
-	int32_t m_Count;	// 発動回数
+	__int32 m_Count;	// 発動回数
 	bool m_EnableThis;			// 有効化どうか
 };
 
