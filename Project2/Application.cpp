@@ -58,9 +58,9 @@ void Application::Run()
 	// フレームレートの初期化
 	Fps& fps = Fps::GetInstance();
 	fps.Init();
-	//Manager::Init();
 	Manager& mgr = Manager::GetInstance();
 	mgr.Init();
+
 	// メッセージループ
 	MSG msg;
 	while (true)

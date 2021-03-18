@@ -16,7 +16,6 @@
 void Manager::Init()
 {
 	srand((unsigned int)time(NULL));
-	m_Manager.Init();
 	ObjectPool::Init();
 	m_Fade.Init();
 	SetScene<GameScene::Title>();

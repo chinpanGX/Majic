@@ -49,6 +49,8 @@
 class Resource : public Singleton<Resource>
 {
 	friend Singleton<Resource>;
+	template<typename T>
+	using ComPtr = Microsoft::WRL::ComPtr<T>;
 public:
 	class Vertex
 	{
@@ -98,9 +100,6 @@ public:
 		D3DXCOLOR	Diffuse;
 		D3DXCOLOR	Ambient;
 	};
-
-	void Init();
-	void Uninit();
 	void Begin();
 	void End();
 	void SetDepthEnable(bool Enable);
@@ -117,26 +116,26 @@ public:
 	void CreateVertexShader(ID3D11VertexShader** VertexShader, ID3D11InputLayout** InputLayout, const char* FileName);
 	void CreatePixelShader(ID3D11PixelShader** PixelShader, const char* FileName);
 
-	ID3D11Device* GetDevice() { return m_Device; }
-	ID3D11DeviceContext* GetDeviceContext() { return m_ImmediateContext; }
+	ID3D11Device* GetDevice() { return m_Device.Get(); }
+	ID3D11DeviceContext* GetDeviceContext() { return m_ImmediateContext.Get(); }
 protected:
-	Resource() {}
-	virtual ~Resource(){}
+	Resource();
+	~Resource(){}
 private:
-	ID3D11Device*			m_Device = nullptr;
-	ID3D11DeviceContext*		m_ImmediateContext = nullptr;
-	IDXGISwapChain*			m_SwapChain = nullptr;
-	ID3D11RenderTargetView*	m_RenderTargetView = nullptr;
-	ID3D11DepthStencilView*	m_DepthStencilView = nullptr;
-	ID3D11Buffer*			m_WorldBuffer = nullptr;
-	ID3D11Buffer*			m_ViewBuffer = nullptr;
-	ID3D11Buffer*			m_ProjectionBuffer = nullptr;
-	ID3D11Buffer*			m_MaterialBuffer = nullptr;
-	ID3D11Buffer*			m_LightBuffer = nullptr;
-	ID3D11Buffer*			m_CameraBuffer = nullptr;
-	ID3D11Buffer*			m_ParameterBuffer = nullptr;
-	ID3D11DepthStencilState*	m_DepthStateEnable = nullptr;
-	ID3D11DepthStencilState*	m_DepthStateDisable = nullptr;
+	ComPtr<ID3D11Device>			m_Device = nullptr;
+	ComPtr<ID3D11DeviceContext>		m_ImmediateContext = nullptr;
+	ComPtr<IDXGISwapChain>			m_SwapChain = nullptr;
+	ComPtr<ID3D11RenderTargetView>	m_RenderTargetView = nullptr;
+	ComPtr<ID3D11DepthStencilView>	m_DepthStencilView = nullptr;
+	ComPtr<ID3D11Buffer>			m_WorldBuffer = nullptr;
+	ComPtr<ID3D11Buffer>			m_ViewBuffer = nullptr;
+	ComPtr<ID3D11Buffer>			m_ProjectionBuffer = nullptr;
+	ComPtr<ID3D11Buffer>			m_MaterialBuffer = nullptr;
+	ComPtr<ID3D11Buffer>			m_LightBuffer = nullptr;
+	ComPtr<ID3D11Buffer>			m_CameraBuffer = nullptr;
+	ComPtr<ID3D11Buffer>			m_ParameterBuffer = nullptr;
+	ComPtr<ID3D11DepthStencilState>	m_DepthStateEnable = nullptr;
+	ComPtr<ID3D11DepthStencilState>	m_DepthStateDisable = nullptr;
 };
 
 namespace Utility
