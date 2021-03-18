@@ -26,7 +26,6 @@ void Manager::Init()
 void Manager::Uninit()
 {
 	m_Fade.Uninit();
-	ObjectPool::Uninit();
 	m_Scene->Uninit();
 	delete m_Scene;
 }

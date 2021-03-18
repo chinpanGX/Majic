@@ -13,20 +13,11 @@ std::unique_ptr<Prefabs::PixelShader> ObjectPool::m_PixelShader;
 void ObjectPool::Init()
 {
 	auto & dx = Resource::GetInstance();
-	m_Texture = std::make_unique<Prefabs::Texture>();
-	m_Texture->Load(dx);
-	m_VertexShader = std::make_unique <Prefabs::VertexShader>();
-	m_VertexShader->Load(dx);
-	m_PixelShader = std::make_unique<Prefabs::PixelShader>();
-	m_PixelShader->Load(dx);
+	m_Texture = std::make_unique<Prefabs::Texture>(dx);
+	m_VertexShader = std::make_unique <Prefabs::VertexShader>(dx);
+	m_PixelShader = std::make_unique<Prefabs::PixelShader>(dx);
 }
 
-void ObjectPool::Uninit()
-{
-	m_PixelShader->Unload();
-	m_VertexShader->Unload();
-	m_Texture->Unload();
-}
 
 void ObjectPool::Update(Resource & dx,int32_t Id, const char * AnimationName1, const char * AnimationName2, float BlendRate, int Frame)
 {

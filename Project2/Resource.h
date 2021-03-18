@@ -44,7 +44,6 @@
 #define FILE_PREFIX __FILE__ "(" TO_STRING(__LINE__) "): " 
 #define ThrowIfFailed(hr, msg) Utility::CheckResultCode( hr, FILE_PREFIX msg)
 
-
 // ä«óùÇ≠ÉâÉX
 class Resource : public Singleton<Resource>
 {

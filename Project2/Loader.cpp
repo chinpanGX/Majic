@@ -7,30 +7,13 @@
 #include "Loader.h"
 #include <io.h>
 
-// DirectXデバイス解放マクロ
-#define SAFE_RELEASE(p) do {if(p){(p)->Release(); (p) = NULL;} } while(0)
-
-#pragma region Loader_Texture_Func
 // ロード
 void Loader::Texture::Load(Resource& dx, std::string FileName)
 {
-	D3DX11CreateShaderResourceViewFromFile(dx.GetDevice(), FileName.c_str(), NULL, NULL, &m_Texture, NULL);
+	D3DX11CreateShaderResourceViewFromFile(dx.GetDevice(), FileName.c_str(), NULL, NULL, m_Texture.GetAddressOf(), NULL);
 }
 
-// アンロード
-void Loader::Texture::Unload()
-{
-	SAFE_RELEASE(m_Texture);
-}
 
-// セット
-ID3D11ShaderResourceView* Loader::Texture::GetTexture() const
-{
-	return m_Texture;
-}
-#pragma endregion Textureクラスの関数定義
-
-#pragma region Loader_VertexShader_Func
 void Loader::VertexShader::CreateVertexShader(Resource & dx, ID3D11VertexShader ** VertexShader, ID3D11InputLayout ** InputLayout, std::string FileName)
 {
 	FILE* file;
@@ -57,28 +40,9 @@ void Loader::VertexShader::CreateVertexShader(Resource & dx, ID3D11VertexShader 
 
 void Loader::VertexShader::Load(Resource & dx, std::string VertexShader_FileName)
 {
-	CreateVertexShader(dx, &m_VertexShader, &m_InputLayout, VertexShader_FileName);
+	CreateVertexShader(dx, m_VertexShader.GetAddressOf(), m_InputLayout.GetAddressOf(), VertexShader_FileName);
 }
 
-
-void Loader::VertexShader::Unload()
-{
-	m_InputLayout->Release();
-	m_VertexShader->Release();
-}
-
-ID3D11VertexShader * Loader::VertexShader::GetVertexShader() const
-{
-	return m_VertexShader;
-}
-
-ID3D11InputLayout * Loader::VertexShader::GetInputLayout() const
-{
-	return m_InputLayout;
-}
-#pragma endregion Loader_VertexShaderクラスの関数定義
-
-#pragma region Loader_PixelShader_Func
 void Loader::PixelShader::CreatePixelShader(Resource & dx, ID3D11PixelShader ** PixelShader, std::string FileName)
 {
 	FILE* file;
@@ -94,16 +58,5 @@ void Loader::PixelShader::CreatePixelShader(Resource & dx, ID3D11PixelShader ** 
 
 void Loader::PixelShader::Load(Resource & dx, std::string PixelShader_FileName)
 {
-	CreatePixelShader(dx, &m_PixelShader, PixelShader_FileName);
+	CreatePixelShader(dx, m_PixelShader.GetAddressOf(), PixelShader_FileName);
 }
-
-void Loader::PixelShader::Unload()
-{
-	m_PixelShader->Release();
-}
-
-ID3D11PixelShader * Loader::PixelShader::GetPixelShader() const
-{
-	return m_PixelShader;
-}
-#pragma endregion Loader_PixelShaderクラスの関数定義

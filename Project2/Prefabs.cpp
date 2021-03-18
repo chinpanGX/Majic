@@ -6,73 +6,56 @@
 ------------------------------------------------------------*/
 #include "Prefabs.h"
 
-void Prefabs::Texture::Load(Resource& dx)
+Prefabs::Texture::Texture(Resource & dx)
 {
-	m_Texture.reset(new Loader::Texture[m_Size]);
-	m_Texture[0].Load(dx, "Asset/Texture/black.png");
-	m_Texture[1].Load(dx, "Asset/Texture/Title.png");
-	m_Texture[2].Load(dx, "Asset/Texture/Game.png");
-	m_Texture[3].Load(dx, "Asset/Texture/field004.jpg");
-	m_Texture[4].Load(dx, "Asset/Texture/waffuru.tif");
-	m_Texture[5].Load(dx, "Asset/Texture/Effect.jpg");
-}
-
-void Prefabs::Texture::Unload()
-{
-	for (int i = m_Size - 1; i >= 0; i--)
+	for (std::int32_t i = 0; i < m_Size; i++)
 	{
-		m_Texture[i].Unload();
+		m_Texture[i].reset(new Loader::Texture);
 	}
+	m_Texture[0]->Load(dx, "Asset/Texture/black.png");
+	m_Texture[1]->Load(dx, "Asset/Texture/Title.png");
+	m_Texture[2]->Load(dx, "Asset/Texture/Game.png");
+	m_Texture[3]->Load(dx, "Asset/Texture/field004.jpg");
+	m_Texture[4]->Load(dx, "Asset/Texture/waffuru.tif");
+	m_Texture[5]->Load(dx, "Asset/Texture/Effect.jpg");
 }
 
 ID3D11ShaderResourceView * Prefabs::Texture::GetTexture(int32_t Id)
 {
-	return m_Texture[Id].GetTexture();
-}
-#pragma endregion Prefabs_TextureƒNƒ‰ƒX‚ÌŠÖ”’è‹`
-
-#pragma region Prefabs_VertexShader_Func
-void Prefabs::VertexShader::Load(Resource& dx)
-{
-	m_VertexShader.reset(new Loader::VertexShader[m_Size]);
-	m_VertexShader[0].Load(dx, "Asset/Shader/vertexShader.cso");
-	m_VertexShader[1].Load(dx, "Asset/Shader/MappingVS.cso");
+	return m_Texture[Id]->GetTexture().Get();
 }
 
-void Prefabs::VertexShader::Unload()
+Prefabs::VertexShader::VertexShader(Resource & dx)
 {
-	for (int i = m_Size - 1; i >= 0; i--)
+	for (int32_t i = 0; i < m_Size; i++)
 	{
-		m_VertexShader[i].Unload();
+		m_VertexShader[i].reset(new Loader::VertexShader);
 	}
+	m_VertexShader[0]->Load(dx, "Asset/Shader/vertexShader.cso");
+	m_VertexShader[1]->Load(dx, "Asset/Shader/MappingVS.cso");
 }
 
 ID3D11VertexShader * Prefabs::VertexShader::GetVertexShader(int32_t Id)
 {
-	return m_VertexShader[Id].GetVertexShader();
+	return m_VertexShader[Id]->GetVertexShader().Get();
 }
 
 ID3D11InputLayout * Prefabs::VertexShader::GetInputLayout(int32_t Id)
 {
-	return m_VertexShader[Id].GetInputLayout();
+	return m_VertexShader[Id]->GetInputLayout().Get();
 }
 
-void Prefabs::PixelShader::Load(Resource & dx)
+Prefabs::PixelShader::PixelShader(Resource & dx)
 {
-	m_PixelShader.reset(new Loader::PixelShader[m_Size]);
-	m_PixelShader[0].Load(dx, "Asset/Shader/pixelShader.cso");
-	m_PixelShader[1].Load(dx, "Asset/Shader/MappingPS.cso");
-}
-
-void Prefabs::PixelShader::Unload()
-{
-	for (int i = m_Size - 1; i >= 0; i--)
+	for (int32_t i = 0; i < m_Size; i++)
 	{
-		m_PixelShader[i].Unload();
+		m_PixelShader[i].reset(new Loader::PixelShader);
 	}
+	m_PixelShader[0]->Load(dx, "Asset/Shader/pixelShader.cso");
+	m_PixelShader[1]->Load(dx, "Asset/Shader/MappingPS.cso");
 }
 
 ID3D11PixelShader * Prefabs::PixelShader::GetPixelShader(int32_t Id)
 {
-	return m_PixelShader[Id].GetPixelShader();
+	return m_PixelShader[Id]->GetPixelShader().Get();
 }

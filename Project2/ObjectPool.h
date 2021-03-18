@@ -6,7 +6,6 @@
 	[説明]
 	アセットのロード、アンロード、管理を行う
 
-
 ------------------------------------------------------------*/
 #pragma once
 #include "Prefabs.h"
@@ -15,8 +14,8 @@
 class ObjectPool
 {
 public:
+	~ObjectPool(){}
 	static void Init();
-	static void Uninit();
 	static void Update(Resource& dx, int32_t Id, const char* AnimationName1, const char* AnimationName2, float BlendRate, int Frame);
 	static void Draw(Resource& dx, int32_t Id);
 	

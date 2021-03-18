@@ -8,23 +8,14 @@
 
 ------------------------------------------------------------*/
 #pragma once
+#include "Resource.h"
 #include "Loader.h"
-#include <memory>
-
-class PrefabsBase
-{
-protected:
-	int32_t m_Size; // プレハブの数
-
-public:
-	virtual void Load(Resource& dx) = 0;
-	virtual void Unload() = 0;
-};
+#include <array>
 
 namespace Prefabs
 {
 	// Textureのプレハブ
-	class Texture : public PrefabsBase
+	class Texture
 	{
 	public:
 		enum ID : int32_t
@@ -37,16 +28,17 @@ namespace Prefabs
 			EFFECT,
 			MAX
 		};
-		Texture() { m_Size = ID::MAX; }
-		void Load(Resource& dx)override;
-		void Unload()override;
+		Texture(){}
+		Texture(Resource& dx);
+		~Texture() {}
 		ID3D11ShaderResourceView* GetTexture(int32_t Id);
 	private:
-		std::unique_ptr<Loader::Texture[]> m_Texture;
+		static const int32_t m_Size = ID::MAX;
+		std::array<std::unique_ptr<Loader::Texture>, m_Size> m_Texture;
 	};
 
 	// 頂点シェーダー
-	class VertexShader : public PrefabsBase
+	class VertexShader
 	{
 	public:
 		enum ID : int32_t
@@ -55,17 +47,18 @@ namespace Prefabs
 			MAPPING,
 			MAX
 		};
-		VertexShader() { m_Size = ID::MAX; }
-		void Load(Resource& dx)override;
-		void Unload()override;
+		VertexShader(){}
+		VertexShader(Resource& dx);
+		~VertexShader(){}
 		ID3D11VertexShader* GetVertexShader(int32_t Id);
 		ID3D11InputLayout* GetInputLayout(int32_t Id);
 	private:
-		std::unique_ptr<Loader::VertexShader[]> m_VertexShader;
+		static const int32_t m_Size = ID::MAX;
+		std::array<std::unique_ptr<Loader::VertexShader>, m_Size> m_VertexShader;
 	};
 
 	// ピクセルシェーダー
-	class PixelShader : public PrefabsBase
+	class PixelShader
 	{
 	public:
 		enum ID : int32_t
@@ -74,12 +67,13 @@ namespace Prefabs
 			MAPPING,
 			MAX
 		};
-		PixelShader() { m_Size = ID::MAX; }
-		void Load(Resource& dx)override;
-		void Unload()override;
+		PixelShader(){}
+		PixelShader(Resource& dx);
+		~PixelShader() {}
 		ID3D11PixelShader* GetPixelShader(int32_t Id);
 	private:
-		std::unique_ptr<Loader::PixelShader[]> m_PixelShader;
+		static const int32_t m_Size = ID::MAX;
+		std::array<std::unique_ptr<Loader::PixelShader>, m_Size> m_PixelShader;
 	};
 }
 
