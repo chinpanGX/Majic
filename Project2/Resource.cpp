@@ -302,10 +302,9 @@ void Resource::CreateVertexShader(ID3D11VertexShader ** VertexShader, ID3D11Inpu
 	unsigned char* buffer = new unsigned char[fsize];
 	fread(buffer, fsize, 1, file);
 	fclose(file);
-
+	
 	m_Device->CreateVertexShader(buffer, fsize, NULL, VertexShader);
-
-
+	
 	// 入力レイアウト生成
 	D3D11_INPUT_ELEMENT_DESC layout[] =
 	{
@@ -315,13 +314,7 @@ void Resource::CreateVertexShader(ID3D11VertexShader ** VertexShader, ID3D11Inpu
 		{ "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 4 * 10, D3D11_INPUT_PER_VERTEX_DATA, 0 }
 	};
 	UINT numElements = ARRAYSIZE(layout);
-
-	m_Device->CreateInputLayout(layout,
-		numElements,
-		buffer,
-		fsize,
-		InputLayout);
-
+	m_Device->CreateInputLayout(layout, numElements, buffer, fsize, InputLayout);
 	delete[] buffer;
 }
 

@@ -13,6 +13,7 @@
 #include "Manager.h"
 #include "Player.h"
 #include "Camera.h"
+#include "Field.h"
 
 // タイトルシーン
 #pragma region GameScene_Title_Func
@@ -48,7 +49,7 @@ void GameScene::Title::Draw()
 void GameScene::Game::Init()
 {
 	AddGameObject<Camera>(L_CAMERA);
-	
+	AddGameObject<Field>(L_3D);
 }
 
 void GameScene::Game::Uninit()

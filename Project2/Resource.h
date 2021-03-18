@@ -50,8 +50,9 @@ class Resource : public Singleton<Resource>
 {
 	friend Singleton<Resource>;
 public:
-	struct Vertex
+	class Vertex
 	{
+	public:
 		D3DXVECTOR3 Position;
 		D3DXVECTOR3 Normal;
 		D3DXVECTOR4 Diffuse;
@@ -59,8 +60,9 @@ public:
 	};
 
 	// マテリアル構造体
-	struct Material
+	class Material
 	{
+	public:
 		D3DXCOLOR	Ambient;
 		D3DXCOLOR	Diffuse;
 		D3DXCOLOR	Specular;
@@ -70,23 +72,26 @@ public:
 	};
 
 	// マテリアル構造体
-	struct ModelMaterial
+	class ModelMaterial
 	{
+	public:
 		Material		Material;
 		class Texture*	Texture;
 	};
 
 	// 描画サブセット構造体
-	struct SubSet
+	class SubSet
 	{
+	public:
 		ModelMaterial	Material;
 		int32_t	StartIndex;
 		int32_t	IndexNum;
 	};
 
 	// ライト構造体
-	struct Light
+	class Light
 	{
+	public:
 		BOOL		Enable;
 		BOOL		Dummy[3];//16byte境界用
 		D3DXVECTOR4	Direction;

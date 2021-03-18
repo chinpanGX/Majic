@@ -7,7 +7,7 @@
 
 --------------------------------------------------------------*/
 #pragma once
-#include "DirectX11.h"
+#include "Resource.h"
 
 class EmitterManager
 {
@@ -15,9 +15,10 @@ class EmitterManager
 
 // SRVとUAVで構造化バッファを作成するためのヘルパー関数
 template<typename T>
-HRESULT CreateStructuedBuffer(UINT NumElements, ID3D11Buffer** ppBufer, ID3D11ShaderResourceView** ppSRV, ID3D11UnorderedAccessView** ppUAV, const T* pInitData = nullptr)
+HRESULT CreateStructuedBuffer(UINT NumElements, ID3D11Buffer** ppBuffer, ID3D11ShaderResourceView** ppSRV, ID3D11UnorderedAccessView** ppUAV, const T* pInitData = nullptr)
 {
-	auto r = Re
+	// デバイスの取得
+	auto& dev = Resource::GetInstance().GetDevice();
 
 	HRESULT hr = S_OK;
 
@@ -33,5 +34,23 @@ HRESULT CreateStructuedBuffer(UINT NumElements, ID3D11Buffer** ppBufer, ID3D11Sh
 	D3D11_SUBRESOURCE_DATA sd;
 	ZeroMemory(&sd, sizeof(sd));
 	sd.pSysMem = pInitData;
+	dev->CreateBuffer(&bd, (pInitData) ? &sd : nullptr, ppBuffer);
 
+	// SRVの生成
+	D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc;
+	ZeroMemory(&srvDesc, sizeof(srvDesc));
+	srvDesc.Format = DXGI_FORMAT_UNKNOWN;
+	srvDesc.ViewDimension = D3D11_SRV_DIMENSION_BUFFER;
+	srvDesc.Buffer.ElementWidth = NumElements;
+	dev->CreateShaderResourceView(*ppBuffer, &srvDesc, ppSRV);
+
+	// UAVの生成
+	D3D11_UNORDERED_ACCESS_VIEW_DESC uavDesc;
+	ZeroMemory(&uavDesc, sizeof(uavDesc));
+	uavDesc.Format = DXGI_FORMAT_UNKNOWN;
+	uavDesc.ViewDimension = D3D11_UAV_DIMENSION_BUFFER;
+	uavDesc.Buffer.NumElements = NumElements;
+	dev->CreateUnorderedAccessView(*ppBuffer, &uavDesc, ppUAV);
+	
+	return hr;
 }

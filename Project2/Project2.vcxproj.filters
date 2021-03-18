@@ -123,6 +123,12 @@
     <ClInclude Include="Resource.h">
       <Filter>App</Filter>
     </ClInclude>
+    <ClInclude Include="Polygon.h">
+      <Filter>3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Field.h">
+      <Filter>3D</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -199,6 +205,12 @@
     </ClCompile>
     <ClCompile Include="Resource.cpp">
       <Filter>App</Filter>
+    </ClCompile>
+    <ClCompile Include="Polygon.cpp">
+      <Filter>3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Field.cpp">
+      <Filter>3D</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

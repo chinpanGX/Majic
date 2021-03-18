@@ -149,6 +149,8 @@
     <ClInclude Include="Bg.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CrystallizeAura.h" />
+    <ClInclude Include="Field.h" />
+    <ClInclude Include="Polygon.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Emitter.h" />
     <ClInclude Include="EmitterManager.h" />
@@ -181,6 +183,8 @@
     <ClCompile Include="Bg.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CrystallizeAura.cpp" />
+    <ClCompile Include="Field.cpp" />
+    <ClCompile Include="Polygon.cpp" />
     <ClCompile Include="Resource.cpp" />
     <ClCompile Include="Emitter.cpp" />
     <ClCompile Include="EmitterManager.cpp" />

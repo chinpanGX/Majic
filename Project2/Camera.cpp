@@ -29,7 +29,7 @@ void Camera::Draw()
 {
 	D3DXMATRIX view;
 	D3DXMatrixLookAtLH(&view, &m_Position, &m_Target, &D3DXVECTOR3(0.0f, 1.0f, 0.0f));
-	m_Mgr.SetProjectionMatrix(&view);
+	m_Mgr.SetViewMatrix(&view);
 
 	D3DXMATRIX proj;
 	D3DXMatrixPerspectiveFovLH(&proj, 1.0f, x / y, 1.0f, 1000.0f);
