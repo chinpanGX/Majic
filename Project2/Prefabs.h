@@ -17,7 +17,7 @@ protected:
 	int32_t m_Size; // ÉvÉåÉnÉuÇÃêî
 
 public:
-	virtual void Load(DirectX11::Manager& dx) = 0;
+	virtual void Load(Resource& dx) = 0;
 	virtual void Unload() = 0;
 };
 
@@ -38,7 +38,7 @@ namespace Prefabs
 			MAX
 		};
 		Texture() { m_Size = ID::MAX; }
-		void Load(DirectX11::Manager& dx)override;
+		void Load(Resource& dx)override;
 		void Unload()override;
 		ID3D11ShaderResourceView* GetTexture(int32_t Id);
 	private:
@@ -56,7 +56,7 @@ namespace Prefabs
 			MAX
 		};
 		VertexShader() { m_Size = ID::MAX; }
-		void Load(DirectX11::Manager& dx)override;
+		void Load(Resource& dx)override;
 		void Unload()override;
 		ID3D11VertexShader* GetVertexShader(int32_t Id);
 		ID3D11InputLayout* GetInputLayout(int32_t Id);
@@ -75,7 +75,7 @@ namespace Prefabs
 			MAX
 		};
 		PixelShader() { m_Size = ID::MAX; }
-		void Load(DirectX11::Manager& dx)override;
+		void Load(Resource& dx)override;
 		void Unload()override;
 		ID3D11PixelShader* GetPixelShader(int32_t Id);
 	private:

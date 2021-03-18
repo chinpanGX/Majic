@@ -6,7 +6,7 @@
 ------------------------------------------------------------*/
 #include "Prefabs.h"
 
-void Prefabs::Texture::Load(DirectX11::Manager& dx)
+void Prefabs::Texture::Load(Resource& dx)
 {
 	m_Texture.reset(new Loader::Texture[m_Size]);
 	m_Texture[0].Load(dx, "Asset/Texture/black.png");
@@ -32,7 +32,7 @@ ID3D11ShaderResourceView * Prefabs::Texture::GetTexture(int32_t Id)
 #pragma endregion Prefabs_TextureƒNƒ‰ƒX‚ÌŠÖ”’è‹`
 
 #pragma region Prefabs_VertexShader_Func
-void Prefabs::VertexShader::Load(DirectX11::Manager& dx)
+void Prefabs::VertexShader::Load(Resource& dx)
 {
 	m_VertexShader.reset(new Loader::VertexShader[m_Size]);
 	m_VertexShader[0].Load(dx, "Asset/Shader/vertexShader.cso");
@@ -57,7 +57,7 @@ ID3D11InputLayout * Prefabs::VertexShader::GetInputLayout(int32_t Id)
 	return m_VertexShader[Id].GetInputLayout();
 }
 
-void Prefabs::PixelShader::Load(DirectX11::Manager & dx)
+void Prefabs::PixelShader::Load(Resource & dx)
 {
 	m_PixelShader.reset(new Loader::PixelShader[m_Size]);
 	m_PixelShader[0].Load(dx, "Asset/Shader/pixelShader.cso");

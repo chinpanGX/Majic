@@ -8,7 +8,7 @@
 #include "GameObject.h"
 
 class Application;
-class DirectX11::Manager;
+class Resource;
 
 class Camera : public GameObject
 {
@@ -22,7 +22,7 @@ public:
 private:
 	D3DXVECTOR3 m_Target;
 	Application& m_App;
-	DirectX11::Manager& m_Mgr;
+	Resource& m_Mgr;
 	float x, y;
 };
 

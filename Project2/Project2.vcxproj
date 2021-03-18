@@ -149,7 +149,7 @@
     <ClInclude Include="Bg.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CrystallizeAura.h" />
-    <ClInclude Include="DirectX11.h" />
+    <ClInclude Include="Resource.h" />
     <ClInclude Include="Emitter.h" />
     <ClInclude Include="EmitterManager.h" />
     <ClInclude Include="Fade.h" />
@@ -181,7 +181,7 @@
     <ClCompile Include="Bg.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CrystallizeAura.cpp" />
-    <ClCompile Include="DirectX11.cpp" />
+    <ClCompile Include="Resource.cpp" />
     <ClCompile Include="Emitter.cpp" />
     <ClCompile Include="EmitterManager.cpp" />
     <ClCompile Include="Fade.cpp" />

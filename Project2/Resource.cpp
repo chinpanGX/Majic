@@ -1,19 +1,18 @@
 /*---------------------------------------------------------
 
-	[DirectX11.h]
+	[Resource.cpp]
 	Author : 出合翔太
 
 	[説明]
-	namespace->DirectX11
-	Manager::DirectX11に必要なものを管理するクラス
+	Resourceに必要なものを管理するクラス
 
 ----------------------------------------------------------*/
-#include "DirectX11.h"
+#include "Resource.h"
 #include "Application.h"
 #include <io.h>
 #include "Manager.h"
 
-void DirectX11::Manager::Init()
+void Resource::Init()
 {
 	HRESULT hr = S_OK;
 	auto &app = Application::GetInstance();
@@ -187,7 +186,7 @@ void DirectX11::Manager::Init()
 	SetMaterial(material);
 }
 
-void DirectX11::Manager::Uninit()
+void Resource::Uninit()
 {
 	// オブジェクト解放
 	m_ParameterBuffer->Release();
@@ -205,7 +204,7 @@ void DirectX11::Manager::Uninit()
 	m_Device->Release();
 }
 
-void DirectX11::Manager::Begin()
+void Resource::Begin()
 {
 	// バックバッファクリア
 	float ClearColor[4] = { 0.0f, 0.5f, 0.0f, 1.0f };
@@ -213,12 +212,12 @@ void DirectX11::Manager::Begin()
 	m_ImmediateContext->ClearDepthStencilView(m_DepthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
 }
 
-void DirectX11::Manager::End()
+void Resource::End()
 {
 	m_SwapChain->Present(1, 0);
 }
 
-void DirectX11::Manager::SetDepthEnable(bool Enable)
+void Resource::SetDepthEnable(bool Enable)
 {
 	if (Enable)
 	{
@@ -230,7 +229,7 @@ void DirectX11::Manager::SetDepthEnable(bool Enable)
 	}
 }
 
-void DirectX11::Manager::SetWorldViewProjection2D()
+void Resource::SetWorldViewProjection2D()
 {
 	auto &app = Application::GetInstance();
 	SIZE winsize = app.GetWindowSize();
@@ -252,48 +251,48 @@ void DirectX11::Manager::SetWorldViewProjection2D()
 	m_ImmediateContext->UpdateSubresource(m_ProjectionBuffer, 0, NULL, &projection, 0, 0);
 }
 
-void DirectX11::Manager::SetWorldMatrix(D3DXMATRIX * WorldMatrix)
+void Resource::SetWorldMatrix(D3DXMATRIX * WorldMatrix)
 {
 	D3DXMATRIX world;
 	D3DXMatrixTranspose(&world, WorldMatrix);
 	m_ImmediateContext->UpdateSubresource(m_WorldBuffer, 0, NULL, &world, 0, 0);
 }
 
-void DirectX11::Manager::SetViewMatrix(D3DXMATRIX * ViewMatrix)
+void Resource::SetViewMatrix(D3DXMATRIX * ViewMatrix)
 {
 	D3DXMATRIX view;
 	D3DXMatrixTranspose(&view, ViewMatrix);
 	m_ImmediateContext->UpdateSubresource(m_ViewBuffer, 0, NULL, &view, 0, 0);
 }
 
-void DirectX11::Manager::SetProjectionMatrix(D3DXMATRIX * ProjectionMatrix)
+void Resource::SetProjectionMatrix(D3DXMATRIX * ProjectionMatrix)
 {
 	D3DXMATRIX projection;
 	D3DXMatrixTranspose(&projection, ProjectionMatrix);
 	m_ImmediateContext->UpdateSubresource(m_ProjectionBuffer, 0, NULL, &projection, 0, 0);
 }
 
-void DirectX11::Manager::SetMaterial(Material Material)
+void Resource::SetMaterial(Material Material)
 {
 	m_ImmediateContext->UpdateSubresource(m_MaterialBuffer, 0, NULL, &Material, 0, 0);
 }
 
-void DirectX11::Manager::SetLight(Light Light)
+void Resource::SetLight(Light Light)
 {
 	m_ImmediateContext->UpdateSubresource(m_LightBuffer, 0, NULL, &Light, 0, 0);
 }
 
-void DirectX11::Manager::SetCameraPosition(D3DXVECTOR3 CameraPosition)
+void Resource::SetCameraPosition(D3DXVECTOR3 CameraPosition)
 {
 	m_ImmediateContext->UpdateSubresource(m_CameraBuffer, 0, NULL, &D3DXVECTOR4(CameraPosition.x, CameraPosition.y, CameraPosition.z, 1.0f), 0, 0);
 }
 
-void DirectX11::Manager::SetParameter(D3DXVECTOR4 Parameter)
+void Resource::SetParameter(D3DXVECTOR4 Parameter)
 {
 	m_ImmediateContext->UpdateSubresource(m_ParameterBuffer, 0, NULL, &Parameter, 0, 0);
 }
 
-void DirectX11::Manager::CreateVertexShader(ID3D11VertexShader ** VertexShader, ID3D11InputLayout ** InputLayout, const char * FileName)
+void Resource::CreateVertexShader(ID3D11VertexShader ** VertexShader, ID3D11InputLayout ** InputLayout, const char * FileName)
 {
 	FILE* file;
 	long int fsize;
@@ -326,7 +325,7 @@ void DirectX11::Manager::CreateVertexShader(ID3D11VertexShader ** VertexShader, 
 	delete[] buffer;
 }
 
-void DirectX11::Manager::CreatePixelShader(ID3D11PixelShader ** PixelShader, const char * FileName)
+void Resource::CreatePixelShader(ID3D11PixelShader ** PixelShader, const char * FileName)
 {
 	FILE* file;
 	long int fsize;

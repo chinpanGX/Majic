@@ -103,5 +103,5 @@ public:
 	}
 
 protected:
-	std::list<GameObject*> m_GameObject[Layer::MAX];
+	std::list<GameObject*> m_GameObject[ELayer::MAX];
 };

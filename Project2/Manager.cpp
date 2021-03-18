@@ -42,7 +42,7 @@ void Manager::Draw()
 {
 	m_Manager.Begin();
 	//3D—pƒ‰ƒCƒgİ’è
-	DirectX11::Light light;
+	Resource::Light light;
 	light.Enable = true;
 	light.Direction = D3DXVECTOR4(1.0f, -1.0f, 1.0f, 0.0f);
 	D3DXVec4Normalize(&light.Direction, &light.Direction);

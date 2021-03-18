@@ -9,7 +9,7 @@
 --------------------------------------------------------------*/
 #pragma once
 #include "Singleton.h"
-#include "DirectX11.h"
+#include "Resource.h"
 #include "Fade.h"
 
 class Manager : public Singleton<Manager>
@@ -34,10 +34,10 @@ public:
 		m_Fade.m_Next = scene;
 	}
 protected:
-	Manager() : m_Manager(DirectX11::Manager::GetInstance()) {}
+	Manager() : m_Manager(Resource::GetInstance()) {}
 	~Manager(){}
 private:
 	class Scene* m_Scene = nullptr;
 	class Fade m_Fade;
-	DirectX11::Manager& m_Manager;
+	Resource& m_Manager;
 };

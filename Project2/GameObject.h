@@ -10,7 +10,7 @@
 
 -----------------------------------------------*/
 #pragma once
-#include "DirectX11.h"
+#include "Resource.h"
 
 class GameObject
 {
