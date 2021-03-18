@@ -10,22 +10,23 @@
 #include <time.h>
 #include "GameScene.h"
 #include "Manager.h"
-#include "Player.h"
+#include "Fade.h"
 #include "ObjectPool.h"
 
 void Manager::Init()
 {
 	srand((unsigned int)time(NULL));
 	ObjectPool::Init();
-	m_Fade.Init();
+	m_Fade = std::make_unique<Fade>();
+	m_Fade->Init();
 	SetScene<GameScene::Title>();
-	m_Fade.m_State = m_Fade.E_IN;
-	SceneChange(m_Fade.m_Next);
+	m_Fade->m_State = m_Fade->E_IN;
+	SceneChange(m_Fade->m_Next);
 }
 
 void Manager::Uninit()
 {
-	m_Fade.Uninit();
+	m_Fade->Uninit();
 	m_Scene->Uninit();
 	delete m_Scene;
 }
@@ -33,7 +34,7 @@ void Manager::Uninit()
 void Manager::Update()
 {
 	m_Scene->Update();
-	m_Fade.Update();
+	m_Fade->Update();
 }
 
 void Manager::Draw()
@@ -49,7 +50,7 @@ void Manager::Draw()
 	m_Manager.SetLight(light);
 
 	m_Scene->Draw();
-	m_Fade.Draw();
+	m_Fade->Draw();
 
 	light.Enable = false;
 	m_Manager.SetLight(light);
