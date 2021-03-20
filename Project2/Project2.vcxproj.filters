@@ -129,6 +129,9 @@
     <ClInclude Include="Field.h">
       <Filter>3D</Filter>
     </ClInclude>
+    <ClInclude Include="ConstantBuffer.h" />
+    <ClInclude Include="Shader.h" />
+    <ClInclude Include="Utility.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -212,5 +215,7 @@
     <ClCompile Include="Field.cpp">
       <Filter>3D</Filter>
     </ClCompile>
+    <ClCompile Include="ConstantBuffer.cpp" />
+    <ClCompile Include="Shader.cpp" />
   </ItemGroup>
 </Project>

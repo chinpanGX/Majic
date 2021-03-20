@@ -148,6 +148,7 @@
     <ClInclude Include="AstralFlare.h" />
     <ClInclude Include="Bg.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="ConstantBuffer.h" />
     <ClInclude Include="CrystallizeAura.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Polygon.h" />
@@ -174,7 +175,9 @@
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="SacredBlast.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="Shader.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Utility.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Apocalypsis.cpp" />
@@ -182,6 +185,7 @@
     <ClCompile Include="AstralFlare.cpp" />
     <ClCompile Include="Bg.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="ConstantBuffer.cpp" />
     <ClCompile Include="CrystallizeAura.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Polygon.cpp" />
@@ -204,6 +208,7 @@
     <ClCompile Include="Prefabs.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SacredBlast.cpp" />
+    <ClCompile Include="Shader.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
