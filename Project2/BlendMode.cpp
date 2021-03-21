@@ -9,7 +9,11 @@
 #include "BlendMode.h"
 #include "Utility.h"
 
-BlendMode::BlendMode(ID3D11Device* dev, EMode Mode) : m_BlendState(nullptr)
+BlendMode::BlendMode()
+{
+}
+
+BlendMode::BlendMode(ID3D11Device* dev, size_t Mode) : m_BlendState(nullptr)
 {
 	HRESULT hr = S_OK;
 	D3D11_BLEND_DESC bd;
@@ -50,6 +54,11 @@ BlendMode::BlendMode(ID3D11Device* dev, EMode Mode) : m_BlendState(nullptr)
 
 BlendMode::~BlendMode()
 {
+}
+
+ID3D11BlendState * BlendMode::Get()const
+{
+	return m_BlendState.Get(); 
 }
 
 void BlendMode::SetBlend(D3D11_BLEND_DESC Desc, D3D11_BLEND Src, D3D11_BLEND Dest)

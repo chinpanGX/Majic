@@ -19,24 +19,18 @@ public:
 	{
 		CONSTANT_BUFFER_WORLD,
 		CONSTANT_BUFFER_VIEW,
-		CONSTANT_BUFFER_PROJECTON,
+		CONSTANT_BUFFER_PROJECTION,
 		CONSTANT_BUFFER_MATERIAL,
 		CONSTANT_BUFFER_LIGHT,
 		CONSTANT_BUFFER_CAMERA,
 		CONSTANT_BUFFER_PARAMETER,
 		NUM_MAX
 	};
-	ConstantBuffer(){}
-	ConstantBuffer(ID3D11Device* Dev, ID3D11DeviceContext* Context, EBuffer Buffer);
+	ConstantBuffer();
+	ConstantBuffer(ID3D11Device* Dev, ID3D11DeviceContext* Context);
 	~ConstantBuffer();
 
-	ID3D11Buffer* Get(EBuffer Buf)
-	{
-		return m_Buffer[Buf].Get();
-	}
-
+	ID3D11Buffer* Get(EBuffer Buf) const;
 private:
-	ComPtr<ID3D11Buffer> m_Buffer[EBuffer::NUM_MAX];
-	std::vector<ConstantBuffer::EBuffer> m_BufferList;
+	std::array<ComPtr<ID3D11Buffer>, EBuffer::NUM_MAX> m_Buffer;
 };
-

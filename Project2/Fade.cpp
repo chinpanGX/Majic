@@ -16,6 +16,10 @@ Fade::Fade() : m_State(E_NONE), m_Alpha(1.0f), m_Time(0.0f), m_Fps(Fps::GetInsta
 
 }
 
+Fade::~Fade()
+{
+}
+
 void Fade::Init()
 {
 	m_Renderer.Init();

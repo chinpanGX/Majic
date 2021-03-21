@@ -6,12 +6,14 @@
 	シェーダーの管理
 
 --------------------------------------------------------------*/
+#define _CRT_SECURE_NO_WARNINGS
 #include <io.h>
 #include <string>
 #include "Shader.h"
 
-void Shader::VertexShader::CreateVertexShader(const DirectXGraphics & dx, ID3D11VertexShader ** VertexShader, ID3D11InputLayout ** InputLayout, std::string FileName)
+void Shader::VertexShader::CreateVertexShader(DirectXGraphics & dx, ID3D11VertexShader ** VertexShader, ID3D11InputLayout ** InputLayout, std::string FileName)
 {
+	auto dev = dx.GetDevice();
 	FILE* file;
 	long int fsize;
 	file = fopen(FileName.c_str(), "rb");
@@ -19,7 +21,7 @@ void Shader::VertexShader::CreateVertexShader(const DirectXGraphics & dx, ID3D11
 	unsigned char* buffer = new unsigned char[fsize];
 	fread(buffer, fsize, 1, file);
 	fclose(file);
-	dx.GetDevice()->CreateVertexShader(buffer, fsize, NULL, VertexShader);
+	dev->CreateVertexShader(buffer, fsize, NULL, VertexShader);
 
 	// 入力レイアウト生成
 	D3D11_INPUT_ELEMENT_DESC layout[] =
@@ -30,17 +32,18 @@ void Shader::VertexShader::CreateVertexShader(const DirectXGraphics & dx, ID3D11
 		{ "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 4 * 10, D3D11_INPUT_PER_VERTEX_DATA, 0 }
 	};
 	UINT numElements = ARRAYSIZE(layout);
-	dx.GetDevice()->CreateInputLayout(layout, numElements, buffer, fsize, InputLayout);
+	dev->CreateInputLayout(layout, numElements, buffer, fsize, InputLayout);
 	delete[] buffer;
 }
 
-void Shader::VertexShader::Load(const DirectXGraphics & dx, std::string VertexShader_FileName)
+void Shader::VertexShader::Load(DirectXGraphics & dx, std::string VertexShader_FileName)
 {
 	CreateVertexShader(dx, m_VertexShader.GetAddressOf(), m_InputLayout.GetAddressOf(), VertexShader_FileName);
 }
 
-void Shader::PixelShader::CreatePixelShader(const DirectXGraphics & dx, ID3D11PixelShader ** PixelShader, std::string FileName)
+void Shader::PixelShader::CreatePixelShader(DirectXGraphics & dx, ID3D11PixelShader ** PixelShader, std::string FileName)
 {
+	auto dev = dx.GetDevice();
 	FILE* file;
 	long int fsize;
 	file = fopen(FileName.c_str(), "rb");
@@ -48,11 +51,11 @@ void Shader::PixelShader::CreatePixelShader(const DirectXGraphics & dx, ID3D11Pi
 	unsigned char* buffer = new unsigned char[fsize];
 	fread(buffer, fsize, 1, file);
 	fclose(file);
-	dx.GetDevice()->CreatePixelShader(buffer, fsize, NULL, PixelShader);
+	dev->CreatePixelShader(buffer, fsize, NULL, PixelShader);
 	delete[] buffer;
 }
 
-void Shader::PixelShader::Load(const DirectXGraphics & dx, std::string PixelShader_FileName)
+void Shader::PixelShader::Load(DirectXGraphics & dx, std::string PixelShader_FileName)
 {
 	CreatePixelShader(dx, m_PixelShader.GetAddressOf(), PixelShader_FileName);
 }

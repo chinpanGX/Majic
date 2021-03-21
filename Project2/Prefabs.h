@@ -9,7 +9,6 @@
 ------------------------------------------------------------*/
 #pragma once
 #include "DirectXGraphics.h"
-#include "Loader.h"
 #include "Shader.h"
 #include <array>
 
@@ -88,7 +87,7 @@ namespace Prefabs
 			MAX
 		};
 		PixelShader(){}
-		PixelShader(const DirectXGraphics& dx);
+		PixelShader(DirectXGraphics& dx);
 		~PixelShader() {}
 		ID3D11PixelShader* GetPixelShader(int32_t Id);
 	private:

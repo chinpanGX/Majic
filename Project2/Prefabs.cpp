@@ -46,7 +46,7 @@ ID3D11InputLayout * Prefabs::VertexShader::GetInputLayout(int32_t Id)
 	return m_VertexShader[Id]->GetInputLayout().Get();
 }
 
-Prefabs::PixelShader::PixelShader(const DirectXGraphics & dx)
+Prefabs::PixelShader::PixelShader(DirectXGraphics & dx)
 {
 	for (int32_t i = 0; i < m_Size; i++)
 	{

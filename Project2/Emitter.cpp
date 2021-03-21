@@ -52,7 +52,7 @@ void Emitter::CreateVertex()
 
 	D3D11_SUBRESOURCE_DATA sd;
 	ZeroMemory(&sd, sizeof(sd));
-	sd.pSysMem = v;
+	//sd.pSysMem = v;
 	r.GetDevice()->CreateBuffer(&bd, &sd, m_VertexBuffer.GetAddressOf());
 
 	D3D11_MAPPED_SUBRESOURCE msr;

@@ -6,19 +6,12 @@
 	DirectX関連の処理
 
 --------------------------------------------------------------*/
-#include "DirectXGraphics.h"
 #include "Application.h"
 #include "Utility.h"
-#include "ConstantBuffer.h"
-#include "BlendMode.h"
+#include "DirectXGraphics.h"
 
-DirectXGraphics::DirectXGraphics() : m_Device(nullptr), 
-									 m_ImmediateContext(nullptr),
-									 m_SwapChain(nullptr),
-									 m_RenderTargetView(nullptr), 
-									 m_DepthStencilView(nullptr), 
-									 m_DepthStateEnable(nullptr),
-									 m_DepthStateDisable(nullptr)
+DirectXGraphics::DirectXGraphics() : m_ConstantBuffer(nullptr), m_Device(nullptr),  m_ImmediateContext(nullptr), m_SwapChain(nullptr),
+									 m_RenderTargetView(nullptr), m_DepthStencilView(nullptr), m_DepthStateEnable(nullptr), m_DepthStateDisable(nullptr)
 {
 	HRESULT hr = S_OK;
 	auto &app = Application::GetInstance();
@@ -97,9 +90,9 @@ DirectXGraphics::DirectXGraphics() : m_Device(nullptr),
 	m_ImmediateContext->RSSetState(rs);
 
 	// ブレンドステート設定
-	//for (size_t i = 0; i < ; i++)
+	for (size_t i = 0; i < m_BlendMode.size(); i++)
 	{
-
+		m_BlendMode[i].reset(new BlendMode(m_Device.Get(),i));
 	}
 
 	// 深度ステンシルステート設定
@@ -130,6 +123,8 @@ DirectXGraphics::DirectXGraphics() : m_Device(nullptr),
 	ID3D11SamplerState* samplerState = NULL;
 	m_Device->CreateSamplerState(&samplerDesc, &samplerState);
 	m_ImmediateContext->PSSetSamplers(0, 1, &samplerState);
+
+	m_ConstantBuffer.reset(new ConstantBuffer(m_Device.Get(), m_ImmediateContext.Get()));
 
 	// ライト無効化
 	Resource::Light light;
@@ -178,56 +173,56 @@ void DirectXGraphics::SetWorldViewProjection2D()
 	D3DXMatrixIdentity(&world);
 	D3DXMatrixTranspose(&world, &world);
 
-	m_ImmediateContext->UpdateSubresource(m_WorldBuffer.Get(), 0, NULL, &world, 0, 0);
+	m_ImmediateContext->UpdateSubresource(m_ConstantBuffer->Get(ConstantBuffer::EBuffer::CONSTANT_BUFFER_WORLD), 0, NULL, &world, 0, 0);
 
 	D3DXMATRIX view;
 	D3DXMatrixIdentity(&view);
 	D3DXMatrixTranspose(&view, &view);
-	m_ImmediateContext->UpdateSubresource(m_ViewBuffer.Get(), 0, NULL, &view, 0, 0);
+	m_ImmediateContext->UpdateSubresource(m_ConstantBuffer->Get(ConstantBuffer::EBuffer::CONSTANT_BUFFER_VIEW), 0, NULL, &view, 0, 0);
 
 	D3DXMATRIX projection;
 	D3DXMatrixOrthoOffCenterLH(&projection, 0.0f, (float)winsize.cx, (float)winsize.cy, 0.0f, 0.0f, 1.0f);
 	D3DXMatrixTranspose(&projection, &projection);
-	m_ImmediateContext->UpdateSubresource(m_ProjectionBuffer.Get(), 0, NULL, &projection, 0, 0);
+	m_ImmediateContext->UpdateSubresource(m_ConstantBuffer->Get(ConstantBuffer::EBuffer::CONSTANT_BUFFER_PROJECTION), 0, NULL, &projection, 0, 0);
 }
 
 void DirectXGraphics::SetWorldMatrix(D3DXMATRIX * WorldMatrix)
 {
 	D3DXMATRIX world;
 	D3DXMatrixTranspose(&world, WorldMatrix);
-	m_ImmediateContext->UpdateSubresource(m_WorldBuffer.Get(), 0, NULL, &world, 0, 0);
+	m_ImmediateContext->UpdateSubresource(m_ConstantBuffer->Get(ConstantBuffer::EBuffer::CONSTANT_BUFFER_WORLD), 0, NULL, &world, 0, 0);
 }
 
 void DirectXGraphics::SetViewMatrix(D3DXMATRIX * ViewMatrix)
 {
 	D3DXMATRIX view;
 	D3DXMatrixTranspose(&view, ViewMatrix);
-	m_ImmediateContext->UpdateSubresource(m_ViewBuffer.Get(), 0, NULL, &view, 0, 0);
+	m_ImmediateContext->UpdateSubresource(m_ConstantBuffer->Get(ConstantBuffer::EBuffer::CONSTANT_BUFFER_VIEW), 0, NULL, &view, 0, 0);
 }
 
 void DirectXGraphics::SetProjectionMatrix(D3DXMATRIX * ProjectionMatrix)
 {
 	D3DXMATRIX projection;
 	D3DXMatrixTranspose(&projection, ProjectionMatrix);
-	m_ImmediateContext->UpdateSubresource(m_ProjectionBuffer.Get(), 0, NULL, &projection, 0, 0);
+	m_ImmediateContext->UpdateSubresource(m_ConstantBuffer->Get(ConstantBuffer::EBuffer::CONSTANT_BUFFER_PROJECTION), 0, NULL, &projection, 0, 0);
 }
 
 void DirectXGraphics::SetMaterial(Resource::Material Material)
 {
-	m_ImmediateContext->UpdateSubresource(m_MaterialBuffer.Get(), 0, NULL, &Material, 0, 0);
+	m_ImmediateContext->UpdateSubresource(m_ConstantBuffer->Get(ConstantBuffer::EBuffer::CONSTANT_BUFFER_MATERIAL), 0, NULL, &Material, 0, 0);
 }
 
 void DirectXGraphics::SetLight(Resource::Light Light)
 {
-	m_ImmediateContext->UpdateSubresource(m_LightBuffer.Get(), 0, NULL, &Light, 0, 0);
+	m_ImmediateContext->UpdateSubresource(m_ConstantBuffer->Get(ConstantBuffer::EBuffer::CONSTANT_BUFFER_LIGHT), 0, NULL, &Light, 0, 0);
 }
 
 void DirectXGraphics::SetCameraPosition(D3DXVECTOR3 CameraPosition)
 {
-	m_ImmediateContext->UpdateSubresource(m_CameraBuffer.Get(), 0, NULL, &D3DXVECTOR4(CameraPosition.x, CameraPosition.y, CameraPosition.z, 1.0f), 0, 0);
+	m_ImmediateContext->UpdateSubresource(m_ConstantBuffer->Get(ConstantBuffer::EBuffer::CONSTANT_BUFFER_CAMERA), 0, NULL, &D3DXVECTOR4(CameraPosition.x, CameraPosition.y, CameraPosition.z, 1.0f), 0, 0);
 }
 
 void DirectXGraphics::SetParameter(D3DXVECTOR4 Parameter)
 {
-	m_ImmediateContext->UpdateSubresource(m_ParameterBuffer.Get(), 0, NULL, &Parameter, 0, 0);
+	m_ImmediateContext->UpdateSubresource(m_ConstantBuffer->Get(ConstantBuffer::EBuffer::CONSTANT_BUFFER_PARAMETER), 0, NULL, &Parameter, 0, 0);
 }

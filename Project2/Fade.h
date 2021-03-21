@@ -22,7 +22,7 @@ public:
 	EState m_State;
 	static class Scene* m_Next;
 	Fade();
-	~Fade(){}
+	~Fade();
 	void Init()override;
 	void Uninit()override;
 	void Update()override;

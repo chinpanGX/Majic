@@ -19,7 +19,7 @@ namespace Shader
 	public:
 		VertexShader() {}
 		~VertexShader() {}
-		void Load(const DirectXGraphics & dx, std::string VertexShader_FileName);
+		void Load(DirectXGraphics & dx, std::string VertexShader_FileName);
 		ComPtr<ID3D11VertexShader> GetVertexShader()const
 		{
 			return m_VertexShader;
@@ -31,7 +31,7 @@ namespace Shader
 
 	private:
 		// ê∂ê¨
-		void CreateVertexShader(const DirectXGraphics & dx, ID3D11VertexShader ** VertexShader, ID3D11InputLayout ** InputLayout, std::string FileName);
+		void CreateVertexShader(DirectXGraphics & dx, ID3D11VertexShader ** VertexShader, ID3D11InputLayout ** InputLayout, std::string FileName);
 
 		ComPtr<ID3D11VertexShader> m_VertexShader = nullptr;
 		ComPtr<ID3D11InputLayout> m_InputLayout = nullptr;
@@ -43,14 +43,14 @@ namespace Shader
 	public:
 		PixelShader() {}
 		~PixelShader() {}
-		void Load(const DirectXGraphics & dx, std::string PixelShader_FileName);
+		void Load(DirectXGraphics & dx, std::string PixelShader_FileName);
 		ComPtr<ID3D11PixelShader> GetPixelShader()const
 		{
 			return m_PixelShader;
 		}
 	private:
 		// ê∂ê¨
-		void CreatePixelShader(const DirectXGraphics& dx, ID3D11PixelShader** PixelShader, std::string FileName);
+		void CreatePixelShader(DirectXGraphics& dx, ID3D11PixelShader** PixelShader, std::string FileName);
 
 		ComPtr<ID3D11PixelShader> m_PixelShader = nullptr;
 	};

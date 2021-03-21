@@ -7,6 +7,8 @@
 #include "DirectXGraphics.h"
 #include "Polygon.h"
 
+Polygon3D::Polygon3D() = default;
+
 Polygon3D::Polygon3D(DirectXGraphics & dx, Resource::Vertex Vertex[4])
 {
 	// 頂点バッファ生成
@@ -22,6 +24,8 @@ Polygon3D::Polygon3D(DirectXGraphics & dx, Resource::Vertex Vertex[4])
 
 	dx.GetDevice()->CreateBuffer(&bd, &sd, m_VertexBuffer.GetAddressOf());
 }
+
+Polygon3D::~Polygon3D() = default;
 
 void Polygon3D::DrawPolygon(DirectXGraphics & dx, D3DXVECTOR3 Position, D3DXVECTOR3 Rotation, D3DXVECTOR3 Scale)
 {

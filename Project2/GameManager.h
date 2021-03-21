@@ -9,6 +9,7 @@
 --------------------------------------------------------------*/
 #pragma once
 #include "Singleton.h"
+#include "Fade.h"
 #include <memory>
 
 class GameManager : public Singleton<GameManager>
@@ -22,9 +23,18 @@ public:
 	class Scene* GetScene() { return m_Scene; }
 	void SceneChange(class Scene* s);
 	template<typename T>
-	void SetScene();
+	void SetScene()
+	{
+		if (m_Fade->m_State != Fade::E_NONE)
+		{
+			return;
+		}
+		m_Fade->m_State = Fade::E_OUT;
+		T* scene = new T;
+		m_Fade->m_Next = scene;
+	}
 protected:
-	GameManager();
+	GameManager() : m_DirectX(DirectXGraphics::GetInstance()){}
 	~GameManager(){}
 private:
 	class Scene* m_Scene = nullptr;

@@ -6,11 +6,14 @@
 --------------------------------------------------------------*/
 #include "ObjectPool.h"
 #include "DirectXGraphics.h"
+#include "Polygon.h"
 #include "Field.h"
 
 Field::Field() : m_Dx(DirectXGraphics::GetInstance())
 {
 }
+
+Field::~Field() = default;
 
 void Field::Init()
 {

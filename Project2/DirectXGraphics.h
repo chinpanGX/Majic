@@ -13,6 +13,7 @@
 #include <windows.h>
 #include <wrl/client.h>
 #include <vector>
+#include <array>
 #include <memory>
 #include "Singleton.h"
 
@@ -37,6 +38,8 @@
 #pragma comment(lib,"dxgi.lib")
 #pragma comment(lib,"d3dcompiler.lib")
 
+#include "ConstantBuffer.h"
+#include "BlendMode.h"
 
 namespace Resource
 {
@@ -117,7 +120,7 @@ protected:
 	~DirectXGraphics() {}
 private:
 	std::unique_ptr<class ConstantBuffer>  m_ConstantBuffer;
-	std::unique_ptr<class BlendMode> m_BlendMode[BlendMode::EMode::NUM_MAX];
+	std::array<std::unique_ptr<class BlendMode>,BlendMode::EMode::NUM_MAX> m_BlendMode;
 	ComPtr<ID3D11Device>			m_Device;
 	ComPtr<ID3D11DeviceContext>		m_ImmediateContext;
 	ComPtr<IDXGISwapChain>			m_SwapChain;
@@ -126,4 +129,3 @@ private:
 	ComPtr<ID3D11DepthStencilState>	m_DepthStateEnable;
 	ComPtr<ID3D11DepthStencilState>	m_DepthStateDisable;
 };
-

@@ -8,10 +8,9 @@
 
 --------------------------------------------------------------*/
 #include <time.h>
-#include "GameScene.h"
 #include "GameManager.h"
-#include "Fade.h"
 #include "ObjectPool.h"
+#include "GameScene.h"
 
 void GameManager::Init()
 {
@@ -67,20 +66,4 @@ void GameManager::SceneChange(Scene * s)
 	}
 	m_Scene = s;
 	s->Init();
-}
-
-GameManager::GameManager() : m_DirectX(DirectXGraphics::GetInstance())
-{
-}
-
-template<typename T>
-void GameManager::SetScene()
-{
-	if (m_Fade->m_State != Fade::E_NONE)
-	{
-		return;
-	}
-	m_Fade->m_State = Fade::E_OUT;
-	T* scene = new T;
-	m_Fade->m_Next = scene;	
 }

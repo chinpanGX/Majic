@@ -6,13 +6,13 @@
 --------------------------------------------------------------*/
 #pragma once
 #include "GameObject.h"
-#include "Polygon.h"
 
+class Polygon3D;
 class Field : public GameObject
 {
 public:
 	Field();
-	~Field() {}
+	~Field();
 	void Init()override;
 	void Uninit()override;
 	void Update()override;

@@ -7,7 +7,9 @@
 
 --------------------------------------------------------------*/
 #pragma once
-#include "DirectXGraphics.h"
+#include <Windows.h>
+#include <d3d11.h>
+#include <wrl.h>
 
 class BlendMode
 {
@@ -22,10 +24,10 @@ public:
 		BLEND_MODE_SCREEN,
 		NUM_MAX
 	};
-	BlendMode() {}
-	BlendMode(ID3D11Device* dev, EMode Mode);
+	BlendMode();
+	BlendMode(ID3D11Device* dev, size_t Mode);
 	~BlendMode();
-	inline ID3D11BlendState* Get()const { return m_BlendState.Get(); }
+	ID3D11BlendState * Get() const;
 private:
 	//									Src = 合成色(上レイヤー)Dest = 基本色(下レイヤー)
 	void SetBlend(D3D11_BLEND_DESC Desc, D3D11_BLEND Src, D3D11_BLEND Dest);

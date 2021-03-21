@@ -8,7 +8,11 @@
 ---------------------------------------------------------------*/
 #include "ConstantBuffer.h"
 
-ConstantBuffer::ConstantBuffer(ID3D11Device* Dev, ID3D11DeviceContext* Context, EBuffer Buffer)
+ConstantBuffer::ConstantBuffer()
+{
+}
+
+ConstantBuffer::ConstantBuffer(ID3D11Device* Dev, ID3D11DeviceContext* Context)
 {
 	auto dev = Dev;
 	auto con = Context;
@@ -21,9 +25,9 @@ ConstantBuffer::ConstantBuffer(ID3D11Device* Dev, ID3D11DeviceContext* Context, 
 	hBufferDesc.MiscFlags = 0;
 	hBufferDesc.StructureByteStride = sizeof(float);
 
-	for (size_t i = 0; i < m_BufferList.size(); i++)
+	for (size_t i = 0; i < m_Buffer.size(); i++)
 	{
-		switch (Buffer)
+		switch (i)
 		{
 		case ConstantBuffer::CONSTANT_BUFFER_WORLD:
 			dev->CreateBuffer(&hBufferDesc, NULL, m_Buffer[i].GetAddressOf());
@@ -33,7 +37,7 @@ ConstantBuffer::ConstantBuffer(ID3D11Device* Dev, ID3D11DeviceContext* Context, 
 			dev->CreateBuffer(&hBufferDesc, NULL, m_Buffer[i].GetAddressOf());
 			con->VSSetConstantBuffers(1, 1, m_Buffer[i].GetAddressOf());
 			break;
-		case ConstantBuffer::CONSTANT_BUFFER_PROJECTON:
+		case ConstantBuffer::CONSTANT_BUFFER_PROJECTION:
 			dev->CreateBuffer(&hBufferDesc, NULL, m_Buffer[i].GetAddressOf());
 			con->VSSetConstantBuffers(2, 1, m_Buffer[i].GetAddressOf());
 			break;
@@ -64,4 +68,9 @@ ConstantBuffer::ConstantBuffer(ID3D11Device* Dev, ID3D11DeviceContext* Context, 
 
 ConstantBuffer::~ConstantBuffer()
 {
+}
+
+ID3D11Buffer * ConstantBuffer::Get(EBuffer Buf) const
+{
+	return m_Buffer[Buf].Get();	
 }
