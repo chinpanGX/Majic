@@ -12,10 +12,10 @@
 #include <stdio.h>
 #include <windows.h>
 #include <wrl/client.h>
-#include <vector>
 #include <array>
 #include <memory>
 #include "Singleton.h"
+#include "BlendMode.h"
 
 #pragma warning(disable:4005)
 #pragma warning(push)
@@ -37,8 +37,6 @@
 #pragma comment(lib,"d3dx11.lib")
 #pragma comment(lib,"dxgi.lib")
 #pragma comment(lib,"d3dcompiler.lib")
-
-#include "BlendMode.h"
 
 namespace Resource
 {
@@ -120,8 +118,8 @@ protected:
 	DirectXGraphics();
 	virtual ~DirectXGraphics();
 private:
-	std::unique_ptr<class ConstantBuffer>  m_ConstantBuffer;
 	std::array<std::unique_ptr<class BlendMode>, BlendMode::NUM_MAX> m_BlendMode;
+	std::unique_ptr<class ConstantBuffer>  m_ConstantBuffer;
 	ComPtr<ID3D11Device>			m_Device;
 	ComPtr<ID3D11DeviceContext>		m_ImmediateContext;
 	ComPtr<IDXGISwapChain>			m_SwapChain;

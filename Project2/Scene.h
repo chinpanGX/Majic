@@ -11,6 +11,8 @@
 #pragma once
 #include "GameObject.h"
 #include <list>
+#include <vector>
+#include <typeinfo>
 
 class Scene
 {

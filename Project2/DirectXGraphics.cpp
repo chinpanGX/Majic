@@ -10,6 +10,13 @@
 #include "Utility.h"
 #include "ConstantBuffer.h"
 #include "DirectXGraphics.h"
+#include <vector>
+
+namespace
+{
+	const float win_x = Application::GetInstance().GetWindowSize().cx;
+	const float win_y = Application::GetInstance().GetWindowSize().cy;
+}
 
 DirectXGraphics::DirectXGraphics() : m_ConstantBuffer(nullptr), m_Device(nullptr),  m_ImmediateContext(nullptr), m_SwapChain(nullptr),
 									 m_RenderTargetView(nullptr), m_DepthStencilView(nullptr), m_DepthStateEnable(nullptr), m_DepthStateDisable(nullptr)
@@ -135,6 +142,7 @@ DirectXGraphics::DirectXGraphics() : m_ConstantBuffer(nullptr), m_Device(nullptr
 	m_Device->CreateSamplerState(&samplerDesc, &samplerState);
 	m_ImmediateContext->PSSetSamplers(0, 1, &samplerState);
 
+	// コンスタントバッファ設定
 	m_ConstantBuffer.reset(new ConstantBuffer(m_Device.Get(), m_ImmediateContext.Get()));
 
 	// ライト無効化
@@ -181,9 +189,6 @@ void DirectXGraphics::SetDepthEnable(bool Enable)
 
 void DirectXGraphics::SetWorldViewProjection2D()
 {
-	auto &app = Application::GetInstance();
-	SIZE winsize = app.GetWindowSize();
-
 	D3DXMATRIX world;
 	D3DXMatrixIdentity(&world);
 	D3DXMatrixTranspose(&world, &world);
@@ -196,7 +201,7 @@ void DirectXGraphics::SetWorldViewProjection2D()
 	m_ImmediateContext->UpdateSubresource(m_ConstantBuffer->Get(ConstantBuffer::EBuffer::CONSTANT_BUFFER_VIEW), 0, NULL, &view, 0, 0);
 
 	D3DXMATRIX projection;
-	D3DXMatrixOrthoOffCenterLH(&projection, 0.0f, (float)winsize.cx, (float)winsize.cy, 0.0f, 0.0f, 1.0f);
+	D3DXMatrixOrthoOffCenterLH(&projection, 0.0f, win_x, win_y, 0.0f, 0.0f, 1.0f);
 	D3DXMatrixTranspose(&projection, &projection);
 	m_ImmediateContext->UpdateSubresource(m_ConstantBuffer->Get(ConstantBuffer::EBuffer::CONSTANT_BUFFER_PROJECTION), 0, NULL, &projection, 0, 0);
 }
@@ -234,7 +239,8 @@ void DirectXGraphics::SetLight(Resource::Light Light)
 
 void DirectXGraphics::SetCameraPosition(D3DXVECTOR3 CameraPosition)
 {
-	m_ImmediateContext->UpdateSubresource(m_ConstantBuffer->Get(ConstantBuffer::EBuffer::CONSTANT_BUFFER_CAMERA), 0, NULL, &D3DXVECTOR4(CameraPosition.x, CameraPosition.y, CameraPosition.z, 1.0f), 0, 0);
+	m_ImmediateContext->UpdateSubresource(m_ConstantBuffer->Get(ConstantBuffer::EBuffer::CONSTANT_BUFFER_CAMERA), 0, NULL, 
+		&D3DXVECTOR4(CameraPosition.x, CameraPosition.y, CameraPosition.z, 1.0f), 0, 0);
 }
 
 void DirectXGraphics::SetParameter(D3DXVECTOR4 Parameter)
