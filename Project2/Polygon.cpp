@@ -4,10 +4,10 @@
 	Author : 出合翔太
 
 --------------------------------------------------------------*/
-#include "Resource.h"
+#include "DirectXGraphics.h"
 #include "Polygon.h"
 
-Polygon3D::Polygon3D(Resource & Res, Resource::Vertex Vertex[4])
+Polygon3D::Polygon3D(DirectXGraphics & dx, Resource::Vertex Vertex[4])
 {
 	// 頂点バッファ生成
 	D3D11_BUFFER_DESC bd;
@@ -20,31 +20,32 @@ Polygon3D::Polygon3D(Resource & Res, Resource::Vertex Vertex[4])
 	ZeroMemory(&sd, sizeof(sd));
 	sd.pSysMem = Vertex;
 
-	Res.GetDevice()->CreateBuffer(&bd, &sd, m_VertexBuffer.GetAddressOf());
+	dx.GetDevice()->CreateBuffer(&bd, &sd, m_VertexBuffer.GetAddressOf());
 }
 
-void Polygon3D::DrawPolygon(Resource & Res, D3DXVECTOR3 Position, D3DXVECTOR3 Rotation, D3DXVECTOR3 Scale)
+void Polygon3D::DrawPolygon(DirectXGraphics & dx, D3DXVECTOR3 Position, D3DXVECTOR3 Rotation, D3DXVECTOR3 Scale)
 {
+	auto& d = dx;
 	// マトリクス設定
 	D3DXMATRIX world, scale, rot, trans;
 	D3DXMatrixScaling(&scale, Scale.x, Scale.y, Scale.z);
 	D3DXMatrixRotationYawPitchRoll(&rot, Rotation.y, Rotation.x, Rotation.z);
 	D3DXMatrixTranslation(&trans, Position.x, Position.y, Position.z);
 	world = scale * rot * trans;
-	Res.SetWorldMatrix(&world);
+	d.SetWorldMatrix(&world);
 	// 頂点バッファ設定
 	UINT stride = sizeof(Resource::Vertex);
 	UINT offset = 0;
-	Res.GetDeviceContext()->IASetVertexBuffers(0, 1, m_VertexBuffer.GetAddressOf(), &stride, &offset);
+	d.GetDeviceContext()->IASetVertexBuffers(0, 1, m_VertexBuffer.GetAddressOf(), &stride, &offset);
 	// マテリアル設定
 	Resource::Material material;
 	ZeroMemory(&material, sizeof(material));
 	material.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
-	Res.SetMaterial(material);
+	d.SetMaterial(material);
 
 	// プリミティブトポロジ設定
-	Res.GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+	d.GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 
 	// ポリゴン描画
-	Res.GetDeviceContext()->Draw(4, 0);
+	d.GetDeviceContext()->Draw(4, 0);
 }

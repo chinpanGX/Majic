@@ -7,7 +7,7 @@
 
 --------------------------------------------------------------*/
 #include "Emitter.h"
-#include "Manager.h"
+#include "GameManager.h"
 #include "Scene.h"
 #include "Camera.h"
 
@@ -34,14 +34,14 @@ void Emitter::Update()
 
 void Emitter::Draw()
 {
-	auto camera = Manager::GetInstance().GetScene()->GetGameObject<Camera>(Scene::ELayer::L_CAMERA);
+	auto camera = GameManager::GetInstance().GetScene()->GetGameObject<Camera>(Scene::ELayer::L_CAMERA);
 
 }
 
 void Emitter::CreateVertex()
 {
 	//頂点バッファ生成
-	auto& r = Resource::GetInstance();
+	auto& r = DirectXGraphics::GetInstance();
 	Resource::Vertex* v;
 	D3D11_BUFFER_DESC bd;
 	ZeroMemory(&bd, sizeof(bd));
@@ -86,7 +86,7 @@ void Emitter::CreateVertex()
 
 void Emitter::SetVertex(int32_t Index, float Width, float Height)
 {
-	auto& r = Resource::GetInstance();
+	auto& r = DirectXGraphics::GetInstance();
 	Resource::Vertex* v;
 	D3D11_MAPPED_SUBRESOURCE msr;
 	r.GetDeviceContext()->Map(m_VertexBuffer.Get(), 0, D3D11_MAP_WRITE_DISCARD, 0, &msr);
@@ -123,7 +123,7 @@ int32_t Emitter::SetParticle(D3DXVECTOR3 Pos, D3DXVECTOR3 Move, D3DXCOLOR Color)
 
 void Emitter::SetColor(int32_t Index, D3DXCOLOR Color)
 {
-	auto& r = Resource::GetInstance();
+	auto& r = DirectXGraphics::GetInstance();
 	Resource::Vertex* v;
 	D3D11_MAPPED_SUBRESOURCE msr;
 	r.GetDeviceContext()->Map(m_VertexBuffer.Get(), 0, D3D11_MAP_WRITE_DISCARD, 0, &msr);

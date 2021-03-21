@@ -21,7 +21,7 @@ public:
 private:
 	void Create(class Resource::Vertex Vertex[4]);
 
-	class Resource& m_Res;
+	class DirectXGraphics& m_Dx;
 	std::unique_ptr<Polygon3D> m_Polygon;
 };
 

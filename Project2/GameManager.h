@@ -29,5 +29,5 @@ protected:
 private:
 	class Scene* m_Scene = nullptr;
 	std::unique_ptr<class Fade> m_Fade;
-	class Resource& m_GameManager;
+	class DirectXGraphics& m_DirectX;
 };

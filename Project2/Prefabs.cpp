@@ -5,13 +5,13 @@
 
 ------------------------------------------------------------*/
 #include "Prefabs.h"
-#include "Shader.h"
+#include <io.h>
 
-Prefabs::Texture::Texture(Resource & dx)
+Prefabs::Texture::Texture(DirectXGraphics & dx)
 {
 	for (std::int32_t i = 0; i < m_Size; i++)
 	{
-		m_Texture[i].reset(new Loader::Texture);
+		m_Texture[i].reset(new LoadTexture);
 	}
 	m_Texture[0]->Load(dx, "Asset/Texture/black.png");
 	m_Texture[1]->Load(dx, "Asset/Texture/Title.png");
@@ -26,7 +26,7 @@ ID3D11ShaderResourceView * Prefabs::Texture::GetTexture(int32_t Id)
 	return m_Texture[Id]->GetTexture().Get();
 }
 
-Prefabs::VertexShader::VertexShader(Resource & dx)
+Prefabs::VertexShader::VertexShader(DirectXGraphics & dx)
 {
 	for (int32_t i = 0; i < m_Size; i++)
 	{
@@ -46,7 +46,7 @@ ID3D11InputLayout * Prefabs::VertexShader::GetInputLayout(int32_t Id)
 	return m_VertexShader[Id]->GetInputLayout().Get();
 }
 
-Prefabs::PixelShader::PixelShader(Resource & dx)
+Prefabs::PixelShader::PixelShader(const DirectXGraphics & dx)
 {
 	for (int32_t i = 0; i < m_Size; i++)
 	{

@@ -5,10 +5,10 @@
 
 --------------------------------------------------------------*/
 #include "ObjectPool.h"
-#include "Resource.h"
+#include "DirectXGraphics.h"
 #include "Field.h"
 
-Field::Field() : m_Res(Resource::GetInstance())
+Field::Field() : m_Dx(DirectXGraphics::GetInstance())
 {
 }
 
@@ -16,7 +16,7 @@ void Field::Init()
 {
 	Resource::Vertex v[4];
 	Create(v);
-	m_Polygon.reset(new Polygon3D(m_Res, v));
+	m_Polygon.reset(new Polygon3D(m_Dx, v));
 
 	m_Position = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 	m_Rotation = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
@@ -34,12 +34,12 @@ void Field::Update()
 
 void Field::Draw()
 {
-	ObjectPool::SetInputLayout(m_Res, Prefabs::VertexShader::MAPPING);
-	ObjectPool::SetVertexShader(m_Res, Prefabs::VertexShader::MAPPING);
-	ObjectPool::SetPixelShader(m_Res, Prefabs::PixelShader::MAPPING);
-	ObjectPool::SetTexture(m_Res, 0, Prefabs::Texture::FIELD);
-	ObjectPool::SetTexture(m_Res, 1, Prefabs::Texture::WAFFURU);
-	m_Polygon->DrawPolygon(m_Res, m_Position, m_Rotation, m_Scale);
+	ObjectPool::SetInputLayout(m_Dx, Prefabs::VertexShader::MAPPING);
+	ObjectPool::SetVertexShader(m_Dx, Prefabs::VertexShader::MAPPING);
+	ObjectPool::SetPixelShader(m_Dx, Prefabs::PixelShader::MAPPING);
+	ObjectPool::SetTexture(m_Dx, 0, Prefabs::Texture::FIELD);
+	ObjectPool::SetTexture(m_Dx, 1, Prefabs::Texture::WAFFURU);
+	m_Polygon->DrawPolygon(m_Dx, m_Position, m_Rotation, m_Scale);
 }
 
 void Field::Create(Resource::Vertex Vertex[4])

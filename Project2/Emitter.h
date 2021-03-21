@@ -8,7 +8,7 @@
 
 --------------------------------------------------------------*/
 #pragma once
-#include "Resource.h"
+#include "DirectXGraphics.h"
 #include "Particle.h"
 #include <vector>
 

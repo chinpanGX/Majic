@@ -81,9 +81,6 @@
     <ClInclude Include="Input.h">
       <Filter>App</Filter>
     </ClInclude>
-    <ClInclude Include="Loader.h">
-      <Filter>ObjectPool</Filter>
-    </ClInclude>
     <ClInclude Include="ObjectPool.h">
       <Filter>ObjectPool</Filter>
     </ClInclude>
@@ -132,13 +129,16 @@
     <ClInclude Include="ConstantBuffer.h">
       <Filter>App\DirectX</Filter>
     </ClInclude>
-    <ClInclude Include="Resource.h">
+    <ClInclude Include="Utility.h">
       <Filter>App\DirectX</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
       <Filter>App\DirectX</Filter>
     </ClInclude>
-    <ClInclude Include="Utility.h">
+    <ClInclude Include="DirectXGraphics.h">
+      <Filter>App\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="BlendMode.h">
       <Filter>App\DirectX</Filter>
     </ClInclude>
   </ItemGroup>
@@ -188,9 +188,6 @@
     <ClCompile Include="main.cpp">
       <Filter>App</Filter>
     </ClCompile>
-    <ClCompile Include="Loader.cpp">
-      <Filter>ObjectPool</Filter>
-    </ClCompile>
     <ClCompile Include="ObjectPool.cpp">
       <Filter>ObjectPool</Filter>
     </ClCompile>
@@ -224,10 +221,13 @@
     <ClCompile Include="ConstantBuffer.cpp">
       <Filter>App\DirectX</Filter>
     </ClCompile>
-    <ClCompile Include="Resource.cpp">
+    <ClCompile Include="Shader.cpp">
       <Filter>App\DirectX</Filter>
     </ClCompile>
-    <ClCompile Include="Shader.cpp">
+    <ClCompile Include="DirectXGraphics.cpp">
+      <Filter>App\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="BlendMode.cpp">
       <Filter>App\DirectX</Filter>
     </ClCompile>
   </ItemGroup>

@@ -7,7 +7,7 @@
 
 --------------------------------------------------------------*/
 #pragma once
-#include "Resource.h"
+#include "DirectXGraphics.h"
 
 class EmitterManager
 {

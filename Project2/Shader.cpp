@@ -6,12 +6,11 @@
 	シェーダーの管理
 
 --------------------------------------------------------------*/
-#define _CRT_SECURE_NO_WANINGS
 #include <io.h>
 #include <string>
 #include "Shader.h"
 
-void Shader::VertexShader::CreateVertexShader(DirectXGraphics & dx, ID3D11VertexShader ** VertexShader, ID3D11InputLayout ** InputLayout, std::string FileName)
+void Shader::VertexShader::CreateVertexShader(const DirectXGraphics & dx, ID3D11VertexShader ** VertexShader, ID3D11InputLayout ** InputLayout, std::string FileName)
 {
 	FILE* file;
 	long int fsize;
@@ -35,12 +34,12 @@ void Shader::VertexShader::CreateVertexShader(DirectXGraphics & dx, ID3D11Vertex
 	delete[] buffer;
 }
 
-void Shader::VertexShader::Load(DirectXGraphics & dx, std::string VertexShader_FileName)
+void Shader::VertexShader::Load(const DirectXGraphics & dx, std::string VertexShader_FileName)
 {
 	CreateVertexShader(dx, m_VertexShader.GetAddressOf(), m_InputLayout.GetAddressOf(), VertexShader_FileName);
 }
 
-void Shader::PixelShader::CreatePixelShader(DirectXGraphics & dx, ID3D11PixelShader ** PixelShader, std::string FileName)
+void Shader::PixelShader::CreatePixelShader(const DirectXGraphics & dx, ID3D11PixelShader ** PixelShader, std::string FileName)
 {
 	FILE* file;
 	long int fsize;
@@ -53,7 +52,7 @@ void Shader::PixelShader::CreatePixelShader(DirectXGraphics & dx, ID3D11PixelSha
 	delete[] buffer;
 }
 
-void Shader::PixelShader::Load(DirectXGraphics & dx, std::string PixelShader_FileName)
+void Shader::PixelShader::Load(const DirectXGraphics & dx, std::string PixelShader_FileName)
 {
 	CreatePixelShader(dx, m_PixelShader.GetAddressOf(), PixelShader_FileName);
 }

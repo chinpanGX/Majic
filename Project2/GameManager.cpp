@@ -39,7 +39,7 @@ void GameManager::Update()
 
 void GameManager::Draw()
 {
-	m_GameManager.Begin();
+	m_DirectX.Begin();
 	//3D—pƒ‰ƒCƒgÝ’è
 	Resource::Light light;
 	light.Enable = true;
@@ -47,15 +47,15 @@ void GameManager::Draw()
 	D3DXVec4Normalize(&light.Direction, &light.Direction);
 	light.Ambient = D3DXCOLOR(0.1f, 0.1f, 0.1f, 1.0f);
 	light.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
-	m_GameManager.SetLight(light);
+	m_DirectX.SetLight(light);
 
 	m_Scene->Draw();
 	m_Fade->Draw();
 
 	light.Enable = false;
-	m_GameManager.SetLight(light);
+	m_DirectX.SetLight(light);
 
-	m_GameManager.End();
+	m_DirectX.End();
 }
 
 void GameManager::SceneChange(Scene * s)
@@ -69,7 +69,7 @@ void GameManager::SceneChange(Scene * s)
 	s->Init();
 }
 
-GameManager::GameManager() : m_GameManager(Resource::GetInstance())
+GameManager::GameManager() : m_DirectX(DirectXGraphics::GetInstance())
 {
 }
 

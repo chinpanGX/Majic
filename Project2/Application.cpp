@@ -11,7 +11,7 @@
 #include "Input.h"
 #include "Fps.h"
 #include "GameManager.h"
-#include "Resource.h"
+#include "DirectXGraphics.h"
 
 // ウィンドウプロシージャ
 LRESULT WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)

@@ -8,12 +8,12 @@
 
 --------------------------------------------------------------*/
 #pragma once
-#include "Resource.h"
+#include "DirectXGraphics.h"
 
 class Renderer
 {
 public:
-	Renderer() : m_Dx(Resource::GetInstance()), m_VertexBuffer(nullptr), m_Alpha(1.0f) {};
+	Renderer() : m_Dx(DirectXGraphics::GetInstance()), m_VertexBuffer(nullptr), m_Alpha(1.0f) {};
 	~Renderer() {};
 
 	void Init();
@@ -34,7 +34,7 @@ private:
 	void DynamicChangeBuffer(D3DXVECTOR2 drawPosition, D3DXVECTOR2 drawSize, D3DXVECTOR2 texUpLeft, D3DXVECTOR2 texDownRight); // バッファの動的変更
 	void SetShader(int32_t Id_1 = 0, int32_t Id_2 = 0); // シェーダーのセット
 
-	Resource& m_Dx;
+	DirectXGraphics& m_Dx;
 	Microsoft::WRL::ComPtr<ID3D11Buffer> m_VertexBuffer;
 	float m_Alpha;
 };

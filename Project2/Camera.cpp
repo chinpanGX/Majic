@@ -6,9 +6,9 @@
 --------------------------------------------------------------*/
 #include "Camera.h"
 #include "Application.h"
-#include "Resource.h"
+#include "DirectXGraphics.h"
 
-Camera::Camera() : m_App(Application::GetInstance()), m_Mgr(Resource::GetInstance())
+Camera::Camera() : m_App(Application::GetInstance()), m_Mgr(DirectXGraphics::GetInstance())
 {
 
 }
