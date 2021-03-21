@@ -16,7 +16,8 @@ class ConstantBuffer
 public:
 	enum EBuffer : int32_t
 	{
-		WORLDBUFFER, 
+		CONSTANT_WORLDBUFFER, 
+
 
 	};
 	ConstantBuffer();

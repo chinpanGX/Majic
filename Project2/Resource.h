@@ -12,8 +12,6 @@
 #define NOMINMAX
 #include <stdio.h>
 #include <windows.h>
-#include <assert.h> // エラー処理
-#include <iostream>
 #include <wrl/client.h>
 #include "Singleton.h"
 
@@ -37,12 +35,6 @@
 #pragma comment(lib,"d3dx11.lib")
 #pragma comment(lib,"dxgi.lib")
 #pragma comment(lib,"d3dcompiler.lib")
-
-// ランタイムエラーマクロ
-#define STRINGFY(s)  #s
-#define TO_STRING(x) STRINGFY(x)
-#define FILE_PREFIX __FILE__ "(" TO_STRING(__LINE__) "): " 
-#define ThrowIfFailed(hr, msg) Utility::CheckResultCode( hr, FILE_PREFIX msg)
 
 // 管理くラス
 class Resource : public Singleton<Resource>
@@ -111,9 +103,6 @@ public:
 	void SetCameraPosition(D3DXVECTOR3 CameraPosition);
 	void SetParameter(D3DXVECTOR4 Parameter);
 
-	// シェーダー生成
-	void CreateVertexShader(ID3D11VertexShader** VertexShader, ID3D11InputLayout** InputLayout, const char* FileName);
-	void CreatePixelShader(ID3D11PixelShader** PixelShader, const char* FileName);
 
 	ID3D11Device* GetDevice() { return m_Device.Get(); }
 	ID3D11DeviceContext* GetDeviceContext() { return m_ImmediateContext.Get(); }
@@ -136,23 +125,4 @@ private:
 	ComPtr<ID3D11DepthStencilState>	m_DepthStateEnable = nullptr;
 	ComPtr<ID3D11DepthStencilState>	m_DepthStateDisable = nullptr;
 };
-
-namespace Utility
-{
-	class Exception : public std::runtime_error
-	{
-	public:
-		Exception(const std::string& msg) : std::runtime_error(msg.c_str()) {}
-	};
-
-	inline void CheckResultCode(HRESULT hr, const std::string& errorMsg)
-	{
-		if (FAILED(hr))
-		{
-			throw Exception(errorMsg);
-		}
-	}
-}
-
-
 

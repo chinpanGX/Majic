@@ -10,7 +10,7 @@
 #include "Resource.h"
 #include "Application.h"
 #include <io.h>
-#include "Manager.h"
+#include "GameManager.h"
 
 void Resource::Begin()
 {

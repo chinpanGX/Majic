@@ -6,8 +6,9 @@
 	シェーダーの管理
 
 --------------------------------------------------------------*/
-#include "DirectXGraphics.h"
+#define _CRT_SECURE_NO_WANINGS
 #include <io.h>
+#include <string>
 #include "Shader.h"
 
 void Shader::VertexShader::CreateVertexShader(DirectXGraphics & dx, ID3D11VertexShader ** VertexShader, ID3D11InputLayout ** InputLayout, std::string FileName)

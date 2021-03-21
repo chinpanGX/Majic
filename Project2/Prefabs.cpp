@@ -5,6 +5,7 @@
 
 ------------------------------------------------------------*/
 #include "Prefabs.h"
+#include "Shader.h"
 
 Prefabs::Texture::Texture(Resource & dx)
 {
@@ -29,7 +30,7 @@ Prefabs::VertexShader::VertexShader(Resource & dx)
 {
 	for (int32_t i = 0; i < m_Size; i++)
 	{
-		m_VertexShader[i].reset(new Loader::VertexShader);
+		m_VertexShader[i].reset(new Shader::VertexShader);
 	}
 	m_VertexShader[0]->Load(dx, "Asset/Shader/vertexShader.cso");
 	m_VertexShader[1]->Load(dx, "Asset/Shader/MappingVS.cso");
@@ -49,7 +50,7 @@ Prefabs::PixelShader::PixelShader(Resource & dx)
 {
 	for (int32_t i = 0; i < m_Size; i++)
 	{
-		m_PixelShader[i].reset(new Loader::PixelShader);
+		m_PixelShader[i].reset(new Shader::PixelShader);
 	}
 	m_PixelShader[0]->Load(dx, "Asset/Shader/pixelShader.cso");
 	m_PixelShader[1]->Load(dx, "Asset/Shader/MappingPS.cso");

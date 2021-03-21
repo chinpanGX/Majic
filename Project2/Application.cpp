@@ -10,7 +10,7 @@
 #include "Application.h"
 #include "Input.h"
 #include "Fps.h"
-#include "Manager.h"
+#include "GameManager.h"
 #include "Resource.h"
 
 // ウィンドウプロシージャ
@@ -58,7 +58,7 @@ void Application::Run()
 	// フレームレートの初期化
 	Fps& fps = Fps::GetInstance();
 	fps.Init();
-	Manager& mgr = Manager::GetInstance();
+	GameManager& mgr = GameManager::GetInstance();
 	mgr.Init();
 
 	// メッセージループ

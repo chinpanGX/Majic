@@ -28,6 +28,9 @@
     <Filter Include="Particle">
       <UniqueIdentifier>{edec3eda-169c-4de2-b53f-a891505cdde6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="App\DirectX">
+      <UniqueIdentifier>{599ce45f-feb5-46a8-97f4-a69eba2a3cfc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -90,9 +93,6 @@
     <ClInclude Include="GameScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Manager.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Scene</Filter>
     </ClInclude>
@@ -120,18 +120,27 @@
     <ClInclude Include="EmitterManager.h">
       <Filter>Particle</Filter>
     </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>App</Filter>
-    </ClInclude>
     <ClInclude Include="Polygon.h">
       <Filter>3D</Filter>
     </ClInclude>
     <ClInclude Include="Field.h">
       <Filter>3D</Filter>
     </ClInclude>
-    <ClInclude Include="ConstantBuffer.h" />
-    <ClInclude Include="Shader.h" />
-    <ClInclude Include="Utility.h" />
+    <ClInclude Include="GameManager.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantBuffer.h">
+      <Filter>App\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>App\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>App\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility.h">
+      <Filter>App\DirectX</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -188,9 +197,6 @@
     <ClCompile Include="Prefabs.cpp">
       <Filter>ObjectPool</Filter>
     </ClCompile>
-    <ClCompile Include="Manager.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="GameScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
@@ -206,16 +212,23 @@
     <ClCompile Include="EmitterManager.cpp">
       <Filter>Particle</Filter>
     </ClCompile>
-    <ClCompile Include="Resource.cpp">
-      <Filter>App</Filter>
-    </ClCompile>
     <ClCompile Include="Polygon.cpp">
       <Filter>3D</Filter>
     </ClCompile>
     <ClCompile Include="Field.cpp">
       <Filter>3D</Filter>
     </ClCompile>
-    <ClCompile Include="ConstantBuffer.cpp" />
-    <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstantBuffer.cpp">
+      <Filter>App\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource.cpp">
+      <Filter>App\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>App\DirectX</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

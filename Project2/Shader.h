@@ -7,7 +7,7 @@
 
 --------------------------------------------------------------*/
 #pragma once
-#include "DirectXGraphics.h"
+#include "Resource.h"
 
 namespace Shader
 {

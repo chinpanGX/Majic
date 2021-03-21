@@ -10,7 +10,7 @@
 #include "Bg.h"
 #include "GameScene.h"
 #include "Input.h"
-#include "Manager.h"
+#include "GameManager.h"
 #include "Player.h"
 #include "Camera.h"
 #include "Field.h"
@@ -33,7 +33,7 @@ void GameScene::Title::Update()
 	Scene::Update();
 	if (KeyBoard::IsTrigger(DIK_T) || GamePad::IsTrigger(0, BTN_L2))
 	{
-		Manager::GetInstance().SetScene<Game>();
+		GameManager::GetInstance().SetScene<Game>();
 	}
 }
 
@@ -63,7 +63,7 @@ void GameScene::Game::Update()
 	Scene::Update();
 	if (KeyBoard::IsTrigger(DIK_T) || GamePad::IsTrigger(0, BTN_L2))
 	{
-		Manager::GetInstance().SetScene<Result>();
+		GameManager::GetInstance().SetScene<Result>();
 	}
 }
 
@@ -92,7 +92,7 @@ void GameScene::Result::Update()
 	Scene::Update();
 	if (KeyBoard::IsTrigger(DIK_T) || GamePad::IsTrigger(0, BTN_L2))
 	{
-		Manager::GetInstance().SetScene<Title>();
+		GameManager::GetInstance().SetScene<Title>();
 	}
 }
 

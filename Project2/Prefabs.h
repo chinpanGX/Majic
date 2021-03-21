@@ -14,6 +14,8 @@
 
 namespace Prefabs
 {
+	class Shader::VertexShader;
+	class Shader::PixelShader;
 	// Textureのプレハブ
 	class Texture
 	{
@@ -54,7 +56,7 @@ namespace Prefabs
 		ID3D11InputLayout* GetInputLayout(int32_t Id);
 	private:
 		static const int32_t m_Size = ID::MAX;
-		std::array<std::unique_ptr<Loader::VertexShader>, m_Size> m_VertexShader;
+		std::array<std::unique_ptr<Shader::VertexShader>, m_Size> m_VertexShader;
 	};
 
 	// ピクセルシェーダー
@@ -73,7 +75,7 @@ namespace Prefabs
 		ID3D11PixelShader* GetPixelShader(int32_t Id);
 	private:
 		static const int32_t m_Size = ID::MAX;
-		std::array<std::unique_ptr<Loader::PixelShader>, m_Size> m_PixelShader;
+		std::array<std::unique_ptr<Shader::PixelShader>, m_Size> m_PixelShader;
 	};
 }
 
