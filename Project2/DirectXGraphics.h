@@ -38,7 +38,6 @@
 #pragma comment(lib,"dxgi.lib")
 #pragma comment(lib,"d3dcompiler.lib")
 
-#include "ConstantBuffer.h"
 #include "BlendMode.h"
 
 namespace Resource
@@ -111,16 +110,18 @@ public:
 	void SetLight(Resource::Light Light);
 	void SetCameraPosition(D3DXVECTOR3 CameraPosition);
 	void SetParameter(D3DXVECTOR4 Parameter);
+
+	void SetBlendState(BlendMode::EMode Mode);
 	
-	ID3D11Device* GetDevice() { return m_Device.Get(); }
-	ID3D11DeviceContext* GetDeviceContext() { return m_ImmediateContext.Get(); }
+	ID3D11Device* GetDevice() const;
+	ID3D11DeviceContext* GetDeviceContext() const;
 
 protected:
 	DirectXGraphics();
-	~DirectXGraphics() {}
+	virtual ~DirectXGraphics();
 private:
 	std::unique_ptr<class ConstantBuffer>  m_ConstantBuffer;
-	std::array<std::unique_ptr<class BlendMode>,BlendMode::EMode::NUM_MAX> m_BlendMode;
+	std::array<std::unique_ptr<class BlendMode>, BlendMode::NUM_MAX> m_BlendMode;
 	ComPtr<ID3D11Device>			m_Device;
 	ComPtr<ID3D11DeviceContext>		m_ImmediateContext;
 	ComPtr<IDXGISwapChain>			m_SwapChain;

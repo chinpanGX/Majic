@@ -29,9 +29,6 @@ public:
 	~BlendMode();
 	ID3D11BlendState * Get() const;
 private:
-	//									Src = 合成色(上レイヤー)Dest = 基本色(下レイヤー)
-	void SetBlend(D3D11_BLEND_DESC Desc, D3D11_BLEND Src, D3D11_BLEND Dest);
-
 	Microsoft::WRL::ComPtr<ID3D11BlendState> m_BlendState;
 };
 

@@ -11,10 +11,6 @@
 #pragma once
 #include "GameObject.h"
 #include <list>
-#include <vector>
-#include <vector>
-#include <typeinfo>
-#include <string>
 
 class Scene
 {

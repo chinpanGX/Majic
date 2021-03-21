@@ -8,6 +8,7 @@
 --------------------------------------------------------------*/
 #include "Application.h"
 #include "Utility.h"
+#include "ConstantBuffer.h"
 #include "DirectXGraphics.h"
 
 DirectXGraphics::DirectXGraphics() : m_ConstantBuffer(nullptr), m_Device(nullptr),  m_ImmediateContext(nullptr), m_SwapChain(nullptr),
@@ -89,11 +90,21 @@ DirectXGraphics::DirectXGraphics() : m_ConstantBuffer(nullptr), m_Device(nullptr
 	m_Device->CreateRasterizerState(&rd, &rs);
 	m_ImmediateContext->RSSetState(rs);
 
-	// ブレンドステート設定
-	for (size_t i = 0; i < m_BlendMode.size(); i++)
+	// ブレンドステート設定	
+	const std::vector<BlendMode::EMode> m_BlendList
 	{
-		m_BlendMode[i].reset(new BlendMode(m_Device.Get(),i));
+		BlendMode::EMode::BLEND_MODE_NONE,
+		BlendMode::EMode::BLEND_MODE_NORMAL,
+		BlendMode::EMode::BLEND_MODE_ADDITION,
+		BlendMode::EMode::BLEND_MODE_ADDITIONALPHA,
+		BlendMode::EMode::BLEND_MODE_SUBTRACTION,
+		BlendMode::EMode::BLEND_MODE_SCREEN
+	};
+	for (size_t i = 0; i < m_BlendList.size(); i++)
+	{
+		m_BlendMode[i].reset(new BlendMode(m_Device.Get(),m_BlendList[i]));
 	}
+	SetBlendState(BlendMode::BLEND_MODE_NONE);
 
 	// 深度ステンシルステート設定
 	D3D11_DEPTH_STENCIL_DESC depthStencilDesc;
@@ -137,6 +148,10 @@ DirectXGraphics::DirectXGraphics() : m_ConstantBuffer(nullptr), m_Device(nullptr
 	material.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
 	material.Ambient = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
 	SetMaterial(material);
+}
+
+DirectXGraphics::~DirectXGraphics() 
+{
 }
 
 void DirectXGraphics::Begin()
@@ -225,4 +240,20 @@ void DirectXGraphics::SetCameraPosition(D3DXVECTOR3 CameraPosition)
 void DirectXGraphics::SetParameter(D3DXVECTOR4 Parameter)
 {
 	m_ImmediateContext->UpdateSubresource(m_ConstantBuffer->Get(ConstantBuffer::EBuffer::CONSTANT_BUFFER_PARAMETER), 0, NULL, &Parameter, 0, 0);
+}
+
+void DirectXGraphics::SetBlendState(BlendMode::EMode Mode)
+{
+	float factor[4] = { 0.0f, 0.0f, 0.0f, 0.0f, };
+	m_ImmediateContext->OMSetBlendState(m_BlendMode[Mode]->Get(), factor, 0xffffffff);
+}
+
+ID3D11Device * DirectXGraphics::GetDevice() const
+{
+	return m_Device.Get();
+}
+
+ID3D11DeviceContext * DirectXGraphics::GetDeviceContext() const
+{
+	return m_ImmediateContext.Get();
 }

@@ -15,7 +15,6 @@
 #pragma once
 #include "Actor.h"
 
-
 class Bg : public Actor
 {
 public:
