@@ -1,19 +1,19 @@
 /*-------------------------------------------------------------
 
-	[Manager.cpp]
+	[GameManager.cpp]
 	Author : 出合翔太
 
 	[説明]
-	Manager : ゲームシーンの管理
+	GameManager : ゲームシーンの管理
 
 --------------------------------------------------------------*/
 #include <time.h>
 #include "GameScene.h"
-#include "Manager.h"
+#include "GameManager.h"
 #include "Fade.h"
 #include "ObjectPool.h"
 
-void Manager::Init()
+void GameManager::Init()
 {
 	srand((unsigned int)time(NULL));
 	ObjectPool::Init();
@@ -24,22 +24,22 @@ void Manager::Init()
 	SceneChange(m_Fade->m_Next);
 }
 
-void Manager::Uninit()
+void GameManager::Uninit()
 {
 	m_Fade->Uninit();
 	m_Scene->Uninit();
 	delete m_Scene;
 }
 
-void Manager::Update()
+void GameManager::Update()
 {
 	m_Scene->Update();
 	m_Fade->Update();
 }
 
-void Manager::Draw()
+void GameManager::Draw()
 {
-	m_Manager.Begin();
+	m_GameManager.Begin();
 	//3D用ライト設定
 	Resource::Light light;
 	light.Enable = true;
@@ -47,18 +47,18 @@ void Manager::Draw()
 	D3DXVec4Normalize(&light.Direction, &light.Direction);
 	light.Ambient = D3DXCOLOR(0.1f, 0.1f, 0.1f, 1.0f);
 	light.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
-	m_Manager.SetLight(light);
+	m_GameManager.SetLight(light);
 
 	m_Scene->Draw();
 	m_Fade->Draw();
 
 	light.Enable = false;
-	m_Manager.SetLight(light);
+	m_GameManager.SetLight(light);
 
-	m_Manager.End();
+	m_GameManager.End();
 }
 
-void Manager::SceneChange(Scene * s)
+void GameManager::SceneChange(Scene * s)
 {
 	if (m_Scene)
 	{
@@ -67,4 +67,20 @@ void Manager::SceneChange(Scene * s)
 	}
 	m_Scene = s;
 	s->Init();
+}
+
+GameManager::GameManager() : m_GameManager(Resource::GetInstance())
+{
+}
+
+template<typename T>
+void GameManager::SetScene()
+{
+	if (m_Fade->m_State != Fade::E_NONE)
+	{
+		return;
+	}
+	m_Fade->m_State = Fade::E_OUT;
+	T* scene = new T;
+	m_Fade->m_Next = scene;	
 }

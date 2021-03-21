@@ -7,7 +7,7 @@
 #include "Fade.h"
 #include "Fps.h"
 #include "Scene.h"
-#include "Manager.h"
+#include "GameManager.h"
 
 Scene* Fade::m_Next = nullptr;
 
@@ -34,7 +34,7 @@ void Fade::Update()
 		m_Alpha += m_Fps.m_deltaTime / m_Time;
 		if (m_Alpha > 1.0f)
 		{
-			Manager::GetInstance().SceneChange(m_Next);
+			GameManager::GetInstance().SceneChange(m_Next);
 			m_State = E_IN;
 			m_Alpha = 1.0f;
 		}
