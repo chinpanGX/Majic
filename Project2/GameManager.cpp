@@ -11,7 +11,6 @@
 #include "GameManager.h"
 #include "ObjectPool.h"
 #include "GameScene.h"
-#include "Emitter.h"
 
 void GameManager::Init()
 {

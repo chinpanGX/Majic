@@ -14,7 +14,6 @@
 #include "Player.h"
 #include "Camera.h"
 #include "Field.h"
-#include "Emitter.h"
 
 // タイトルシーン
 #pragma region GameScene_Title_Func
@@ -51,7 +50,6 @@ void GameScene::Game::Init()
 {
 	AddGameObject<Camera>(L_CAMERA);
 	AddGameObject<Field>(L_3D);
-	m_Emitter = std::make_unique<Emitter>();
 }
 
 void GameScene::Game::Uninit()
@@ -62,7 +60,6 @@ void GameScene::Game::Uninit()
 // 更新
 void GameScene::Game::Update()
 {
-	m_Emitter->Update();
 	Scene::Update();
 	if (KeyBoard::IsTrigger(DIK_T) || GamePad::IsTrigger(0, BTN_L2))
 	{
@@ -73,7 +70,6 @@ void GameScene::Game::Update()
 // 描画
 void GameScene::Game::Draw()
 {
-	m_Emitter->Draw();
 	Scene::Draw();
 }
 #pragma endregion Gameクラスの関数定義

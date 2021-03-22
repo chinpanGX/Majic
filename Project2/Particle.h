@@ -18,11 +18,8 @@ public:
 	D3DXVECTOR3 m_Position;
 	D3DXVECTOR3 m_Rotation;
 	D3DXVECTOR3 m_Scale;
-	D3DXVECTOR3 m_Velocity; // 速度　　positionに加算
-	D3DXVECTOR3 m_Gravity;  // 重力値　Velocityに加算する
+	//D3DXVECTOR3 m_Gravity;  // 重力値　Velocityに加算する
 	D3DXCOLOR m_Color;		// 色
-	float m_SizeWidth;		// 横幅
-	float m_SizeHeight;		// 縦幅
 	int32_t	m_Life;			// 有効時間	
 	bool m_Use;				// 有効かどうか
 };

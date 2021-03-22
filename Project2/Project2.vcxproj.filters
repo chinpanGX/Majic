@@ -28,8 +28,11 @@
     <Filter Include="Particle">
       <UniqueIdentifier>{edec3eda-169c-4de2-b53f-a891505cdde6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="App\DirectX">
+    <Filter Include="DirectX">
       <UniqueIdentifier>{599ce45f-feb5-46a8-97f4-a69eba2a3cfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{f0f579a6-082b-4b3d-bcd8-91785770575f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -111,12 +114,6 @@
     <ClInclude Include="Particle.h">
       <Filter>Particle</Filter>
     </ClInclude>
-    <ClInclude Include="Emitter.h">
-      <Filter>Particle</Filter>
-    </ClInclude>
-    <ClInclude Include="EmitterManager.h">
-      <Filter>Particle</Filter>
-    </ClInclude>
     <ClInclude Include="Polygon.h">
       <Filter>3D</Filter>
     </ClInclude>
@@ -127,22 +124,26 @@
       <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="ConstantBuffer.h">
-      <Filter>App\DirectX</Filter>
+      <Filter>DirectX</Filter>
     </ClInclude>
     <ClInclude Include="Utility.h">
-      <Filter>App\DirectX</Filter>
+      <Filter>DirectX</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
-      <Filter>App\DirectX</Filter>
+      <Filter>DirectX</Filter>
     </ClInclude>
     <ClInclude Include="DirectXGraphics.h">
-      <Filter>App\DirectX</Filter>
+      <Filter>DirectX</Filter>
     </ClInclude>
     <ClInclude Include="BlendMode.h">
-      <Filter>App\DirectX</Filter>
+      <Filter>DirectX</Filter>
     </ClInclude>
-    <ClInclude Include="Math.h" />
-    <ClInclude Include="Effect.h" />
+    <ClInclude Include="Effect.h">
+      <Filter>Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -205,12 +206,6 @@
     <ClCompile Include="Camera.cpp">
       <Filter>3D</Filter>
     </ClCompile>
-    <ClCompile Include="Emitter.cpp">
-      <Filter>Particle</Filter>
-    </ClCompile>
-    <ClCompile Include="EmitterManager.cpp">
-      <Filter>Particle</Filter>
-    </ClCompile>
     <ClCompile Include="Polygon.cpp">
       <Filter>3D</Filter>
     </ClCompile>
@@ -221,21 +216,31 @@
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="ConstantBuffer.cpp">
-      <Filter>App\DirectX</Filter>
+      <Filter>DirectX</Filter>
     </ClCompile>
     <ClCompile Include="Shader.cpp">
-      <Filter>App\DirectX</Filter>
+      <Filter>DirectX</Filter>
     </ClCompile>
     <ClCompile Include="DirectXGraphics.cpp">
-      <Filter>App\DirectX</Filter>
+      <Filter>DirectX</Filter>
     </ClCompile>
     <ClCompile Include="BlendMode.cpp">
-      <Filter>App\DirectX</Filter>
+      <Filter>DirectX</Filter>
     </ClCompile>
-    <ClCompile Include="Math.cpp" />
-    <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Particle.cpp">
       <Filter>Particle</Filter>
     </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="ComputeShader.hlsl" />
+    <FxCompile Include="ParticleVS.hlsl" />
+    <FxCompile Include="ParticlePS.hlsl" />
+    <FxCompile Include="Common.hlsl" />
   </ItemGroup>
 </Project>

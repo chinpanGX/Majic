@@ -17,8 +17,8 @@ class LoadTexture
 	template< typename T>
 	using ComPtr = Microsoft::WRL::ComPtr<T>;
 public:
-	LoadTexture() {}
-	~LoadTexture() {}
+	LoadTexture();
+	~LoadTexture();
 	inline void Load(DirectXGraphics& dx, std::string FileName) // ロード
 	{
 		D3DX11CreateShaderResourceViewFromFile(dx.GetDevice(), FileName.c_str(), NULL, NULL, m_Texture.GetAddressOf(), NULL);
@@ -47,9 +47,9 @@ namespace Prefabs
 			EFFECT,
 			MAX
 		};
-		Texture(){}
+		Texture();
 		Texture(DirectXGraphics& dx);
-		~Texture() {}
+		~Texture();
 		ID3D11ShaderResourceView* GetTexture(int32_t Id);
 	private:
 		static const int32_t m_Size = ID::MAX;
@@ -66,9 +66,9 @@ namespace Prefabs
 			MAPPING,
 			MAX
 		};
-		VertexShader(){}
+		VertexShader();
 		VertexShader(DirectXGraphics& dx);
-		~VertexShader(){}
+		~VertexShader();
 		ID3D11VertexShader* GetVertexShader(int32_t Id);
 		ID3D11InputLayout* GetInputLayout(int32_t Id);
 	private:
@@ -86,12 +86,24 @@ namespace Prefabs
 			MAPPING,
 			MAX
 		};
-		PixelShader(){}
+		PixelShader();
 		PixelShader(DirectXGraphics& dx);
-		~PixelShader() {}
+		~PixelShader();
 		ID3D11PixelShader* GetPixelShader(int32_t Id);
 	private:
 		static const int32_t m_Size = ID::MAX;
 		std::array<std::unique_ptr<Shader::PixelShader>, m_Size> m_PixelShader;
+	};
+
+	// コンピュートシェーダー
+	class ComputeShader
+	{
+	public:
+		ComputeShader();
+		ComputeShader(DirectXGraphics& dx);
+		~ComputeShader();
+		ID3D11ComputeShader* GetComputeShader();
+	private:
+		std::unique_ptr<Shader::ComputeShader> m_ComputeShader;
 	};
 }

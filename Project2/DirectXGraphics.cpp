@@ -240,7 +240,7 @@ void DirectXGraphics::SetLight(Resource::Light Light)
 void DirectXGraphics::SetCameraPosition(D3DXVECTOR3 CameraPosition)
 {
 	m_ImmediateContext->UpdateSubresource(m_ConstantBuffer->Get(ConstantBuffer::EBuffer::CONSTANT_BUFFER_CAMERA), 0, NULL, 
-		&D3DXVECTOR4(CameraPosition.x, CameraPosition.y, CameraPosition.z, 1.0f), 0, 0);
+		D3DXVECTOR4(CameraPosition.x, CameraPosition.y, CameraPosition.z, 1.0f), 0, 0);
 }
 
 void DirectXGraphics::SetParameter(D3DXVECTOR4 Parameter)

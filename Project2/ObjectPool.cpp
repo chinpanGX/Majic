@@ -10,6 +10,10 @@ std::unique_ptr<Prefabs::Texture> ObjectPool::m_Texture;
 std::unique_ptr<Prefabs::VertexShader> ObjectPool::m_VertexShader;
 std::unique_ptr<Prefabs::PixelShader> ObjectPool::m_PixelShader;
 
+ObjectPool::~ObjectPool()
+{
+}
+
 void ObjectPool::Init()
 {
 	auto & dx = DirectXGraphics::GetInstance();

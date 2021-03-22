@@ -14,7 +14,7 @@
 class ObjectPool
 {
 public:
-	~ObjectPool(){}
+	~ObjectPool();
 	static void Init();
 	static void Update(DirectXGraphics& dx, int32_t Id, const char* AnimationName1, const char* AnimationName2, float BlendRate, int Frame);
 	static void Draw(DirectXGraphics& dx, int32_t Id);

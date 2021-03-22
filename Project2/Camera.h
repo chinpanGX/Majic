@@ -26,5 +26,6 @@ private:
 	Application& m_App;
 	DirectXGraphics& m_Mgr;
 	float x, y;
+	const D3DXVECTOR3 m_Up;
 };
 
