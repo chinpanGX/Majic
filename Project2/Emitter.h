@@ -10,14 +10,18 @@
 #pragma once
 #include "DirectXGraphics.h"
 #include "Particle.h"
-#include <vector>
+#include <array>
+
+namespace
+{
+	const int32_t	m_NumMax = 512;		// パーティクルの最大数
+}
 
 class Emitter
 {
 public:
 	Emitter();
 	~Emitter();
-	void Init();
 	void Uninit();
 	void Update();
 	void Draw();
@@ -30,7 +34,7 @@ private:
 	// 色の設定
 	void SetColor(int32_t Index, D3DXCOLOR Color);
 
-	std::vector<class Particle> m_Particle;
+	std::array<class Particle, m_NumMax> m_Particle;
 	Microsoft::WRL::ComPtr<ID3D11Buffer> m_VertexBuffer;
 	D3DXMATRIX m_Matrix;
 	D3DXVECTOR3 m_BasePostion;	// 発生位置
@@ -38,6 +42,5 @@ private:
 	float		m_SizeHeight;	// 高さ
 	float		m_Velocity;		// 速度
 	float		m_Direction;	// 方向
-	int32_t		m_NumMax;		// パーティクルの最大数
 };
 

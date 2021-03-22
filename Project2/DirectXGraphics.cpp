@@ -109,7 +109,7 @@ DirectXGraphics::DirectXGraphics() : m_ConstantBuffer(nullptr), m_Device(nullptr
 	};
 	for (size_t i = 0; i < m_BlendList.size(); i++)
 	{
-		m_BlendMode[i].reset(new BlendMode(m_Device.Get(),m_BlendList[i]));
+		m_BlendMode[i] = std::make_unique<BlendMode>(m_Device.Get(),m_BlendList[i]);
 	}
 	SetBlendState(BlendMode::BLEND_MODE_NONE);
 
@@ -143,7 +143,7 @@ DirectXGraphics::DirectXGraphics() : m_ConstantBuffer(nullptr), m_Device(nullptr
 	m_ImmediateContext->PSSetSamplers(0, 1, &samplerState);
 
 	// コンスタントバッファ設定
-	m_ConstantBuffer.reset(new ConstantBuffer(m_Device.Get(), m_ImmediateContext.Get()));
+	m_ConstantBuffer = std::make_unique<ConstantBuffer>(m_Device.Get(), m_ImmediateContext.Get());
 
 	// ライト無効化
 	Resource::Light light;

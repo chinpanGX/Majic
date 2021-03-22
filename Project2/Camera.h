@@ -19,7 +19,9 @@ public:
 	void Uninit()override{}
 	void Update()override;
 	void Draw()override;
+	const D3DXMATRIX& GetView() const;
 private:
+	D3DXMATRIX m_View;
 	D3DXVECTOR3 m_Target;
 	Application& m_App;
 	DirectXGraphics& m_Mgr;

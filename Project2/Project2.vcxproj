@@ -152,7 +152,9 @@
     <ClInclude Include="ConstantBuffer.h" />
     <ClInclude Include="CrystallizeAura.h" />
     <ClInclude Include="DirectXGraphics.h" />
+    <ClInclude Include="Effect.h" />
     <ClInclude Include="Field.h" />
+    <ClInclude Include="Math.h" />
     <ClInclude Include="Polygon.h" />
     <ClInclude Include="Emitter.h" />
     <ClInclude Include="EmitterManager.h" />
@@ -189,7 +191,10 @@
     <ClCompile Include="ConstantBuffer.cpp" />
     <ClCompile Include="CrystallizeAura.cpp" />
     <ClCompile Include="DirectXGraphics.cpp" />
+    <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Field.cpp" />
+    <ClCompile Include="Math.cpp" />
+    <ClCompile Include="Particle.cpp" />
     <ClCompile Include="Polygon.cpp" />
     <ClCompile Include="Emitter.cpp" />
     <ClCompile Include="EmitterManager.cpp" />

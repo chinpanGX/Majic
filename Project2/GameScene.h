@@ -11,6 +11,7 @@
 -------------------------------------------------*/
 #pragma once
 #include "Scene.h"
+#include "Emitter.h"
 
 namespace GameScene
 {
@@ -31,6 +32,8 @@ namespace GameScene
 		void Uninit()override;
 		void Update()override;
 		void Draw()override;
+	private:
+		std::unique_ptr<class Emitter> m_Emitter;
 	};
 	// ƒŠƒUƒ‹ƒg
 	class Result : public Scene

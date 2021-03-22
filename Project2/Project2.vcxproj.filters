@@ -141,6 +141,8 @@
     <ClInclude Include="BlendMode.h">
       <Filter>App\DirectX</Filter>
     </ClInclude>
+    <ClInclude Include="Math.h" />
+    <ClInclude Include="Effect.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -229,6 +231,11 @@
     </ClCompile>
     <ClCompile Include="BlendMode.cpp">
       <Filter>App\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp" />
+    <ClCompile Include="Effect.cpp" />
+    <ClCompile Include="Particle.cpp">
+      <Filter>Particle</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
