@@ -237,10 +237,4 @@
       <Filter>Math</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="ComputeShader.hlsl" />
-    <FxCompile Include="ParticleVS.hlsl" />
-    <FxCompile Include="ParticlePS.hlsl" />
-    <FxCompile Include="Common.hlsl" />
-  </ItemGroup>
 </Project>

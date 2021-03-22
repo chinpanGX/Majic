@@ -14,7 +14,6 @@ cbuffer ProjectionBuffer : register(b2)
 	matrix Projection;
 }
 
-
 struct VS_IN
 {
 	float4 Position		: POSITION0;
