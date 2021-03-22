@@ -31,8 +31,8 @@
     <Filter Include="DirectX">
       <UniqueIdentifier>{599ce45f-feb5-46a8-97f4-a69eba2a3cfc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Math">
-      <UniqueIdentifier>{f0f579a6-082b-4b3d-bcd8-91785770575f}</UniqueIdentifier>
+    <Filter Include="シェーダー">
+      <UniqueIdentifier>{26af1997-be33-42b1-b47c-85a85a432a72}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -138,11 +138,9 @@
     <ClInclude Include="BlendMode.h">
       <Filter>DirectX</Filter>
     </ClInclude>
+    <ClInclude Include="Math.h" />
     <ClInclude Include="Effect.h">
       <Filter>Particle</Filter>
-    </ClInclude>
-    <ClInclude Include="Math.h">
-      <Filter>Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -227,14 +225,26 @@
     <ClCompile Include="BlendMode.cpp">
       <Filter>DirectX</Filter>
     </ClCompile>
+    <ClCompile Include="Math.cpp" />
     <ClCompile Include="Particle.cpp">
       <Filter>Particle</Filter>
     </ClCompile>
     <ClCompile Include="Effect.cpp">
       <Filter>Particle</Filter>
     </ClCompile>
-    <ClCompile Include="Math.cpp">
-      <Filter>Math</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="ComputeShader.hlsl">
+      <Filter>シェーダー</Filter>
+    </FxCompile>
+    <FxCompile Include="Common.hlsl">
+      <Filter>シェーダー</Filter>
+    </FxCompile>
+    <FxCompile Include="ParticlePS.hlsl">
+      <Filter>シェーダー</Filter>
+    </FxCompile>
+    <FxCompile Include="ParticleVS.hlsl">
+      <Filter>シェーダー</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

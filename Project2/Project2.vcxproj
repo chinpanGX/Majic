@@ -156,8 +156,6 @@
     <ClInclude Include="Field.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Polygon.h" />
-    <ClInclude Include="Emitter.h" />
-    <ClInclude Include="EmitterManager.h" />
     <ClInclude Include="Fade.h" />
     <ClInclude Include="Fps.h" />
     <ClInclude Include="GameObject.h" />
@@ -196,8 +194,6 @@
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="Polygon.cpp" />
-    <ClCompile Include="Emitter.cpp" />
-    <ClCompile Include="EmitterManager.cpp" />
     <ClCompile Include="Fade.cpp" />
     <ClCompile Include="Fps.cpp" />
     <ClCompile Include="GameScene.cpp" />
@@ -214,6 +210,12 @@
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SacredBlast.cpp" />
     <ClCompile Include="Shader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Common.hlsl" />
+    <FxCompile Include="ComputeShader.hlsl" />
+    <FxCompile Include="ParticlePS.hlsl" />
+    <FxCompile Include="ParticleVS.hlsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
