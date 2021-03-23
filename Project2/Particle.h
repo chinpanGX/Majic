@@ -9,6 +9,33 @@
 --------------------------------------------------------------*/
 #pragma once
 #include "GameObject.h"
+#include "Math.h"
+
+class VertexParticle final
+{
+	D3DXVECTOR3 Position;
+	D3DXVECTOR3 Velocity;
+	float Angle;
+	float DeltaAngle;
+	float Size;
+	uint32_t Life;
+	DirectX::XMUINT4 RandomSeed;
+};
+
+class BufferCommon final
+{
+	uint32_t UniSpawnTargetParticleIndex;
+	D3DXVECTOR3 UniParticleVelocity;
+	float UniMaxAngularVelocity; // radian
+	uint32_t UniMaxParticleCount;
+	float UniParticleInitSize;
+	D3DXVECTOR2 Dummy0;
+};
+
+class GPUParticle
+{
+
+};
 
 class Particle
 {
