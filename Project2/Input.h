@@ -72,7 +72,7 @@ public:
 };
 
 /* キーボードの入力を管理 */
-class KeyBoard : public InputDevice
+class KeyBoard final : public InputDevice
 {
 private:
 	static LPDIRECTINPUTDEVICE8	m_DevKeyboard;						//	キーボードデバイス
@@ -89,7 +89,7 @@ public:
 };
 
 /* ゲームパッドコントローラの入力を管理 */
-class GamePad : public InputDevice
+class GamePad final : public InputDevice
 {
 private:
 	static LPDIRECTINPUTDEVICE8	m_GamePad[GAMEPADMAX];								//　パッドデバイス
@@ -106,7 +106,7 @@ public:
 };
 
 /* マウスの入力を管理 */
-class Mouse : public InputDevice
+class Mouse final : public InputDevice
 {
 private:
 	static LPDIRECTINPUTDEVICE8 m_Mouse;		// マウスデバイス

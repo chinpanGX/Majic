@@ -15,7 +15,7 @@
 namespace GameScene
 {
 	// タイトル
-	class Title : public Scene
+	class Title final : public Scene
 	{
 	public:
 		void Init()override;
@@ -24,7 +24,7 @@ namespace GameScene
 		void Draw()override;
 	};
 	// ゲーム
-	class Game : public Scene
+	class Game final : public Scene
 	{
 	public:
 		void Init()override;
@@ -33,7 +33,7 @@ namespace GameScene
 		void Draw()override;
 	};
 	// リザルト
-	class Result : public Scene
+	class Result final : public Scene
 	{
 	public:
 		void Init()override;

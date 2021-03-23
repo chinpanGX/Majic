@@ -34,7 +34,7 @@ private:
 namespace Prefabs
 {
 	// Textureのプレハブ
-	class Texture
+	class Texture final
 	{
 	public:
 		enum ID : int32_t
@@ -57,7 +57,7 @@ namespace Prefabs
 	};
 
 	// 頂点シェーダー
-	class VertexShader
+	class VertexShader final
 	{
 	public:
 		enum ID : int32_t
@@ -77,7 +77,7 @@ namespace Prefabs
 	};
 
 	// ピクセルシェーダー
-	class PixelShader
+	class PixelShader final
 	{
 	public:
 		enum ID : int32_t
@@ -96,7 +96,7 @@ namespace Prefabs
 	};
 
 	// コンピュートシェーダー
-	class ComputeShader
+	class ComputeShader final
 	{
 	public:
 		ComputeShader();

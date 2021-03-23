@@ -10,7 +10,7 @@
 #pragma once
 #include "Bg.h"
 
-class Fade : public Bg
+class Fade final : public Bg
 {
 public:
 	enum EState : int

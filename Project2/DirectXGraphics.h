@@ -91,7 +91,7 @@ namespace Resource
 
 }
 
-class DirectXGraphics : public Singleton<DirectXGraphics>
+class DirectXGraphics final : public Singleton<DirectXGraphics>
 {
 	friend Singleton<DirectXGraphics>;
 	template<typename T>
@@ -116,7 +116,7 @@ public:
 
 protected:
 	DirectXGraphics();
-	virtual ~DirectXGraphics();
+	~DirectXGraphics();
 private:
 	std::array<std::unique_ptr<class BlendMode>, BlendMode::NUM_MAX> m_BlendMode;
 	std::unique_ptr<class ConstantBuffer>  m_ConstantBuffer;
