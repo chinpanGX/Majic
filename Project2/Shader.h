@@ -10,7 +10,7 @@
 #include "DirectXGraphics.h"
 #include <string>
 
-namespace Shader
+namespace 
 {
 	template<typename T>
 	using ComPtr = Microsoft::WRL::ComPtr<T>;

@@ -55,6 +55,11 @@ namespace Prefabs
 		static const int32_t m_Size = ID::MAX;
 		std::array<std::unique_ptr<LoadTexture>, m_Size> m_Texture;
 	};
+	
+	class Shader
+	{
+
+	};
 
 	// 頂点シェーダー
 	class VertexShader
