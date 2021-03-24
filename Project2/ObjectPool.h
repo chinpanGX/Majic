@@ -11,7 +11,7 @@
 #include "Prefabs.h"
 
 // オブジェクトプール
-class ObjectPool
+class ObjectPool final
 {
 public:
 	~ObjectPool();

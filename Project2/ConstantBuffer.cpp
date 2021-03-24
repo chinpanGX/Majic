@@ -7,6 +7,13 @@
 
 ---------------------------------------------------------------*/
 #include "ConstantBuffer.h"
+#include "Application.h"
+
+namespace
+{
+	const float g_WindowWidth = Application::GetInstance().GetWindowSize().cx;
+	const float g_WindowHeight = Application::GetInstance().GetWindowSize().cy;
+}
 
 ConstantBuffer::ConstantBuffer()
 {

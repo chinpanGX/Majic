@@ -88,10 +88,19 @@ namespace Resource
 		D3DXCOLOR	Diffuse;
 		D3DXCOLOR	Ambient;
 	};
-
 }
 
-class DirectXGraphics : public Singleton<DirectXGraphics>
+namespace
+{
+	// コンスタントバッファの更新
+	template<typename T>
+	inline void UpdateCBuffer(ID3D11DeviceContext * pDeviceContext, ID3D11Buffer * pBuffer, const T & Src)
+	{
+		pDeviceContext->UpdateSubresource(pBuffer, 0, nullptr, Src, 0, 0);
+	}
+}
+
+class DirectXGraphics final : public Singleton<DirectXGraphics>
 {
 	friend Singleton<DirectXGraphics>;
 	template<typename T>
@@ -116,8 +125,12 @@ public:
 
 protected:
 	DirectXGraphics();
-	virtual ~DirectXGraphics();
+	~DirectXGraphics();
 private:
+	// 初期化処理
+	void InitDevice();
+	void InitState();
+
 	std::array<std::unique_ptr<class BlendMode>, BlendMode::NUM_MAX> m_BlendMode;
 	std::unique_ptr<class ConstantBuffer>  m_ConstantBuffer;
 	ComPtr<ID3D11Device>			m_Device;

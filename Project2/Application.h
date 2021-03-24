@@ -11,7 +11,7 @@
 #include <Windows.h>
 #include "Singleton.h"
 
-class Application : public Singleton<Application>
+class Application final : public Singleton<Application>
 {
 	friend Singleton<Application>;
 public:

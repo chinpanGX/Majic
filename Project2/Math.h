@@ -3,16 +3,44 @@
 	[Math.h]
 	Author : 出合翔太
 
-	エフェクトの動きを計算
-
 --------------------------------------------------------------*/
 #pragma once
 #include <random>
 #include "DirectXGraphics.h"
 #include <math.h>
 
-class Math
+namespace Math 
 {
+	// エイリアス
+	template<typename T>
+	using ComPtr = Microsoft::WRL::ComPtr<T>;
+	
+	// シフト演算を言語、処理系に依存しないようにuintで行う。HLSLとの互換性のある形にする
+	using uint = uint32_t;
+	using uint4 = DirectX::XMUINT4;
+
+	// Xorshiftシフトで乱数を生成するクラス　XORとビットシフトだけで高速
+	class XorShift128 final
+	{
+	public:
+		static const int IntMax = 0x7FFFFFFF;
+		static const uint UintMax = 0xFFFFFFFFU;
+		static const uint MaxVal = 10000; // とりあえず設定
+
+		static uint4 CreateRamdomNumber(uint4 random);
+
+		static uint GetRamdomComponentUI(uint4 random);
+		
+		// 0.0～1.0の範囲の実数乱数
+		static float GetRamdomComponentUF(uint4 random);
+
+		// -1.0～+1.0の範囲の実数乱数
+		static float GetRamdomComponentSF(uint4 random);
+
+		// 1要素を符号なし32bit整数としたとき、最大数はUINT32_MAXになる。
+		// 周期が長いため、短い周期の乱数を「0.0～1.0」の範囲の実数乱数に変換するときは小さな数で剰余を求める
+		static uint4 CreateInitNumber(uint seed);
+	};
 };
 
 /*

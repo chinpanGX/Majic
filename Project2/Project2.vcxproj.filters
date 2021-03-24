@@ -1,250 +1,277 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="App">
-      <UniqueIdentifier>{b421ca1f-6360-4de4-b7d1-7e2fb669bc80}</UniqueIdentifier>
+    <Filter Include="HLSL">
+      <UniqueIdentifier>{058a9226-042a-4f8a-b1e2-586e0133da03}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Player">
-      <UniqueIdentifier>{f6b35726-0482-40ba-9054-08959822fb80}</UniqueIdentifier>
+    <Filter Include="Source">
+      <UniqueIdentifier>{15258df7-1906-49ac-bcce-e45cf4835de1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Player\Skill">
-      <UniqueIdentifier>{e7cb7493-12c7-4722-a0d0-32be2e156989}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="2D">
-      <UniqueIdentifier>{ce2a34b1-a84c-4cb1-89d3-2f7f9c310ee6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ObjectPool">
+    <Filter Include="Source\ObjectPool">
       <UniqueIdentifier>{6442d0f4-11b2-4d83-93ce-856864233016}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene">
-      <UniqueIdentifier>{cdcf8e1c-284d-4588-9b88-12f3c35d8bdf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Base">
-      <UniqueIdentifier>{4dc5be56-acc7-4625-ae01-2de6e49782fb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="3D">
-      <UniqueIdentifier>{6cd7201f-48fc-4bed-a2f9-87abbcbfa8ab}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Particle">
+    <Filter Include="Source\Particle">
       <UniqueIdentifier>{edec3eda-169c-4de2-b53f-a891505cdde6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="DirectX">
+    <Filter Include="Source\Scene">
+      <UniqueIdentifier>{cdcf8e1c-284d-4588-9b88-12f3c35d8bdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Player">
+      <UniqueIdentifier>{f6b35726-0482-40ba-9054-08959822fb80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Player\Skill">
+      <UniqueIdentifier>{e7cb7493-12c7-4722-a0d0-32be2e156989}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Math">
+      <UniqueIdentifier>{cb0c7d28-5cf8-4a9b-a95c-d29b525e9359}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\2D">
+      <UniqueIdentifier>{ce2a34b1-a84c-4cb1-89d3-2f7f9c310ee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\3D">
+      <UniqueIdentifier>{6cd7201f-48fc-4bed-a2f9-87abbcbfa8ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\App">
+      <UniqueIdentifier>{b421ca1f-6360-4de4-b7d1-7e2fb669bc80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\DirectX">
       <UniqueIdentifier>{599ce45f-feb5-46a8-97f4-a69eba2a3cfc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="シェーダー">
-      <UniqueIdentifier>{26af1997-be33-42b1-b47c-85a85a432a72}</UniqueIdentifier>
+    <Filter Include="Source\Base">
+      <UniqueIdentifier>{4dc5be56-acc7-4625-ae01-2de6e49782fb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
-      <Filter>App</Filter>
+      <Filter>Source\App</Filter>
     </ClInclude>
     <ClInclude Include="Fps.h">
-      <Filter>App</Filter>
+      <Filter>Source\App</Filter>
     </ClInclude>
     <ClInclude Include="Singleton.h">
-      <Filter>App</Filter>
+      <Filter>Source\App</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Player</Filter>
+      <Filter>Source\Player</Filter>
     </ClInclude>
     <ClInclude Include="PlayerController.h">
-      <Filter>Player</Filter>
+      <Filter>Source\Player</Filter>
     </ClInclude>
     <ClInclude Include="PlayerPattern.h">
-      <Filter>Player</Filter>
+      <Filter>Source\Player</Filter>
     </ClInclude>
     <ClInclude Include="Apocalypsis.h">
-      <Filter>Player\Skill</Filter>
+      <Filter>Source\Player\Skill</Filter>
     </ClInclude>
     <ClInclude Include="AstralFlare.h">
-      <Filter>Player\Skill</Filter>
+      <Filter>Source\Player\Skill</Filter>
     </ClInclude>
     <ClInclude Include="CrystallizeAura.h">
-      <Filter>Player\Skill</Filter>
+      <Filter>Source\Player\Skill</Filter>
     </ClInclude>
     <ClInclude Include="SacredBlast.h">
-      <Filter>Player\Skill</Filter>
+      <Filter>Source\Player\Skill</Filter>
     </ClInclude>
     <ClInclude Include="PlayerGurad.h">
-      <Filter>Player\Skill</Filter>
+      <Filter>Source\Player\Skill</Filter>
     </ClInclude>
     <ClInclude Include="PlayerNormalAttack.h">
-      <Filter>Player\Skill</Filter>
+      <Filter>Source\Player\Skill</Filter>
     </ClInclude>
     <ClInclude Include="PlayerWait.h">
-      <Filter>Player\Skill</Filter>
+      <Filter>Source\Player\Skill</Filter>
     </ClInclude>
     <ClInclude Include="Bg.h">
-      <Filter>2D</Filter>
+      <Filter>Source\2D</Filter>
     </ClInclude>
     <ClInclude Include="Fade.h">
-      <Filter>2D</Filter>
+      <Filter>Source\2D</Filter>
     </ClInclude>
     <ClInclude Include="Input.h">
-      <Filter>App</Filter>
+      <Filter>Source\App</Filter>
     </ClInclude>
     <ClInclude Include="ObjectPool.h">
-      <Filter>ObjectPool</Filter>
+      <Filter>Source\ObjectPool</Filter>
     </ClInclude>
     <ClInclude Include="Prefabs.h">
-      <Filter>ObjectPool</Filter>
+      <Filter>Source\ObjectPool</Filter>
     </ClInclude>
     <ClInclude Include="GameScene.h">
-      <Filter>Scene</Filter>
+      <Filter>Source\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>Scene</Filter>
+      <Filter>Source\Scene</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Base</Filter>
+      <Filter>Source\Base</Filter>
     </ClInclude>
     <ClInclude Include="Actor.h">
-      <Filter>Base</Filter>
+      <Filter>Source\Base</Filter>
     </ClInclude>
     <ClInclude Include="Pawn.h">
-      <Filter>Base</Filter>
+      <Filter>Source\Base</Filter>
     </ClInclude>
     <ClInclude Include="Renderer.h">
-      <Filter>Base</Filter>
+      <Filter>Source\Base</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>3D</Filter>
+      <Filter>Source\3D</Filter>
     </ClInclude>
     <ClInclude Include="Particle.h">
-      <Filter>Particle</Filter>
+      <Filter>Source\Particle</Filter>
     </ClInclude>
     <ClInclude Include="Polygon.h">
-      <Filter>3D</Filter>
+      <Filter>Source\3D</Filter>
     </ClInclude>
     <ClInclude Include="Field.h">
-      <Filter>3D</Filter>
+      <Filter>Source\3D</Filter>
     </ClInclude>
     <ClInclude Include="GameManager.h">
-      <Filter>Scene</Filter>
+      <Filter>Source\Scene</Filter>
     </ClInclude>
     <ClInclude Include="ConstantBuffer.h">
-      <Filter>DirectX</Filter>
+      <Filter>Source\DirectX</Filter>
     </ClInclude>
     <ClInclude Include="Utility.h">
-      <Filter>DirectX</Filter>
+      <Filter>Source\DirectX</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
-      <Filter>DirectX</Filter>
+      <Filter>Source\DirectX</Filter>
     </ClInclude>
     <ClInclude Include="DirectXGraphics.h">
-      <Filter>DirectX</Filter>
+      <Filter>Source\DirectX</Filter>
     </ClInclude>
     <ClInclude Include="BlendMode.h">
-      <Filter>DirectX</Filter>
+      <Filter>Source\DirectX</Filter>
     </ClInclude>
-    <ClInclude Include="Math.h" />
     <ClInclude Include="Effect.h">
-      <Filter>Particle</Filter>
+      <Filter>Source\Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="ComputeEffect.h">
+      <Filter>Source\Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>Source\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
-      <Filter>App</Filter>
+      <Filter>Source\App</Filter>
     </ClCompile>
     <ClCompile Include="Fps.cpp">
-      <Filter>App</Filter>
+      <Filter>Source\App</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Player</Filter>
+      <Filter>Source\Player</Filter>
     </ClCompile>
     <ClCompile Include="PlayerController.cpp">
-      <Filter>Player</Filter>
+      <Filter>Source\Player</Filter>
     </ClCompile>
     <ClCompile Include="Apocalypsis.cpp">
-      <Filter>Player\Skill</Filter>
+      <Filter>Source\Player\Skill</Filter>
     </ClCompile>
     <ClCompile Include="AstralFlare.cpp">
-      <Filter>Player\Skill</Filter>
+      <Filter>Source\Player\Skill</Filter>
     </ClCompile>
     <ClCompile Include="CrystallizeAura.cpp">
-      <Filter>Player\Skill</Filter>
+      <Filter>Source\Player\Skill</Filter>
     </ClCompile>
     <ClCompile Include="SacredBlast.cpp">
-      <Filter>Player\Skill</Filter>
+      <Filter>Source\Player\Skill</Filter>
     </ClCompile>
     <ClCompile Include="PlayerGurad.cpp">
-      <Filter>Player\Skill</Filter>
+      <Filter>Source\Player\Skill</Filter>
     </ClCompile>
     <ClCompile Include="PlayerNormalAttack.cpp">
-      <Filter>Player\Skill</Filter>
+      <Filter>Source\Player\Skill</Filter>
     </ClCompile>
     <ClCompile Include="PlayerWait.cpp">
-      <Filter>Player\Skill</Filter>
+      <Filter>Source\Player\Skill</Filter>
     </ClCompile>
     <ClCompile Include="Fade.cpp">
-      <Filter>2D</Filter>
+      <Filter>Source\2D</Filter>
     </ClCompile>
     <ClCompile Include="Bg.cpp">
-      <Filter>2D</Filter>
+      <Filter>Source\2D</Filter>
     </ClCompile>
     <ClCompile Include="Input.cpp">
-      <Filter>App</Filter>
+      <Filter>Source\App</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>App</Filter>
+      <Filter>Source\App</Filter>
     </ClCompile>
     <ClCompile Include="ObjectPool.cpp">
-      <Filter>ObjectPool</Filter>
+      <Filter>Source\ObjectPool</Filter>
     </ClCompile>
     <ClCompile Include="Prefabs.cpp">
-      <Filter>ObjectPool</Filter>
+      <Filter>Source\ObjectPool</Filter>
     </ClCompile>
     <ClCompile Include="GameScene.cpp">
-      <Filter>Scene</Filter>
+      <Filter>Source\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Renderer.cpp">
-      <Filter>Base</Filter>
+      <Filter>Source\Base</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>3D</Filter>
+      <Filter>Source\3D</Filter>
     </ClCompile>
     <ClCompile Include="Polygon.cpp">
-      <Filter>3D</Filter>
+      <Filter>Source\3D</Filter>
     </ClCompile>
     <ClCompile Include="Field.cpp">
-      <Filter>3D</Filter>
+      <Filter>Source\3D</Filter>
     </ClCompile>
     <ClCompile Include="GameManager.cpp">
-      <Filter>Scene</Filter>
+      <Filter>Source\Scene</Filter>
     </ClCompile>
     <ClCompile Include="ConstantBuffer.cpp">
-      <Filter>DirectX</Filter>
+      <Filter>Source\DirectX</Filter>
     </ClCompile>
     <ClCompile Include="Shader.cpp">
-      <Filter>DirectX</Filter>
+      <Filter>Source\DirectX</Filter>
     </ClCompile>
     <ClCompile Include="DirectXGraphics.cpp">
-      <Filter>DirectX</Filter>
+      <Filter>Source\DirectX</Filter>
     </ClCompile>
     <ClCompile Include="BlendMode.cpp">
-      <Filter>DirectX</Filter>
+      <Filter>Source\DirectX</Filter>
     </ClCompile>
-    <ClCompile Include="Math.cpp" />
     <ClCompile Include="Particle.cpp">
-      <Filter>Particle</Filter>
+      <Filter>Source\Particle</Filter>
     </ClCompile>
     <ClCompile Include="Effect.cpp">
-      <Filter>Particle</Filter>
+      <Filter>Source\Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="ComputeEffect.cpp">
+      <Filter>Source\Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>Source\Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="ComputeShader.hlsl">
-      <Filter>シェーダー</Filter>
+    <FxCompile Include="VSParticle.hlsl">
+      <Filter>HLSL</Filter>
     </FxCompile>
-    <FxCompile Include="Common.hlsl">
-      <Filter>シェーダー</Filter>
+    <FxCompile Include="PSParticle.hlsl">
+      <Filter>HLSL</Filter>
     </FxCompile>
-    <FxCompile Include="ParticlePS.hlsl">
-      <Filter>シェーダー</Filter>
+    <FxCompile Include="GSParticle.hlsl">
+      <Filter>HLSL</Filter>
     </FxCompile>
-    <FxCompile Include="ParticleVS.hlsl">
-      <Filter>シェーダー</Filter>
+    <FxCompile Include="CSParticle.hlsl">
+      <Filter>HLSL</Filter>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CommonParticle.hlsli">
+      <Filter>HLSL</Filter>
+    </None>
+    <None Include="Common.hlsli">
+      <Filter>HLSL</Filter>
+    </None>
+    <None Include="RamdomHelper.hlsli">
+      <Filter>HLSL</Filter>
+    </None>
   </ItemGroup>
 </Project>

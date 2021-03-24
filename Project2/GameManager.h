@@ -12,7 +12,7 @@
 #include "Fade.h"
 #include <memory>
 
-class GameManager : public Singleton<GameManager>
+class GameManager final : public Singleton<GameManager>
 {
 	friend Singleton<GameManager>;
 public:
