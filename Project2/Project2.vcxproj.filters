@@ -250,18 +250,27 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="ComputeShader.hlsl">
+    <FxCompile Include="VSParticle.hlsl">
       <Filter>HLSL</Filter>
     </FxCompile>
-    <FxCompile Include="ParticleVS.hlsl">
+    <FxCompile Include="PSParticle.hlsl">
       <Filter>HLSL</Filter>
     </FxCompile>
-    <FxCompile Include="ParticlePS.hlsl">
+    <FxCompile Include="GSParticle.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="CSParticle.hlsl">
       <Filter>HLSL</Filter>
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Common.hlsl">
+    <None Include="CommonParticle.hlsli">
+      <Filter>HLSL</Filter>
+    </None>
+    <None Include="Common.hlsli">
+      <Filter>HLSL</Filter>
+    </None>
+    <None Include="RamdomHelper.hlsli">
       <Filter>HLSL</Filter>
     </None>
   </ItemGroup>

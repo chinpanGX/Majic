@@ -13,6 +13,7 @@
 
 class VertexParticle final
 {
+public:
 	D3DXVECTOR3 Position;
 	D3DXVECTOR3 Velocity;
 	float Angle;
@@ -24,6 +25,7 @@ class VertexParticle final
 
 class BufferCommon final
 {
+public:
 	uint32_t UniSpawnTargetParticleIndex;
 	D3DXVECTOR3 UniParticleVelocity;
 	float UniMaxAngularVelocity; // radian
@@ -32,22 +34,36 @@ class BufferCommon final
 	D3DXVECTOR2 Dummy0;
 };
 
-class GPUParticle
+class GPUParticle : public GameObject
 {
-
-};
-
-class Particle
-{
+	template<typename T>
+	using ComPtr = Microsoft::WRL::ComPtr<T>;
 public:
-	Particle();
-	~Particle();
-	D3DXVECTOR3 m_Position;
-	D3DXVECTOR3 m_Rotation;
-	D3DXVECTOR3 m_Scale;
-	//D3DXVECTOR3 m_Gravity;  // 重力値　Velocityに加算する
-	D3DXCOLOR m_Color;		// 色
-	int32_t	m_Life;			// 有効時間	
-	bool m_Use;				// 有効かどうか
+	GPUParticle();
+	~GPUParticle();
+	void Init()override;
+	void Uninit()override;
+	void Update()override;
+	void Draw()override;
+private:
+	static const uint32_t MaxParticleCount = 10000;
+	BufferCommon m_CommonHost;
+	ComPtr<ID3D11VertexShader> m_pVertexShaderParticle1;
+	ComPtr<ID3D11VertexShader> m_pVertexShaderParticle2;
+	ComPtr<ID3D11VertexShader> m_pVertexShaderParticle2SB;
+	ComPtr<ID3D11GeometryShader> m_pGeometryShaderParticle;
+	ComPtr<ID3D11PixelShader> m_pPixelShaderParticle;
+	ComPtr<ID3D11ComputeShader> m_pComputeShaderParticle;
+
+	ComPtr<ID3D11InputLayout> m_pVertexInputLayoutParticle1;
+	ComPtr<ID3D11InputLayout> m_pVertexInputLayoutParticle2;
+	ComPtr<ID3D11Buffer> m_pVertexBufferParticles1;
+	ComPtr<ID3D11Buffer> m_pVertexBufferParticles2;
+	ComPtr<ID3D11Buffer> m_pStructBufferParticles2;
+	ComPtr<ID3D11UnorderedAccessView> m_pVertexBufferParticles2UAV;
+	ComPtr<ID3D11UnorderedAccessView> m_pStructBufferParticles2UAV;
+	ComPtr<ID3D11ShaderResourceView> m_pStructBufferParticles2SRV;
+	ComPtr<ID3D11Buffer> m_pConstBufferCommon;
+
+	std::vector<VertexParticle> m_ParticleHost;
 };
-;
