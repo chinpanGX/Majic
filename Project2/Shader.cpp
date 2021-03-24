@@ -10,7 +10,7 @@
 #include <io.h>
 #include <string>
 #include "Shader.h"
-#include "Prefabs.h"
+#include "PrefabsShader.h"
 
 Shader::VertexShader::VertexShader() : m_VertexShader(nullptr), m_InputLayout(nullptr) {}
 Shader::VertexShader::~VertexShader() {}

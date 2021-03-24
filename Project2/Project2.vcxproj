@@ -174,12 +174,14 @@
     <ClInclude Include="PlayerNormalAttack.h" />
     <ClInclude Include="PlayerPattern.h" />
     <ClInclude Include="PlayerWait.h" />
-    <ClInclude Include="Prefabs.h" />
+    <ClInclude Include="PrefabsShader.h" />
+    <ClInclude Include="PrefabsTexture.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="SacredBlast.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="stdafx.h" />
     <ClInclude Include="Utility.h" />
   </ItemGroup>
   <ItemGroup>
@@ -210,10 +212,12 @@
     <ClCompile Include="PlayerGurad.cpp" />
     <ClCompile Include="PlayerNormalAttack.cpp" />
     <ClCompile Include="PlayerWait.cpp" />
-    <ClCompile Include="Prefabs.cpp" />
+    <ClCompile Include="PrefabsShader.cpp" />
+    <ClCompile Include="PrefabsTexture.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SacredBlast.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="CSParticle.hlsl">

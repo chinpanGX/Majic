@@ -93,9 +93,6 @@
     <ClInclude Include="ObjectPool.h">
       <Filter>Source\ObjectPool</Filter>
     </ClInclude>
-    <ClInclude Include="Prefabs.h">
-      <Filter>Source\ObjectPool</Filter>
-    </ClInclude>
     <ClInclude Include="GameScene.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
@@ -153,6 +150,15 @@
     <ClInclude Include="Math.h">
       <Filter>Source\Math</Filter>
     </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source\App</Filter>
+    </ClInclude>
+    <ClInclude Include="PrefabsTexture.h">
+      <Filter>Source\ObjectPool</Filter>
+    </ClInclude>
+    <ClInclude Include="PrefabsShader.h">
+      <Filter>Source\ObjectPool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -203,9 +209,6 @@
     <ClCompile Include="ObjectPool.cpp">
       <Filter>Source\ObjectPool</Filter>
     </ClCompile>
-    <ClCompile Include="Prefabs.cpp">
-      <Filter>Source\ObjectPool</Filter>
-    </ClCompile>
     <ClCompile Include="GameScene.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
@@ -247,6 +250,15 @@
     </ClCompile>
     <ClCompile Include="Math.cpp">
       <Filter>Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source\App</Filter>
+    </ClCompile>
+    <ClCompile Include="PrefabsTexture.cpp">
+      <Filter>Source\ObjectPool</Filter>
+    </ClCompile>
+    <ClCompile Include="PrefabsShader.cpp">
+      <Filter>Source\ObjectPool</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

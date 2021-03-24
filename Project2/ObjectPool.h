@@ -8,7 +8,8 @@
 
 ------------------------------------------------------------*/
 #pragma once
-#include "Prefabs.h"
+#include "PrefabsTexture.h"
+#include "PrefabsShader.h"
 
 // オブジェクトプール
 class ObjectPool final
