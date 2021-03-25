@@ -37,11 +37,11 @@ void Field::Update()
 
 void Field::Draw()
 {
-	ObjectPool::SetInputLayout(m_Dx, Prefabs::VertexShader::MAPPING);
-	ObjectPool::SetVertexShader(m_Dx, Prefabs::VertexShader::MAPPING);
-	ObjectPool::SetPixelShader(m_Dx, Prefabs::PixelShader::MAPPING);
-	ObjectPool::SetTexture(m_Dx, 0, Prefabs::Texture::FIELD);
-	ObjectPool::SetTexture(m_Dx, 1, Prefabs::Texture::WAFFURU);
+	SetInputLayout(m_Dx, Prefabs::VertexShader::MAPPING);
+	SetVertexShader(m_Dx, Prefabs::VertexShader::MAPPING);
+	SetPixelShader(m_Dx, Prefabs::PixelShader::MAPPING);
+	SetTexture(m_Dx, 0, Prefabs::Texture::FIELD);
+	SetTexture(m_Dx, 1, Prefabs::Texture::WAFFURU);
 	m_Polygon->DrawPolygon(m_Dx, m_Position, m_Rotation, m_Scale);
 }
 

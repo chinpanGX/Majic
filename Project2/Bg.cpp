@@ -12,7 +12,7 @@ D3DXVECTOR2 Bg::GetScrren()
 
 void GameBg::Title::Init()
 {
-	m_Renderer.Init(ObjectPool::GetTexture(Prefabs::Texture::ID::TATILE_BG), Bg::GetScrren() * 0.5f, Bg::GetScrren(), D3DXVECTOR2(0.0f, 0.0f), D3DXVECTOR2(1.0f, 1.0f));
+	m_Renderer.Init(GetTexture(Prefabs::Texture::ID::TATILE_BG), Bg::GetScrren() * 0.5f, Bg::GetScrren(), D3DXVECTOR2(0.0f, 0.0f), D3DXVECTOR2(1.0f, 1.0f));
 }
 
 void GameBg::Title::Uninit()
@@ -31,7 +31,7 @@ void GameBg::Title::Draw()
 
 void GameBg::Result::Init()
 {
-	m_Renderer.Init(ObjectPool::GetTexture(Prefabs::Texture::ID::GAME_BG), Bg::GetScrren() * 0.5f, Bg::GetScrren(), D3DXVECTOR2(0.0f, 0.0f), D3DXVECTOR2(1.0f, 1.0f));
+	m_Renderer.Init(GetTexture(Prefabs::Texture::ID::GAME_BG), Bg::GetScrren() * 0.5f, Bg::GetScrren(), D3DXVECTOR2(0.0f, 0.0f), D3DXVECTOR2(1.0f, 1.0f));
 }
 
 void GameBg::Result::Uninit()

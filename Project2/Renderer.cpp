@@ -160,7 +160,7 @@ void Renderer::DynamicChangeBuffer(D3DXVECTOR2 drawPosition, D3DXVECTOR2 drawSiz
 void Renderer::SetShader(int32_t Id_1, int32_t Id_2)
 {
 	// シェーダーの設定
-	ObjectPool::SetInputLayout(m_Dx, Id_1);
-	ObjectPool::SetVertexShader(m_Dx, Id_1);
-	ObjectPool::SetPixelShader(m_Dx, Id_2);
+	SetInputLayout(m_Dx, Id_1);
+	SetVertexShader(m_Dx, Id_1);
+	SetPixelShader(m_Dx, Id_2);
 }

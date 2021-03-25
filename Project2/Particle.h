@@ -48,16 +48,16 @@ public:
 private:
 	static const uint32_t MaxParticleCount = 10000;
 	BufferCommon m_CommonHost;
-	ComPtr<ID3D11VertexShader> m_pVertexShaderParticle1;
+	//ComPtr<ID3D11VertexShader> m_pVertexShaderParticle1;
 	ComPtr<ID3D11VertexShader> m_pVertexShaderParticle2;
 	ComPtr<ID3D11VertexShader> m_pVertexShaderParticle2SB;
 	ComPtr<ID3D11GeometryShader> m_pGeometryShaderParticle;
 	ComPtr<ID3D11PixelShader> m_pPixelShaderParticle;
 	ComPtr<ID3D11ComputeShader> m_pComputeShaderParticle;
 
-	ComPtr<ID3D11InputLayout> m_pVertexInputLayoutParticle1;
+	//ComPtr<ID3D11InputLayout> m_pVertexInputLayoutParticle1;
 	ComPtr<ID3D11InputLayout> m_pVertexInputLayoutParticle2;
-	ComPtr<ID3D11Buffer> m_pVertexBufferParticles1;
+	//ComPtr<ID3D11Buffer> m_pVertexBufferParticles1;
 	ComPtr<ID3D11Buffer> m_pVertexBufferParticles2;
 	ComPtr<ID3D11Buffer> m_pStructBufferParticles2;
 	ComPtr<ID3D11UnorderedAccessView> m_pVertexBufferParticles2UAV;

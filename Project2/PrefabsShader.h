@@ -14,12 +14,12 @@ namespace Shader
 {
 	class VertexShader;
 	class PixelShader;
+	class GeometryShader;
 	class ComputeShader;
 }
 
 namespace Prefabs
 {
-
 	// 頂点シェーダー
 	class VertexShader final
 	{
@@ -57,6 +57,18 @@ namespace Prefabs
 	private:
 		static const int32_t m_Size = ID::MAX;
 		std::array<std::unique_ptr<Shader::PixelShader>, m_Size> m_PixelShader;
+	};
+
+	class GeometryShader final
+	{
+	public:
+		// ジオメトリシェーダー
+		GeometryShader();
+		GeometryShader(DirectXGraphics& dx);
+		~GeometryShader();
+		ID3D11GeometryShader* GetGeometryShader();
+	private:
+		std::unique_ptr<Shader::GeometryShader> m_GeometryShader;
 	};
 
 	// コンピュートシェーダー

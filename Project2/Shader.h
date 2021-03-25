@@ -14,6 +14,7 @@ namespace Shader
 {
 	template<typename T>
 	using ComPtr = Microsoft::WRL::ComPtr<T>;
+
 	// 頂点シェーダー
 	class VertexShader final
 	{
@@ -44,6 +45,19 @@ namespace Shader
 		void CreatePixelShader(DirectXGraphics& dx, ID3D11PixelShader** Shader, std::string FileName);
 
 		ComPtr<ID3D11PixelShader> m_PixelShader;
+	};
+
+	// ジオメトリシェーダー
+	class GeometryShader final
+	{
+	public:
+		GeometryShader();
+		~GeometryShader();
+		void Load(DirectXGraphics& dx, std::string FileName);
+		ComPtr<ID3D11GeometryShader> GetGeometryShader() const;
+	private:
+		void Create(DirectXGraphics& dx, ID3D11GeometryShader** Shader, std::string FileName);
+		ComPtr<ID3D11GeometryShader> m_GeometryShader;
 	};
 
 	// コンピュートシェーダー
